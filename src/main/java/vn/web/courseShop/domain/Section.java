@@ -2,6 +2,7 @@ package vn.web.courseShop.domain;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +26,7 @@ public class Section {
     @OneToMany(mappedBy = "section")
     private List<Lesson> lessons;
 
+    @Column(name = "`index`")
     private long index;
     private String sectionTitle;
     private long sectionDuration;

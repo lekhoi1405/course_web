@@ -1,5 +1,6 @@
 package vn.web.courseShop.domain;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -26,4 +27,7 @@ public class Review {
     @JoinColumn(name = "review_by")
     private Account account;
     
+    private long reviewStar;
+    private String reviewText;
+    private LocalDate reviewDate;
 }

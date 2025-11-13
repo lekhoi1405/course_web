@@ -2,6 +2,7 @@ package vn.web.courseShop.domain;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +23,7 @@ public class Resourse {
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 
+    @Column(name = "`index`")
     private Long index;
     private String filePath;
     private String fileNameOriginal;

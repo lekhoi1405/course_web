@@ -25,15 +25,14 @@ public class Invoice {
 
     @ManyToOne
     @JoinColumn(name = "coupon_code")
-    private Coupon coupon;
+    private CouponDetail couponDetail;
 
     @OneToMany(mappedBy = "invoice")
     private List<InvoiceDetail> invoiceDetails;
 
-    private float purchase_total_price;
-    private float price_discounted;
-    private LocalDate purchase_date;
-    private String coupon_code;
+    private float purchaseTotalPrice;
+    private float priceDiscounted;
+    private LocalDate purchaseDate;
     private String status;
 
     
