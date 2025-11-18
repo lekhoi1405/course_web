@@ -15,6 +15,22 @@ public class CartDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
     @ManyToOne
     @JoinColumn(name ="cart_id")
     private Cart cart;

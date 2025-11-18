@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../assests/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../image/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+          <a href="HomePage.html" class="nav-link">Home</a>
+          <a href="explore.html" class="nav-link">Explore</a>
+        </nav>
+        <div class="actions">
+          <a class="btn" href="login.html">Log in</a>
+          <a class="btn primary" href="signup.html">Sign up</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <main class="reviews-page">
+        <span class="breadcrumb">
+          <img src="../image/ViewCourse/arrow-left.svg" alt="" />
+          <a href="View-Course.html">Back to Course</a>
+        </span>
+        <div class="reviews-layout">
+          <!-- LEFT: SUMMARY + FILTERS -->
+          <aside class="reviews-sidebar">
+            <!-- Average rating -->
+            <div class="rating-summary">
+              <div class="rating-summary__score">4.8</div>
+              <div class="rating-summary__stars">
+                <span class="stars" data-rating="4.8"></span>
+              </div>
+              <div class="rating-summary__count">128,234 reviews</div>
+
+              <!-- Distribution -->
+              <ul class="rating-bars">
+                <li>
+                  <span>5</span>
+                  <div class="bar"><span style="--evalute: 85%"></span></div>
+                  <span class="pct">85%</span>
+                </li>
+                <li>
+                  <span>4</span>
+                  <div class="bar"><span style="--evalute: 10%"></span></div>
+                  <span class="pct">10%</span>
+                </li>
+                <li>
+                  <span>3</span>
+                  <div class="bar"><span style="--evalute: 3%"></span></div>
+                  <span class="pct">3%</span>
+                </li>
+                <li>
+                  <span>2</span>
+                  <div class="bar"><span style="--evalute: 1%"></span></div>
+                  <span class="pct">1%</span>
+                </li>
+                <li>
+                  <span>1</span>
+                  <div class="bar"><span style="--evalute: 1%"></span></div>
+                  <span class="pct">1%</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Filters -->
+            <div class="reviews-filters">
+              <div class="filter">
+                <label>Filter by rating</label>
+                <select>
+                  <option value="">All Ratings</option>
+                  <option>5 stars</option>
+                  <option>4 stars</option>
+                  <option>3 stars</option>
+                  <option>2 stars</option>
+                  <option>1 star</option>
+                </select>
+              </div>
+
+              <div class="filter">
+                <label>Sort</label>
+                <select>
+                  <option value="new">Newest first</option>
+                  <option value="helpful">Most helpful</option>
+                  <option value="high">Highest rating</option>
+                  <option value="low">Lowest rating</option>
+                </select>
+              </div>
+            </div>
+          </aside>
+
+          <!-- RIGHT: LIST -->
+          <div class="reviews-list">
+            <h3 class="reviews-heading">Student Reviews (10)</h3>
+            <p class="reviews-sub">Showing all reviews</p>
+
+            <!-- Review card -->
+            <article class="review">
+              <img
+                class="review__avatar"
+                src="../image/CourseDetail/avatar.svg"
+                alt="Sarah Johnson"
+              />
+              <div class="review__body">
+                <header class="review__head">
+                  <div class="review__name">Sarah Johnson</div>
+                  <div class="review__meta">2 weeks ago</div>
+                </header>
+
+                <div class="review__stars">
+                  <span class="stars" data-rating="5"></span>
+                </div>
+                <p class="review__text">
+                  Excellent course! John explains everything clearly and the
+                  projects are really helpful for understanding React concepts.
+                </p>
+
+                <div class="review__actions">
+                  <button class="link">
+                    Helpful? <strong>Yes</strong>(121)
+                  </button>
+                  <button class="link">Report</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Repeat some sample reviews -->
+            <article class="review">
+              <img
+                class="review__avatar"
+                src="../image/CourseDetail/avatar.svg"
+                alt="Mike Chen"
+              />
+              <div class="review__body">
+                <header class="review__head">
+                  <div class="review__name">Mike Chen</div>
+                  <div class="review__meta">1 week ago</div>
+                </header>
+                <div class="review__stars">
+                  <span class="stars" data-rating="4"></span>
+                </div>
+                <p class="review__text">
+                  Best React course I've taken. Up-to-date and covers everything
+                  you need.
+                </p>
+                <div class="review__actions">
+                  <button class="link">Helpful? Yes(45)</button>
+                  <button class="link">Report</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="review">
+              <img
+                class="review__avatar"
+                src="../image/CourseDetail/avatar.svg"
+                alt="Emily Davis"
+              />
+              <div class="review__body">
+                <header class="review__head">
+                  <div class="review__name">Emily Davis</div>
+                  <div class="review__meta">3 weeks ago</div>
+                </header>
+                <div class="review__stars">
+                  <span class="stars" data-rating="5"></span>
+                </div>
+                <p class="review__text">
+                  Great content. The instructor is knowledgeable and the pace is
+                  perfect for beginners.
+                </p>
+                <div class="review__actions">
+                  <button class="link">Helpful? Yes(78)</button>
+                  <button class="link">Report</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Load more -->
+            <div class="reviews-load">
+              <button class="link-button">Load More Reviews</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="Follow-us">Follow us</div>
+        <div class="social">
+          <img src="../image/HomePage/Button-FB.svg" alt="Facebook" />
+          <img src="../image/HomePage/Button-insta.svg" alt="Instagram" />
+          <img src="../image/HomePage/Button-yt.svg" alt="YouTube" />
+        </div>
+        <div class="copy">© 2025 EduLearn. All rights reserved.</div>
+      </div>
+    </footer>
+    <script>
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+
+      document.querySelectorAll(".stars").forEach((el) => {
+        const r = parseFloat(el.dataset.rating || "0");
+        const clamped = Math.max(0, Math.min(5, r));
+        el.style.setProperty("--rating", clamped);
+        el.setAttribute("aria-label", `${clamped} out of 5`);
+      });
+    </script>
+  </body>
+</html>

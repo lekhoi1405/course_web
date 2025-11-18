@@ -24,5 +24,31 @@ public class UserLessonProgress {
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 
-    private boolean isCompleted;
+    private boolean isCompleted = false;
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
+
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
+    }
+
+    
 }

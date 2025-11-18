@@ -28,6 +28,8 @@ public class Section {
 
     @Column(name = "`index`")
     private long index;
+
+    @Column(length = 500)
     private String sectionTitle;
     private long sectionDuration;
 }

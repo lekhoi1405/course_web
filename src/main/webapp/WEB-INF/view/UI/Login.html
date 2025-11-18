@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../assests/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../image/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+          <a href="HomePage.html" class="nav-link">Home</a>
+          <a href="explore.html" class="nav-link">Explore</a>
+        </nav>
+        <div class="actions">
+          <a class="btn" href="login.html">Log in</a>
+          <a class="btn primary" href="signup.html">Sign up</a>
+        </div>
+      </div>
+    </header>
+    <div class="main-content">
+      <main class="auth-page">
+        <div class="auth-card">
+          <h1 class="auth-title">Log In</h1>
+
+          <!-- Email -->
+          <div class="auth-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Enter your email" />
+          </div>
+
+          <!-- Password -->
+          <div class="auth-field">
+            <label for="password">Password</label>
+            <div class="auth-input-with-icon">
+              <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                class="password"
+              />
+              <button
+                class="auth-eye-btn"
+                type="button"
+                aria-label="Toggle password"
+              >
+                👁
+              </button>
+            </div>
+          </div>
+
+          <!-- Login button -->
+          <button class="auth-submit-btn" type="submit">Log In</button>
+
+          <!-- Divider -->
+          <div class="auth-divider">
+            <span></span>
+            <p>or</p>
+            <span></span>
+          </div>
+
+          <!-- Google button -->
+          <button class="auth-google-btn" type="button">
+            Continue with Google
+          </button>
+
+          <!-- Links -->
+          <div class="auth-extra">
+            <a href="#" class="auth-link">Forgot password?</a>
+          </div>
+
+          <p class="auth-bottom-text">
+            Don’t have an account?
+            <a href="signup.html" class="auth-link">Sign up</a>
+          </p>
+        </div>
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="Follow-us">Follow us</div>
+        <div class="social">
+          <img src="../image/HomePage/Button-FB.svg" alt="Facebook" />
+          <img src="../image/HomePage/Button-insta.svg" alt="Instagram" />
+          <img src="../image/HomePage/Button-yt.svg" alt="YouTube" />
+        </div>
+        <div class="copy">© 2025 EduLearn. All rights reserved.</div>
+      </div>
+    </footer>
+    <script>
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+      const passwordInputs = document.querySelectorAll(".auth-input-with-icon");
+
+      passwordInputs.forEach((group) => {
+        const input = group.querySelector(".password");
+        const eyeBtn = group.querySelector(".auth-eye-btn");
+
+        input.addEventListener("input", () => {
+          if (input.value.trim().length > 0) {
+            eyeBtn.classList.add("visible");
+          } else {
+            eyeBtn.classList.remove("visible");
+            input.type = "password";
+            eyeBtn.classList.remove("active");
+          }
+        });
+
+        eyeBtn.addEventListener("click", () => {
+          if (input.type === "password") {
+            input.type = "text";
+          } else {
+            input.type = "password";
+          }
+          eyeBtn.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

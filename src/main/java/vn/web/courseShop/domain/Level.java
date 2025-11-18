@@ -2,6 +2,7 @@ package vn.web.courseShop.domain;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,5 +20,6 @@ public class Level {
     @OneToMany(mappedBy = "level")
     private List<Course> courses;
 
+    @Column(length = 50)
     private String levelName;
 }

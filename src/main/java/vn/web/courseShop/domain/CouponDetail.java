@@ -3,6 +3,7 @@ package vn.web.courseShop.domain;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +27,39 @@ public class CouponDetail {
     @JoinColumn(name = "coupon_id")
     private Coupon coupon;
 
+    @Column(length = 50)
+    private String couponCode;
     private boolean isUsed;
     private LocalDate useDate;
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
+    }
+    public Coupon getCoupon() {
+        return coupon;
+    }
+    public void setCoupon(Coupon coupon) {
+        this.coupon = coupon;
+    }
+    public String getCouponCode() {
+        return couponCode;
+    }
+    public void setCouponCode(String couponCode) {
+        this.couponCode = couponCode;
+    }
+    public boolean isUsed() {
+        return isUsed;
+    }
+    public void setUsed(boolean isUsed) {
+        this.isUsed = isUsed;
+    }
+    public LocalDate getUseDate() {
+        return useDate;
+    }
+    public void setUseDate(LocalDate useDate) {
+        this.useDate = useDate;
+    }
 
 }   

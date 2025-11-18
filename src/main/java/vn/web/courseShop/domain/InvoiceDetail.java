@@ -18,7 +18,23 @@ public class InvoiceDetail {
     @ManyToOne
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
-    
+
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;

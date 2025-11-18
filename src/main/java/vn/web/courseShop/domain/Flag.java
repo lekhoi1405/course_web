@@ -2,12 +2,11 @@ package vn.web.courseShop.domain;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -21,6 +20,23 @@ public class Flag {
     @OneToMany(mappedBy = "flag")
     private List<FlagReportBridge> flagReportBridges;
 
+    @Column(length = 50)
     private String description;
+
+    public List<FlagReportBridge> getFlagReportBridges() {
+        return flagReportBridges;
+    }
+
+    public void setFlagReportBridges(List<FlagReportBridge> flagReportBridges) {
+        this.flagReportBridges = flagReportBridges;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     
 }

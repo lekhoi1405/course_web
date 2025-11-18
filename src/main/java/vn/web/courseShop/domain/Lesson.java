@@ -31,6 +31,8 @@ public class Lesson {
 
     @Column(name = "`index`")
     private long index;
+
+    @Column(length = 500)
     private String lessonTitle;
     private long duration;
 }

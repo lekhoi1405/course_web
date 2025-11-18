@@ -1,8 +1,10 @@
 package vn.web.courseShop.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,10 +32,70 @@ public class Invoice {
     @OneToMany(mappedBy = "invoice")
     private List<InvoiceDetail> invoiceDetails;
 
-    private float purchaseTotalPrice;
-    private float priceDiscounted;
-    private LocalDate purchaseDate;
+    @Column(precision = 12, scale = 2)
+    private BigDecimal purchaseTotalPrice;
+    
+    @Column(precision = 12, scale = 2)
+    private BigDecimal priceDiscounted;
+
+    @Column(length = 30)
     private String status;
 
-    
+    public Account getAccount() {
+      return account;
+    }
+
+    public void setAccount(Account account) {
+      this.account = account;
+    }
+
+    public CouponDetail getCouponDetail() {
+      return couponDetail;
+    }
+
+    public void setCouponDetail(CouponDetail couponDetail) {
+      this.couponDetail = couponDetail;
+    }
+
+    public List<InvoiceDetail> getInvoiceDetails() {
+      return invoiceDetails;
+    }
+
+    public void setInvoiceDetails(List<InvoiceDetail> invoiceDetails) {
+      this.invoiceDetails = invoiceDetails;
+    }
+
+    public BigDecimal getPurchaseTotalPrice() {
+      return purchaseTotalPrice;
+    }
+
+    public void setPurchaseTotalPrice(BigDecimal purchaseTotalPrice) {
+      this.purchaseTotalPrice = purchaseTotalPrice;
+    }
+
+    public BigDecimal getPriceDiscounted() {
+      return priceDiscounted;
+    }
+
+    public void setPriceDiscounted(BigDecimal priceDiscounted) {
+      this.priceDiscounted = priceDiscounted;
+    }
+
+    public String getStatus() {
+      return status;
+    }
+
+    public void setStatus(String status) {
+      this.status = status;
+    }
+
+    public LocalDate getPurchaseDate() {
+      return purchaseDate;
+    }
+
+    public void setPurchaseDate(LocalDate purchaseDate) {
+      this.purchaseDate = purchaseDate;
+    }
+
+    private LocalDate purchaseDate; 
 }
