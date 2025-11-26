@@ -19,18 +19,6 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @GetMapping("/signUp")
-    public String getSignUpAccountPage(Model model) {
-        model.addAttribute("account", new Account());
-        return "SignUp";
-    }
-
-    @PostMapping("/signUp")
-    public String signUpAccount(@ModelAttribute Account account) {
-        accountService.handleSaveAccount(account);
-        return "redirect:/";
-    }
-
     @GetMapping("/")
     public String getHomePage() {
         return "test";

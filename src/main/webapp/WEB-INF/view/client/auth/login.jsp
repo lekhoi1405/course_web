@@ -1,7 +1,3 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%> <%@taglib
-uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,30 +26,18 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
       </div>
     </header>
     <div class="main-content">
-      <!-- SIGN UP PAGE -->
       <main class="auth-page">
         <div class="auth-card">
-          <h1 class="auth-title">Sign Up</h1>
-          <form:form method="post" action="/signUp" modelAttribute="account">
-            <!-- Full name -->
-            <div class="auth-field">
-              <label for="fullname">Full Name</label>
-              <form:input
-                id="fullname"
-                type="text"
-                placeholder="Enter your full name"
-                path="fullname"
-              />
-            </div>
-
+          <h1 class="auth-title">Log In</h1>
+          <form action="/login" method="post">
             <!-- Email -->
             <div class="auth-field">
               <label for="email">Email</label>
-              <form:input
+              <input
                 id="email"
                 type="email"
                 placeholder="Enter your email"
-                path="email"
+                name="username"
               />
             </div>
 
@@ -61,12 +45,12 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
             <div class="auth-field">
               <label for="password">Password</label>
               <div class="auth-input-with-icon">
-                <form:input
+                <input
                   id="password"
                   type="password"
-                  placeholder="Create a password"
+                  placeholder="Enter your password"
                   class="password"
-                  path="password"
+                  name="password"
                 />
                 <button
                   class="auth-eye-btn"
@@ -77,43 +61,14 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
                 </button>
               </div>
             </div>
-
-            <!-- Confirm password -->
-            <div class="auth-field">
-              <label for="confirmPassword">Confirm Password</label>
-              <div class="auth-input-with-icon">
-                <input
-                  id="confirmPassword"
-                  type="password"
-                  placeholder="Confirm your password"
-                  class="password"
-                />
-                <button
-                  class="auth-eye-btn"
-                  type="button"
-                  aria-label="Toggle password"
-                >
-                  👁
-                </button>
-              </div>
-            </div>
-
-            <!-- Terms -->
-            <label class="auth-terms">
-              <input type="checkbox" />
-              <span class="auth-terms-agree">
-                I agree to the
-                <a href="#" class="auth-link">Terms of Service</a>
-                and
-                <a href="#" class="auth-link">Privacy Policy</a>
-              </span>
-            </label>
-
-            <!-- Create account button -->
-            <button class="auth-submit-btn" type="submit">
-              Create account
-            </button>
-          </form:form>
+            <input
+              type="hidden"
+              name="${_csrf.parameterName}"
+              value="${_csrf.token}"
+            />
+            <!-- Login button -->
+            <button class="auth-submit-btn" type="submit">Log In</button>
+          </form>
           <!-- Divider -->
           <div class="auth-divider">
             <span></span>
@@ -126,10 +81,14 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
             Continue with Google
           </button>
 
-          <!-- Bottom text -->
+          <!-- Links -->
+          <div class="auth-extra">
+            <a href="#" class="auth-link">Forgot password?</a>
+          </div>
+
           <p class="auth-bottom-text">
-            Already have an account?
-            <a href="login.html" class="auth-link">Log in</a>
+            Don’t have an account?
+            <a href="/register" class="auth-link">Sign up</a>
           </p>
         </div>
       </main>

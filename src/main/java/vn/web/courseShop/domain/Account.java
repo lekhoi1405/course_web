@@ -48,7 +48,6 @@ public class Account {
     @Column(length = 50)
     private String email;
 
-    @Column(length = 50)
     private String password;
 
     @Column(length = 50)
