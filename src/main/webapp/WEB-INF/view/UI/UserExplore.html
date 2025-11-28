@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Explore Courses - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+            <a href="UserDashboard.html" class="nav-link">Home</a>
+            <a href="UserExplore.html" class="nav-link active">Explore</a>
+            <a href="TutorCourses.html" class="nav-link">Tutor Now</a>
+            <a href="Enrollments.html" class="nav-link">Enrollments</a>
+        </nav>
+        <div class="actions">
+          <div class="user-menu">
+            <a href="MyCart.html" class="cart-btn">
+              <img src="../../../resources/images/userHeader/icon_cart.svg" alt="Cart" width="20" height="20" />
+            </a>
+            <button class="message-btn">
+              <img src="../../../resources/images/userHeader/icon_mess.svg" alt="Messages" width="20" height="20" />
+            </button>
+            <button class="notification-btn">
+              <img src="../../../resources/images/userHeader/icon_noti.svg" alt="Notifications" width="20" height="20" />
+            </button>
+            <div class="user-profile">
+              <img src="../../../resources/images/userHeader/user_avt.svg" alt="User Avatar" class="user-avatar-img" />
+              <img src="../../../resources/images/userHeader/icon_down.svg" alt="Dropdown" class="user-dropdown-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="user-explore-page">
+        <div class="content">
+          <!-- Hero Section -->
+          <section class="explore-hero">
+            <h1 class="explore-title">Explore Courses</h1>
+            <p class="explore-subtitle">Discover thousands of courses from expert instructors around the world</p>
+            
+            <!-- Search Bar -->
+            <div class="explore-search-wrapper">
+              <div class="explore-search">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" placeholder="Search for courses, instructors, or topics..." />
+                <button class="search-btn">Search</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Popular Courses Section -->
+          <section class="popular-courses-section">
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">Popular Courses</h2>
+                <p class="section-desc">Join millions of learners with these trending courses</p>
+              </div>
+            </div>
+
+            <div class="explore-course-grid">
+              <!-- Course Card 1 -->
+              <article class="explore-course-card">
+                <div class="explore-course-image">
+                  <div class="course-card__image-placeholder"></div>
+                  <div class="explore-course-badges">
+                    <span class="badge badge--orange">Bestseller</span>
+                    <span class="badge badge--dark">Intermediate</span>
+                    <span class="badge badge--red">-70%</span>
+                  </div>
+                </div>
+
+                <div class="explore-course-body">
+                  <div class="course-category">DEVELOPMENT</div>
+                  <h3 class="explore-course-title">Complete React Developer Course 2024</h3>
+                  <p class="explore-course-instructor">by John Smith</p>
+
+                  <div class="explore-course-meta">
+                    <div class="students-count">
+                      <img src="../../../resources/images/userDashboard/icon_pp.svg" alt="Students" width="16" height="16">
+                      <span>89,234</span>
+                    </div>
+                    <div class="rating">
+                      <img src="../../../resources/images/userDashboard/icon_star.svg" alt="Star" width="16" height="16">
+                      <span class="rating-score">4.8</span>
+                      <span class="rating-count">(12,543)</span>
+                    </div>
+                  </div>
+
+                  <div class="explore-course-footer">
+                    <div class="price-box">
+                      <span class="current-price">$59.99</span>
+                      <span class="old-price">$199.99</span>
+                    </div>
+                    <button class="view-course-btn">View Course</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Course Card 2 -->
+              <article class="explore-course-card">
+                <div class="explore-course-image">
+                  <div class="course-card__image-placeholder"></div>
+                  <div class="explore-course-badges">
+                    <span class="badge badge--orange">Bestseller</span>
+                    <span class="badge badge--dark">Beginner</span>
+                    <span class="badge badge--red">-50%</span>
+                  </div>
+                </div>
+
+                <div class="explore-course-body">
+                  <div class="course-category">DESIGN</div>
+                  <h3 class="explore-course-title">UI/UX Design Masterclass 2024</h3>
+                  <p class="explore-course-instructor">by Sarah Johnson</p>
+
+                  <div class="explore-course-meta">
+                    <div class="students-count">
+                      <img src="../../../resources/images/userDashboard/icon_pp.svg" alt="Students" width="16" height="16">
+                      <span>95,678</span>
+                    </div>
+                    <div class="rating">
+                      <img src="../../../resources/images/userDashboard/icon_star.svg" alt="Star" width="16" height="16">
+                      <span class="rating-score">4.9</span>
+                      <span class="rating-count">(8,934)</span>
+                    </div>
+                  </div>
+
+                  <div class="explore-course-footer">
+                    <div class="price-box">
+                      <span class="current-price">$79.99</span>
+                      <span class="old-price"></span>
+                    </div>
+                    <button class="view-course-btn">View Course</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Course Card 3 -->
+              <article class="explore-course-card">
+                <div class="explore-course-image">
+                  <div class="course-card__image-placeholder"></div>
+                  <div class="explore-course-badges">
+                    <span class="badge badge--dark">Intermediate</span>
+                    <span class="badge badge--red">-42%</span>
+                  </div>
+                </div>
+
+                <div class="explore-course-body">
+                  <div class="course-category">MARKETING</div>
+                  <h3 class="explore-course-title">Digital Marketing Complete Course</h3>
+                  <p class="explore-course-instructor">by Mike Chen</p>
+
+                  <div class="explore-course-meta">
+                    <div class="students-count">
+                      <img src="../../../resources/images/userDashboard/icon_pp.svg" alt="Students" width="16" height="16">
+                      <span>67,890</span>
+                    </div>
+                    <div class="rating">
+                      <img src="../../../resources/images/userDashboard/icon_star.svg" alt="Star" width="16" height="16">
+                      <span class="rating-score">4.7</span>
+                      <span class="rating-count">(15,832)</span>
+                    </div>
+                  </div>
+
+                  <div class="explore-course-footer">
+                    <div class="price-box">
+                      <span class="current-price">$49.99</span>
+                      <span class="old-price">$149.99</span>
+                    </div>
+                    <button class="view-course-btn">View Course</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Course Card 4 -->
+              <article class="explore-course-card">
+                <div class="explore-course-image">
+                  <div class="course-card__image-placeholder"></div>
+                  <div class="explore-course-badges">
+                    <span class="badge badge--orange">Bestseller</span>
+                    <span class="badge badge--red">-65%</span>
+                  </div>
+                </div>
+
+                <div class="explore-course-body">
+                  <div class="course-category">DATA SCIENCE</div>
+                  <h3 class="explore-course-title">Data Science with Python</h3>
+                  <p class="explore-course-instructor">by Dr. Emily Rodriguez</p>
+
+                  <div class="explore-course-meta">
+                    <div class="students-count">
+                      <img src="../../../resources/images/userDashboard/icon_pp.svg" alt="Students" width="16" height="16">
+                      <span>34,567</span>
+                    </div>
+                    <div class="rating">
+                      <img src="../../../resources/images/userDashboard/icon_star.svg" alt="Star" width="16" height="16">
+                      <span class="rating-score">4.6</span>
+                      <span class="rating-count">(10,876)</span>
+                    </div>
+                  </div>
+
+                  <div class="explore-course-footer">
+                    <div class="price-box">
+                      <span class="current-price">$89.99</span>
+                      <span class="old-price">$249.99</span>
+                    </div>
+                    <button class="view-course-btn">View Course</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Course Card 5 -->
+              <article class="explore-course-card">
+                <div class="explore-course-image">
+                  <div class="course-card__image-placeholder"></div>
+                  <div class="explore-course-badges">
+                    <span class="badge badge--orange">Bestseller</span>
+                    <span class="badge badge--dark">Intermediate</span>
+                    <span class="badge badge--red">-34%</span>
+                  </div>
+                </div>
+
+                <div class="explore-course-body">
+                  <div class="course-category">DEVELOPMENT</div>
+                  <h3 class="explore-course-title">Full Stack JavaScript Development</h3>
+                  <p class="explore-course-instructor">by Alex Turner</p>
+
+                  <div class="explore-course-meta">
+                    <div class="students-count">
+                      <img src="../../../resources/images/userDashboard/icon_pp.svg" alt="Students" width="16" height="16">
+                      <span>72,456</span>
+                    </div>
+                    <div class="rating">
+                      <img src="../../../resources/images/userDashboard/icon_star.svg" alt="Star" width="16" height="16">
+                      <span class="rating-score">4.8</span>
+                      <span class="rating-count">(10,284)</span>
+                    </div>
+                  </div>
+
+                  <div class="explore-course-footer">
+                    <div class="price-box">
+                      <span class="current-price">$69.99</span>
+                      <span class="old-price">$179.99</span>
+                    </div>
+                    <button class="view-course-btn">View Course</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Course Card 6 -->
+              <article class="explore-course-card">
+                <div class="explore-course-image">
+                  <div class="course-card__image-placeholder"></div>
+                  <div class="explore-course-badges">
+                    <span class="badge badge--dark">Advanced</span>
+                    <span class="badge badge--red">-26%</span>
+                  </div>
+                </div>
+
+                <div class="explore-course-body">
+                  <div class="course-category">DATA SCIENCE</div>
+                  <h3 class="explore-course-title">Machine Learning Fundamentals</h3>
+                  <p class="explore-course-instructor">by Dr. Lisa Wang</p>
+
+                  <div class="explore-course-meta">
+                    <div class="students-count">
+                      <img src="../../../resources/images/userDashboard/icon_pp.svg" alt="Students" width="16" height="16">
+                      <span>38,524</span>
+                    </div>
+                    <div class="rating">
+                      <img src="../../../resources/images/userDashboard/icon_star.svg" alt="Star" width="16" height="16">
+                      <span class="rating-score">4.9</span>
+                      <span class="rating-count">(9,367)</span>
+                    </div>
+                  </div>
+
+                  <div class="explore-course-footer">
+                    <div class="price-box">
+                      <span class="current-price">$94.99</span>
+                      <span class="old-price">$224.99</span>
+                    </div>
+                    <button class="view-course-btn">View Course</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Course Card 7 -->
+              <article class="explore-course-card">
+                <div class="explore-course-image">
+                  <div class="course-card__image-placeholder"></div>
+                  <div class="explore-course-badges">
+                    <span class="badge badge--dark">Beginner</span>
+                    <span class="badge badge--red">-69%</span>
+                  </div>
+                </div>
+
+                <div class="explore-course-body">
+                  <div class="course-category">SECURITY</div>
+                  <h3 class="explore-course-title">Cybersecurity Essentials</h3>
+                  <p class="explore-course-instructor">by Michael Davis</p>
+
+                  <div class="explore-course-meta">
+                    <div class="students-count">
+                      <img src="../../../resources/images/userDashboard/icon_pp.svg" alt="Students" width="16" height="16">
+                      <span>45,123</span>
+                    </div>
+                    <div class="rating">
+                      <img src="../../../resources/images/userDashboard/icon_star.svg" alt="Star" width="16" height="16">
+                      <span class="rating-score">4.7</span>
+                      <span class="rating-count">(7,495)</span>
+                    </div>
+                  </div>
+
+                  <div class="explore-course-footer">
+                    <div class="price-box">
+                      <span class="current-price">$54.99</span>
+                      <span class="old-price"></span>
+                    </div>
+                    <button class="view-course-btn">View Course</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Course Card 8 -->
+              <article class="explore-course-card">
+                <div class="explore-course-image">
+                  <div class="course-card__image-placeholder"></div>
+                  <div class="explore-course-badges">
+                    <span class="badge badge--dark">Intermediate</span>
+                    <span class="badge badge--red">-70%</span>
+                  </div>
+                </div>
+
+                <div class="explore-course-body">
+                  <div class="course-category">CLOUD</div>
+                  <h3 class="explore-course-title">Cloud Computing with AWS</h3>
+                  <p class="explore-course-instructor">by Jennifer Brown</p>
+
+                  <div class="explore-course-meta">
+                    <div class="students-count">
+                      <img src="../../../resources/images/userDashboard/icon_pp.svg" alt="Students" width="16" height="16">
+                      <span>29,870</span>
+                    </div>
+                    <div class="rating">
+                      <img src="../../../resources/images/userDashboard/icon_star.svg" alt="Star" width="16" height="16">
+                      <span class="rating-score">4.6</span>
+                      <span class="rating-count">(9,798)</span>
+                    </div>
+                  </div>
+
+                  <div class="explore-course-footer">
+                    <div class="price-box">
+                      <span class="current-price">$74.99</span>
+                      <span class="old-price"></span>
+                    </div>
+                    <button class="view-course-btn">View Course</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+              <button class="page-btn" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M15 18l-6-6 6-6"/>
+                </svg>
+                Previous
+              </button>
+              <div class="page-numbers">
+                <button class="page-num active">1</button>
+                <button class="page-num">2</button>
+              </div>
+              <button class="page-btn">
+                Next
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="Follow-us">Follow us</div>
+        <div class="social">
+          <img src="../../../resources/images/HomePage/Button-FB.svg" alt="Facebook" />
+          <img src="../../../resources/images/HomePage/Button-insta.svg" alt="Instagram" />
+          <img src="../../../resources/images/HomePage/Button-yt.svg" alt="YouTube" />
+        </div>
+        <div class="copy">© 2025 EduLearn. All rights reserved.</div>
+      </div>
+    </footer>
+    
+    <script>
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    </script>
+  </body>
+</html>

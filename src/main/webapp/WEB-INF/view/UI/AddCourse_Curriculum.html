@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create New Course - Curriculum - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+            <a href="UserDashboard.html" class="nav-link">Home</a>
+            <a href="UserExplore.html" class="nav-link">Explore</a>
+            <a href="TutorCourses.html" class="nav-link active">Tutor Now</a>
+            <a href="Enrollments.html" class="nav-link">Enrollments</a>
+        </nav>
+        <div class="actions">
+          <div class="user-menu">
+            <a href="MyCart.html" class="cart-btn">
+              <img src="../../../resources/images/userHeader/icon_cart.svg" alt="Cart" width="20" height="20" />
+            </a>
+            <button class="message-btn">
+              <img src="../../../resources/images/userHeader/icon_mess.svg" alt="Messages" width="20" height="20" />
+            </button>
+            <button class="notification-btn">
+              <img src="../../../resources/images/userHeader/icon_noti.svg" alt="Notifications" width="20" height="20" />
+            </button>
+            <div class="user-profile">
+              <img src="../../../resources/images/userHeader/user_avt.svg" alt="User Avatar" class="user-avatar-img" />
+              <img src="../../../resources/images/userHeader/icon_down.svg" alt="Dropdown" class="user-dropdown-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="create-course-page">
+      <div class="content">
+        <!-- Page Header -->
+        <div class="create-course-header">
+          <h1 class="create-course-title">Create New Course</h1>
+          <div class="create-course-actions">
+            <button class="btn-cancel">Cancel</button>
+            <button class="btn-save-course">
+              <img src="../../../resources/images/addCourse/icon_save.svg" alt="Save" width="20" height="20" />
+              Save Course
+            </button>
+            <button class="btn-submit-review">
+              <img src="../../../resources/images/addCourse/icon_submit.svg" alt="Submit" width="20" height="20" />
+              Submit for Review
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="create-course-tabs">
+          <a href="AddCourse_Basic.html" class="create-tab">
+            Basic Info
+          </a>
+          <a href="AddCourse_Curriculum.html" class="create-tab active">
+            Curriculum
+          </a>
+          <a href="AddCourse_Settings.html" class="create-tab">
+            Settings
+          </a>
+        </div>
+
+        <!-- Curriculum Content -->
+        <div class="curriculum-content">
+          <!-- Section Header -->
+          <div class="curriculum-header">
+            <div class="curriculum-title-section">
+              <h2 class="curriculum-title">Course Curriculum</h2>
+              <p class="curriculum-subtitle">Organize your course content into sections and lessons</p>
+            </div>
+            <button class="btn-add-section-main" onclick="addSection()">
+              <img src="../../../resources/images/addCourse/icon_whiteadd.svg" alt="Add" width="16" height="16" />
+              Add Section
+            </button>
+          </div>
+
+          <!-- Empty State (shown by default) -->
+          <div class="curriculum-empty-state" id="emptyState">
+            <img src="../../../resources/images/addCourse/icon_videosection.svg" alt="Video" class="empty-icon" />
+            <h3 class="empty-title">No sections yet</h3>
+            <p class="empty-subtitle">Get started by adding your first section</p>
+            <button class="btn-add-section-empty" onclick="addSection()">
+              <img src="../../../resources/images/addCourse/icon_whiteadd.svg" alt="Add" width="16" height="16" />
+              Add Section
+            </button>
+          </div>
+
+          <!-- Sections List (hidden by default, shown after clicking Add Section) -->
+          <div class="curriculum-sections" id="sectionsList" style="display: none;">
+            <!-- Sections will be added here dynamically -->
+            
+            <!-- Add Section Button at bottom -->
+            <button class="btn-add-section-bottom" onclick="addSection()">
+              <img src="../../../resources/images/addCourse/icon_whiteadd.svg" alt="Add" width="16" height="16" />
+              Add Section
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="content footer-inner">
+        <div class="footer-links">
+          <a href="#" class="footer-link">About Us</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Support</a>
+        </div>
+
+        <div class="Follow-us">Follow us</div>
+        <div class="social">
+          <img src="../../../resources/images/HomePage/Button-FB.svg" alt="Facebook" />
+          <img src="../../../resources/images/HomePage/Button-insta.svg" alt="Instagram" />
+          <img src="../../../resources/images/HomePage/Button-yt.svg" alt="YouTube" />
+        </div>
+        <div class="copy">© 2024 EduLearn. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      let sectionCount = 0;
+
+      function addSection() {
+        // Hide empty state
+        document.getElementById('emptyState').style.display = 'none';
+        // Show sections list
+        document.getElementById('sectionsList').style.display = 'flex';
+        
+        sectionCount++;
+        const sectionHTML = `
+          <div class="curriculum-section-item" id="section-${sectionCount}">
+            <div class="section-header-row">
+              <div class="section-drag">
+                <img src="../../../resources/images/addCourse/icon_move.svg" alt="Move" width="20" height="20" />
+              </div>
+              <input type="text" class="section-title-input" placeholder="Enter section title" value="Section ${sectionCount}: Enter section title" />
+              <div class="section-actions">
+                <button class="btn-add-lesson-header" onclick="addLesson(${sectionCount})">
+                  <img src="../../../resources/images/addCourse/icon_blackadd.svg" alt="Add" width="14" height="14" />
+                  Add Lesson
+                </button>
+                <button class="section-delete-btn" onclick="deleteSection(${sectionCount})">
+                  <img src="../../../resources/images/addCourse/button_delete.svg" alt="Delete" width="28" height="28" />
+                </button>
+              </div>
+            </div>
+            <div class="section-lessons-empty" id="section-${sectionCount}-empty">
+              <p class="empty-lessons-text">No lessons in this section yet. Click "Add Lesson" to get started.</p>
+            </div>
+            <div class="section-lessons" id="section-${sectionCount}-lessons" style="display: none;">
+            </div>
+          </div>
+        `;
+        
+        // Insert before the Add Section button at bottom
+        const addSectionBtn = document.querySelector('.btn-add-section-bottom');
+        addSectionBtn.insertAdjacentHTML('beforebegin', sectionHTML);
+      }
+
+      let lessonCounts = {};
+
+      function addLesson(sectionId) {
+        // Hide empty state for this section
+        document.getElementById(`section-${sectionId}-empty`).style.display = 'none';
+        // Show lessons container
+        document.getElementById(`section-${sectionId}-lessons`).style.display = 'block';
+
+        if (!lessonCounts[sectionId]) {
+          lessonCounts[sectionId] = 0;
+        }
+        lessonCounts[sectionId]++;
+        const lessonNum = lessonCounts[sectionId];
+
+        const lessonHTML = `
+          <div class="lesson-card" id="section-${sectionId}-lesson-${lessonNum}">
+            <div class="lesson-header">
+              <div class="lesson-drag">
+                <img src="../../../resources/images/addCourse/icon_move.svg" alt="Move" width="16" height="16" />
+              </div>
+              <input type="text" class="lesson-title-input" placeholder="Enter lesson title" value="Lesson ${lessonNum}: Enter lesson title" />
+              <button class="lesson-delete-btn" onclick="deleteLesson(${sectionId}, ${lessonNum})">
+                <img src="../../../resources/images/addCourse/button_delete.svg" alt="Delete" width="24" height="24" />
+              </button>
+            </div>
+
+            <div class="lesson-content-row">
+              <div class="lesson-upload-box">
+                <div class="upload-box-header">
+                  <img src="../../../resources/images/addCourse/icon_videolesson.svg" alt="Video" width="16" height="16" />
+                  <span>Video</span>
+                </div>
+                <div class="upload-box-area">
+                  <img src="../../../resources/images/addCourse/icon_upload.svg" alt="Upload" width="24" height="24" />
+                  <span>Upload video</span>
+                </div>
+              </div>
+
+              <div class="lesson-upload-box">
+                <div class="upload-box-header">
+                  <img src="../../../resources/images/addCourse/icon_document.svg" alt="Document" width="16" height="16" />
+                  <span>Document</span>
+                </div>
+                <div class="upload-box-area">
+                  <img src="../../../resources/images/addCourse/icon_upload.svg" alt="Upload" width="24" height="24" />
+                  <span>Upload document</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lesson-quiz-section">
+              <div class="quiz-header">
+                <img src="../../../resources/images/addCourse/icon_quizz.svg" alt="Quiz" width="16" height="16" />
+                <span>Quiz (Optional)</span>
+              </div>
+              <div class="quiz-row">
+                <input type="text" class="quiz-input" placeholder="No quiz" readonly />
+                <button class="btn-create-quiz">
+                  <img src="../../../resources/images/addCourse/icon_blackadd.svg" alt="Add" width="14" height="14" />
+                  Create Quiz
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.getElementById(`section-${sectionId}-lessons`).insertAdjacentHTML('beforeend', lessonHTML);
+      }
+
+      function deleteSection(sectionId) {
+        document.getElementById(`section-${sectionId}`).remove();
+        
+        // Check if no sections left
+        if (document.getElementById('sectionsList').children.length === 0) {
+          document.getElementById('sectionsList').style.display = 'none';
+          document.getElementById('emptyState').style.display = 'flex';
+        }
+      }
+
+      function deleteLesson(sectionId, lessonNum) {
+        document.getElementById(`section-${sectionId}-lesson-${lessonNum}`).remove();
+        
+        // Check if no lessons left in section
+        const lessonsContainer = document.getElementById(`section-${sectionId}-lessons`);
+        if (lessonsContainer.children.length === 0) {
+          lessonsContainer.style.display = 'none';
+          document.getElementById(`section-${sectionId}-empty`).style.display = 'block';
+        }
+      }
+    </script>
+  </body>
+</html>
