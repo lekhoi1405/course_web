@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thanh toán - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+            <a href="UserDashboard.html" class="nav-link">Home</a>
+            <a href="UserExplore.html" class="nav-link">Explore</a>
+            <a href="TutorCourses.html" class="nav-link">Tutor Now</a>
+            <a href="Enrollments.html" class="nav-link">Enrollments</a>
+        </nav>
+        <div class="actions">
+          <div class="user-menu">
+            <a href="MyCart.html" class="cart-btn">
+              <img src="../../../resources/images/userHeader/icon_cart.svg" alt="Cart" width="20" height="20" />
+            </a>
+            <button class="message-btn">
+              <img src="../../../resources/images/userHeader/icon_mess.svg" alt="Messages" width="20" height="20" />
+            </button>
+            <button class="notification-btn">
+              <img src="../../../resources/images/userHeader/icon_noti.svg" alt="Notifications" width="20" height="20" />
+            </button>
+            <div class="user-profile">
+              <img src="../../../resources/images/userHeader/user_avt.svg" alt="User Avatar" class="user-avatar-img" />
+              <img src="../../../resources/images/userHeader/icon_down.svg" alt="Dropdown" class="user-dropdown-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="checkout-page">
+        <!-- Header -->
+        <div class="checkout-header-wrapper">
+          <div class="checkout-header">
+            <a href="MyCart.html" class="back-link">
+              <img src="../../../resources/images/myCart/icon_back.svg" alt="Back" />
+            </a>
+            <h1 class="checkout-title">Thanh toán</h1>
+          </div>
+        </div>
+
+        <div class="checkout-container">
+          <div class="checkout-content">
+            <!-- Left Column -->
+            <div class="checkout-left">
+              <!-- Selected Courses -->
+              <div class="checkout-courses-card">
+                <h3 class="checkout-section-title">Khóa học đã chọn</h3>
+                
+                <!-- Instructor Group 1 -->
+                <div class="instructor-group">
+                  <div class="instructor-info">
+                    <img src="../../../resources/images/myCart/container_avt.svg" alt="Avatar" class="instructor-avatar" />
+                    <span class="instructor-name">Dr. Sarah Johnson</span>
+                  </div>
+                  
+                  <div class="checkout-course-item">
+                    <div class="checkout-course-thumbnail">
+                      <div class="checkout-thumbnail-placeholder"></div>
+                    </div>
+                    <div class="checkout-course-info">
+                      <h4 class="checkout-course-title">Complete React Developer Course</h4>
+                      <div class="checkout-course-price">
+                        <span class="checkout-current-price">$49.99</span>
+                        <span class="checkout-original-price">$99.99</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="checkout-course-item">
+                    <div class="checkout-course-thumbnail">
+                      <div class="checkout-thumbnail-placeholder"></div>
+                    </div>
+                    <div class="checkout-course-info">
+                      <h4 class="checkout-course-title">Advanced React Patterns</h4>
+                      <div class="checkout-course-price">
+                        <span class="checkout-current-price">$39.99</span>
+                        <span class="checkout-original-price">$79.99</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Instructor Group 2 -->
+                <div class="instructor-group">
+                  <div class="instructor-info">
+                    <img src="../../../resources/images/myCart/container_avt.svg" alt="Avatar" class="instructor-avatar" />
+                    <span class="instructor-name">Michael Chen</span>
+                  </div>
+                  
+                  <div class="checkout-course-item">
+                    <div class="checkout-course-thumbnail">
+                      <div class="checkout-thumbnail-placeholder"></div>
+                    </div>
+                    <div class="checkout-course-info">
+                      <h4 class="checkout-course-title">Node.js Complete Guide</h4>
+                      <div class="checkout-course-price">
+                        <span class="checkout-current-price">$44.99</span>
+                        <span class="checkout-original-price">$89.99</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Subtotal -->
+                <div class="checkout-subtotal">
+                  <span class="subtotal-label">Tạm tính:</span>
+                  <span class="subtotal-value">$134.97</span>
+                </div>
+              </div>
+
+              <!-- Voucher Section -->
+              <div class="checkout-voucher-card">
+                <div class="voucher-header">
+                  <img src="../../../resources/images/myCart/container_voucher.svg" alt="Voucher" class="voucher-icon" />
+                  <span class="voucher-title">Mã giảm giá</span>
+                </div>
+                
+                <!-- Voucher Input -->
+                <div class="voucher-input-group" id="voucherInputGroup">
+                  <input type="text" class="voucher-input" id="voucherInput" placeholder="Nhập mã voucher" />
+                  <button class="voucher-apply-btn" id="voucherApplyBtn">Áp dụng</button>
+                </div>
+                <p class="voucher-hint" id="voucherHint">Mã có sẵn: WELCOME20, SAVE10, SPECIAL15</p>
+                
+                <!-- Voucher Applied (hidden by default) -->
+                <div class="voucher-applied" id="voucherApplied" style="display: none;">
+                  <div class="voucher-applied-header">
+                    <div class="voucher-applied-info">
+                      <span class="voucher-code" id="appliedVoucherCode">WELCOME20</span>
+                      <span class="voucher-status">
+                        <svg class="voucher-status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        Đã áp dụng
+                      </span>
+                    </div>
+                    <button class="voucher-remove-btn" id="voucherRemoveBtn">Xóa</button>
+                  </div>
+                  <p class="voucher-applied-desc" id="appliedVoucherDesc">Giảm 20% cho đơn hàng đầu tiên</p>
+                  <p class="voucher-applied-discount" id="appliedVoucherDiscount">Giảm $26.99</p>
+                </div>
+              </div>
+
+              <!-- Payment Methods -->
+              <div class="checkout-payment-card">
+                <h3 class="checkout-section-title">Phương thức thanh toán</h3>
+                
+                <div class="payment-methods">
+                  <label class="payment-method selected">
+                    <input type="radio" name="payment" value="momo" checked />
+                    <div class="payment-method-content">
+                      <div class="payment-icon momo-icon">
+                        <img src="../../../resources/images/myCart/icon_momo.svg" alt="MoMo" />
+                      </div>
+                      <div class="payment-info">
+                        <span class="payment-name">Ví điện tử MoMo</span>
+                        <span class="payment-desc">Thanh toán qua ứng dụng MoMo</span>
+                      </div>
+                    </div>
+                  </label>
+                  
+                  <label class="payment-method">
+                    <input type="radio" name="payment" value="bank" />
+                    <div class="payment-method-content">
+                      <div class="payment-icon bank-icon">
+                        <img src="../../../resources/images/myCart/icon_bank.svg" alt="Bank" />
+                      </div>
+                      <div class="payment-info">
+                        <span class="payment-name">Chuyển khoản ngân hàng</span>
+                        <span class="payment-desc">Chuyển khoản qua tài khoản ngân hàng</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column - Payment Summary -->
+            <div class="checkout-right">
+              <div class="checkout-summary-card">
+                <h3 class="summary-title">Chi tiết thanh toán</h3>
+                
+                <div class="summary-row">
+                  <span class="summary-label">Tổng tiền:</span>
+                  <span class="summary-value" id="summarySubtotal">$0.00</span>
+                </div>
+                
+                <div class="summary-row">
+                  <span class="summary-label">Giảm giá:</span>
+                  <span class="summary-value discount" id="summaryDiscount">-$0.00</span>
+                </div>
+                
+                <div class="summary-divider"></div>
+                
+                <div class="summary-row total">
+                  <span class="summary-label">Tổng thanh toán:</span>
+                  <span class="summary-value total-price" id="summaryTotal">$0.00</span>
+                </div>
+
+                <button class="btn-pay">Thanh toán</button>
+                
+                <p class="checkout-terms">
+                  Bằng việc thanh toán, bạn đồng ý với<br />
+                  <a href="#">Điều khoản sử dụng</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="Follow-us">Follow us</div>
+        <div class="social">
+          <img src="../../../resources/images/HomePage/Button-FB.svg" alt="Facebook" />
+          <img src="../../../resources/images/HomePage/Button-insta.svg" alt="Instagram" />
+          <img src="../../../resources/images/HomePage/Button-yt.svg" alt="YouTube" />
+        </div>
+        <div class="copy">© 2024 EduLearn. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      // Voucher data
+      const voucherData = {
+        'WELCOME20': { discount: 0.20, desc: 'Giảm 20% cho đơn hàng đầu tiên' },
+        'SAVE10': { discount: 0.10, desc: 'Giảm 10% cho tất cả khóa học' },
+        'SPECIAL15': { discount: 0.15, desc: 'Giảm 15% đặc biệt' }
+      };
+      
+      let appliedVoucher = null;
+      let subtotal = 134.97; // Will be dynamic from cart
+
+      // Load selected items from cart
+      function loadSelectedItems() {
+        const selectedItems = JSON.parse(localStorage.getItem('checkoutItems') || '[]');
+        const coursesContainer = document.querySelector('.checkout-courses-card');
+        
+        if (selectedItems.length > 0) {
+          // Clear existing courses except title
+          const title = coursesContainer.querySelector('.checkout-section-title');
+          coursesContainer.innerHTML = '';
+          coursesContainer.appendChild(title);
+          
+          // Group by instructor
+          const groupedItems = {};
+          selectedItems.forEach(item => {
+            if (!groupedItems[item.instructor]) {
+              groupedItems[item.instructor] = [];
+            }
+            groupedItems[item.instructor].push(item);
+          });
+          
+          subtotal = 0;
+          
+          // Render grouped items
+          for (const [instructor, courses] of Object.entries(groupedItems)) {
+            const groupDiv = document.createElement('div');
+            groupDiv.className = 'instructor-group';
+            
+            let groupHTML = `
+              <div class="instructor-info">
+                <img src="../../../resources/images/myCart/container_avt.svg" alt="Avatar" class="instructor-avatar" />
+                <span class="instructor-name">${instructor}</span>
+              </div>
+            `;
+            
+            courses.forEach(course => {
+              subtotal += course.currentPrice;
+              groupHTML += `
+                <div class="checkout-course-item">
+                  <div class="checkout-course-thumbnail">
+                    <div class="checkout-thumbnail-placeholder"></div>
+                  </div>
+                  <div class="checkout-course-info">
+                    <h4 class="checkout-course-title">${course.title}</h4>
+                    <div class="checkout-course-price">
+                      <span class="checkout-current-price">$${course.currentPrice.toFixed(2)}</span>
+                      ${course.originalPrice ? `<span class="checkout-original-price">$${course.originalPrice.toFixed(2)}</span>` : ''}
+                    </div>
+                  </div>
+                </div>
+              `;
+            });
+            
+            groupDiv.innerHTML = groupHTML;
+            coursesContainer.appendChild(groupDiv);
+          }
+          
+          // Add subtotal
+          const subtotalDiv = document.createElement('div');
+          subtotalDiv.className = 'checkout-subtotal';
+          subtotalDiv.innerHTML = `
+            <span class="subtotal-label">Tạm tính:</span>
+            <span class="subtotal-value">$${subtotal.toFixed(2)}</span>
+          `;
+          coursesContainer.appendChild(subtotalDiv);
+          
+          updatePaymentSummary();
+        }
+      }
+
+      // Update payment summary
+      function updatePaymentSummary() {
+        const originalPrice = subtotal;
+        let discount = 0;
+        
+        if (appliedVoucher && voucherData[appliedVoucher]) {
+          discount = subtotal * voucherData[appliedVoucher].discount;
+        }
+        
+        const total = originalPrice - discount;
+        
+        document.getElementById('summarySubtotal').textContent = '$' + originalPrice.toFixed(2);
+        document.getElementById('summaryDiscount').textContent = '-$' + discount.toFixed(2);
+        document.getElementById('summaryTotal').textContent = '$' + total.toFixed(2);
+      }
+
+      // Payment method selection
+      const paymentMethods = document.querySelectorAll('.payment-method');
+      
+      paymentMethods.forEach(method => {
+        method.addEventListener('click', function() {
+          paymentMethods.forEach(m => m.classList.remove('selected'));
+          this.classList.add('selected');
+          this.querySelector('input').checked = true;
+        });
+      });
+
+      // Voucher apply
+      const voucherApplyBtn = document.getElementById('voucherApplyBtn');
+      const voucherInput = document.getElementById('voucherInput');
+      const voucherInputGroup = document.getElementById('voucherInputGroup');
+      const voucherHint = document.getElementById('voucherHint');
+      const voucherApplied = document.getElementById('voucherApplied');
+      const voucherRemoveBtn = document.getElementById('voucherRemoveBtn');
+      
+      voucherApplyBtn.addEventListener('click', function() {
+        const code = voucherInput.value.trim().toUpperCase();
+        
+        if (voucherData[code]) {
+          appliedVoucher = code;
+          const discountAmount = subtotal * voucherData[code].discount;
+          
+          // Update applied voucher display
+          document.getElementById('appliedVoucherCode').textContent = code;
+          document.getElementById('appliedVoucherDesc').textContent = voucherData[code].desc;
+          document.getElementById('appliedVoucherDiscount').textContent = 'Giảm $' + discountAmount.toFixed(2);
+          
+          // Show applied, hide input
+          voucherInputGroup.style.display = 'none';
+          voucherHint.style.display = 'none';
+          voucherApplied.style.display = 'block';
+          
+          updatePaymentSummary();
+        } else if (code) {
+          alert('Mã giảm giá không hợp lệ!');
+        }
+      });
+      
+      // Voucher remove
+      voucherRemoveBtn.addEventListener('click', function() {
+        appliedVoucher = null;
+        voucherInput.value = '';
+        
+        // Hide applied, show input
+        voucherApplied.style.display = 'none';
+        voucherInputGroup.style.display = 'flex';
+        voucherHint.style.display = 'block';
+        
+        updatePaymentSummary();
+      });
+
+      // Load items on page load
+      document.addEventListener('DOMContentLoaded', loadSelectedItems);
+    </script>
+  </body>
+</html>

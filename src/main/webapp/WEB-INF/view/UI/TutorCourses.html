@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Courses - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+            <a href="UserDashboard.html" class="nav-link">Home</a>
+            <a href="UserExplore.html" class="nav-link">Explore</a>
+            <a href="TutorCourses.html" class="nav-link active">Tutor Now</a>
+            <a href="Enrollments.html" class="nav-link">Enrollments</a>
+        </nav>
+        <div class="actions">
+          <div class="user-menu">
+            <a href="MyCart.html" class="cart-btn">
+              <img src="../../../resources/images/userHeader/icon_cart.svg" alt="Cart" width="20" height="20" />
+            </a>
+            <button class="message-btn">
+              <img src="../../../resources/images/userHeader/icon_mess.svg" alt="Messages" width="20" height="20" />
+            </button>
+            <button class="notification-btn">
+              <img src="../../../resources/images/userHeader/icon_noti.svg" alt="Notifications" width="20" height="20" />
+            </button>
+            <div class="user-profile">
+              <img src="../../../resources/images/userHeader/user_avt.svg" alt="User Avatar" class="user-avatar-img" />
+              <img src="../../../resources/images/userHeader/icon_down.svg" alt="Dropdown" class="user-dropdown-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="tutor-courses-page">
+      <div class="content">
+        <!-- Page Title & Add Button -->
+        <div class="tutor-header">
+          <div class="tutor-title-section">
+            <h1 class="tutor-page-title">My Courses</h1>
+            <p class="tutor-page-subtitle">Create and manage your course content</p>
+          </div>
+          <a href="AddCourse_Basic.html" class="btn-add-course">
+            <img src="../../../resources/images/tutorCourses/icon_add.svg" alt="Add" width="20" height="20" />
+            <span>Add Course</span>
+          </a>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="tutor-stats">
+          <div class="tutor-stat-card">
+            <img src="../../../resources/images/tutorCourses/container_student.svg" alt="Students" class="stat-icon" />
+            <div class="stat-content">
+              <p class="stat-label">Total Students</p>
+              <p class="stat-value">1,234</p>
+            </div>
+          </div>
+
+          <div class="tutor-stat-card">
+            <img src="../../../resources/images/tutorCourses/container_revenue.svg" alt="Revenue" class="stat-icon" />
+            <div class="stat-content">
+              <p class="stat-label">Total Revenue</p>
+              <p class="stat-value">$45,678</p>
+            </div>
+          </div>
+
+          <div class="tutor-stat-card">
+            <img src="../../../resources/images/tutorCourses/container_star.svg" alt="Rating" class="stat-icon" />
+            <div class="stat-content">
+              <p class="stat-label">Average Rating</p>
+              <div class="stat-rating">
+                <span class="stat-value">4.8</span>
+                <div class="stat-stars">
+                  <img src="../../../resources/images/tutorCourses/icon_star.svg" alt="Star" width="16" height="16" />
+                  <img src="../../../resources/images/tutorCourses/icon_star.svg" alt="Star" width="16" height="16" />
+                  <img src="../../../resources/images/tutorCourses/icon_star.svg" alt="Star" width="16" height="16" />
+                  <img src="../../../resources/images/tutorCourses/icon_star.svg" alt="Star" width="16" height="16" />
+                  <img src="../../../resources/images/tutorCourses/icon_star.svg" alt="Star" width="16" height="16" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="tutor-controls">
+          <div class="tutor-search-wrapper">
+            <img src="../../../resources/images/tutorCourses/icon_search.svg" alt="Search" class="search-icon" width="20" height="20" />
+            <input type="text" class="tutor-search-input" placeholder="Search courses..." />
+          </div>
+          <button class="tutor-filter-btn">
+            <img src="../../../resources/images/tutorCourses/icon_filter.svg" alt="Filter" width="20" height="20" />
+            <span>All Courses (8)</span>
+            <img src="../../../resources/images/tutorCourses/icon_down.svg" alt="Dropdown" width="16" height="16" />
+          </button>
+        </div>
+
+        <!-- Courses Table -->
+        <div class="tutor-table-wrapper">
+          <table class="tutor-courses-table">
+            <thead>
+              <tr>
+                <th class="col-course">Course</th>
+                <th class="col-date">Last Updated</th>
+                <th class="col-price">Price</th>
+                <th class="col-status">Status</th>
+                <th class="col-actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Course Row 1 -->
+              <tr class="course-row">
+                <td class="course-info">
+                  <h3 class="course-name">React for Beginners</h3>
+                  <p class="course-desc">Learn the fundamentals of React and build modern web applications</p>
+                </td>
+                <td class="course-date">2023-10-01</td>
+                <td class="course-price">$59.99</td>
+                <td class="course-status">
+                  <span class="status-badge status-published">Published</span>
+                </td>
+                <td class="course-actions">
+                  <a href="AddCourse_Basic.html" class="action-btn edit-btn">
+                    <img src="../../../resources/images/tutorCourses/button_edit.svg" alt="Edit" width="32" height="32" />
+                  </a>
+                  <button class="action-btn delete-btn">
+                    <img src="../../../resources/images/tutorCourses/button_delete.svg" alt="Delete" width="32" height="32" />
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Course Row 2 -->
+              <tr class="course-row">
+                <td class="course-info">
+                  <h3 class="course-name">UI/UX Design Basics</h3>
+                  <p class="course-desc">Master the principles of user interface and user experience design</p>
+                </td>
+                <td class="course-date">2023-09-15</td>
+                <td class="course-price">$79.99</td>
+                <td class="course-status">
+                  <span class="status-badge status-published">Published</span>
+                </td>
+                <td class="course-actions">
+                  <a href="AddCourse_Basic.html" class="action-btn edit-btn">
+                    <img src="../../../resources/images/tutorCourses/button_edit.svg" alt="Edit" width="32" height="32" />
+                  </a>
+                  <button class="action-btn delete-btn">
+                    <img src="../../../resources/images/tutorCourses/button_delete.svg" alt="Delete" width="32" height="32" />
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Course Row 3 -->
+              <tr class="course-row">
+                <td class="course-info">
+                  <h3 class="course-name">Advanced JavaScript Patterns</h3>
+                  <p class="course-desc">Deep dive into advanced JavaScript concepts and design patterns</p>
+                </td>
+                <td class="course-date">2023-08-20</td>
+                <td class="course-price">$89.99</td>
+                <td class="course-status">
+                  <span class="status-badge status-draft">Draft</span>
+                </td>
+                <td class="course-actions">
+                  <a href="AddCourse_Basic.html" class="action-btn edit-btn">
+                    <img src="../../../resources/images/tutorCourses/button_edit.svg" alt="Edit" width="32" height="32" />
+                  </a>
+                  <button class="action-btn delete-btn">
+                    <img src="../../../resources/images/tutorCourses/button_delete.svg" alt="Delete" width="32" height="32" />
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Course Row 4 -->
+              <tr class="course-row">
+                <td class="course-info">
+                  <h3 class="course-name">Digital Marketing Fundamentals</h3>
+                  <p class="course-desc">Learn the basics of digital marketing and social media strategy</p>
+                </td>
+                <td class="course-date">2023-07-10</td>
+                <td class="course-price">$49.99</td>
+                <td class="course-status">
+                  <span class="status-badge status-pending">Pending</span>
+                </td>
+                <td class="course-actions">
+                  <a href="AddCourse_Basic.html" class="action-btn edit-btn">
+                    <img src="../../../resources/images/tutorCourses/button_edit.svg" alt="Edit" width="32" height="32" />
+                  </a>
+                  <button class="action-btn delete-btn">
+                    <img src="../../../resources/images/tutorCourses/button_delete.svg" alt="Delete" width="32" height="32" />
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Course Row 5 -->
+              <tr class="course-row">
+                <td class="course-info">
+                  <h3 class="course-name">Python for Data Science</h3>
+                  <p class="course-desc">Master Python programming for data analysis and visualization</p>
+                </td>
+                <td class="course-date">2023-06-05</td>
+                <td class="course-price">$99.99</td>
+                <td class="course-status">
+                  <span class="status-badge status-draft">Draft</span>
+                </td>
+                <td class="course-actions">
+                  <a href="AddCourse_Basic.html" class="action-btn edit-btn">
+                    <img src="../../../resources/images/tutorCourses/button_edit.svg" alt="Edit" width="32" height="32" />
+                  </a>
+                  <button class="action-btn delete-btn">
+                    <img src="../../../resources/images/tutorCourses/button_delete.svg" alt="Delete" width="32" height="32" />
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Course Row 6 -->
+              <tr class="course-row">
+                <td class="course-info">
+                  <h3 class="course-name">Mobile App Development</h3>
+                  <p class="course-desc">Build native mobile applications for iOS and Android</p>
+                </td>
+                <td class="course-date">2023-05-20</td>
+                <td class="course-price">$129.99</td>
+                <td class="course-status">
+                  <span class="status-badge status-rejected">Rejected</span>
+                </td>
+                <td class="course-actions">
+                  <a href="AddCourse_Basic.html" class="action-btn edit-btn">
+                    <img src="../../../resources/images/tutorCourses/button_edit.svg" alt="Edit" width="32" height="32" />
+                  </a>
+                  <button class="action-btn delete-btn">
+                    <img src="../../../resources/images/tutorCourses/button_delete.svg" alt="Delete" width="32" height="32" />
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Course Row 7 -->
+              <tr class="course-row">
+                <td class="course-info">
+                  <h3 class="course-name">SEO Mastery Course</h3>
+                  <p class="course-desc">Learn search engine optimization techniques to rank higher</p>
+                </td>
+                <td class="course-date">2023-04-10</td>
+                <td class="course-price">$69.99</td>
+                <td class="course-status">
+                  <span class="status-badge status-pending">Pending</span>
+                </td>
+                <td class="course-actions">
+                  <a href="AddCourse_Basic.html" class="action-btn edit-btn">
+                    <img src="../../../resources/images/tutorCourses/button_edit.svg" alt="Edit" width="32" height="32" />
+                  </a>
+                  <button class="action-btn delete-btn">
+                    <img src="../../../resources/images/tutorCourses/button_delete.svg" alt="Delete" width="32" height="32" />
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Course Row 8 -->
+              <tr class="course-row">
+                <td class="course-info">
+                  <h3 class="course-name">Web Design Principles</h3>
+                  <p class="course-desc">Create beautiful and functional websites with modern design</p>
+                </td>
+                <td class="course-date">2023-03-05</td>
+                <td class="course-price">$54.99</td>
+                <td class="course-status">
+                  <span class="status-badge status-draft">Draft</span>
+                </td>
+                <td class="course-actions">
+                  <a href="AddCourse_Basic.html" class="action-btn edit-btn">
+                    <img src="../../../resources/images/tutorCourses/button_edit.svg" alt="Edit" width="32" height="32" />
+                  </a>
+                  <button class="action-btn delete-btn">
+                    <img src="../../../resources/images/tutorCourses/button_delete.svg" alt="Delete" width="32" height="32" />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="tutor-pagination">
+          <button class="page-btn" disabled>Previous</button>
+          <div class="page-info">Page 1 of 2</div>
+          <button class="page-btn">Next</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="content footer-inner">
+        <div class="footer-links">
+          <a href="#" class="footer-link">About Us</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Support</a>
+        </div>
+
+        <div class="Follow-us">Follow us</div>
+        <div class="social">
+          <img src="../../../resources/images/HomePage/Button-FB.svg" alt="Facebook" />
+          <img src="../../../resources/images/HomePage/Button-insta.svg" alt="Instagram" />
+          <img src="../../../resources/images/HomePage/Button-yt.svg" alt="YouTube" />
+        </div>
+        <div class="copy">© 2024 EduLearn. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

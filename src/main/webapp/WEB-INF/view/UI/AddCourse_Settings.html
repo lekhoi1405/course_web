@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create New Course - Settings - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+            <a href="UserDashboard.html" class="nav-link">Home</a>
+            <a href="UserExplore.html" class="nav-link">Explore</a>
+            <a href="TutorCourses.html" class="nav-link active">Tutor Now</a>
+            <a href="Enrollments.html" class="nav-link">Enrollments</a>
+        </nav>
+        <div class="actions">
+          <div class="user-menu">
+            <a href="MyCart.html" class="cart-btn">
+              <img src="../../../resources/images/userHeader/icon_cart.svg" alt="Cart" width="20" height="20" />
+            </a>
+            <button class="message-btn">
+              <img src="../../../resources/images/userHeader/icon_mess.svg" alt="Messages" width="20" height="20" />
+            </button>
+            <button class="notification-btn">
+              <img src="../../../resources/images/userHeader/icon_noti.svg" alt="Notifications" width="20" height="20" />
+            </button>
+            <div class="user-profile">
+              <img src="../../../resources/images/userHeader/user_avt.svg" alt="User Avatar" class="user-avatar-img" />
+              <img src="../../../resources/images/userHeader/icon_down.svg" alt="Dropdown" class="user-dropdown-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="create-course-page">
+      <div class="content">
+        <!-- Page Header -->
+        <div class="create-course-header">
+          <h1 class="create-course-title">Create New Course</h1>
+          <div class="create-course-actions">
+            <button class="btn-cancel">Cancel</button>
+            <button class="btn-save-course">
+              <img src="../../../resources/images/addCourse/icon_save.svg" alt="Save" width="20" height="20" />
+              Save Course
+            </button>
+            <button class="btn-submit-review">
+              <img src="../../../resources/images/addCourse/icon_submit.svg" alt="Submit" width="20" height="20" />
+              Submit for Review
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="create-course-tabs">
+          <a href="AddCourse_Basic.html" class="create-tab">
+            Basic Info
+          </a>
+          <a href="AddCourse_Curriculum.html" class="create-tab">
+            Curriculum
+          </a>
+          <a href="AddCourse_Settings.html" class="create-tab active">
+            Settings
+          </a>
+        </div>
+
+        <!-- Settings Form -->
+        <form class="create-course-form">
+          <!-- Pricing Section -->
+          <div class="form-section">
+            <h2 class="section-title">Pricing</h2>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Price *</label>
+                <input type="text" class="form-input" placeholder="59.99" value="59.99" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Currency *</label>
+                <div class="select-wrapper">
+                  <select class="form-select">
+                    <option value="vnd" selected>VND (đ</option>
+                    <option value="usd">USD ($)</option>
+                    <option value="eur">EUR (€)</option>
+                  </select>
+                  <img src="../../../resources/images/addCourse/icon_down.svg" alt="Dropdown" class="select-icon" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Details Section -->
+          <div class="form-section">
+            <h2 class="section-title">Course Details</h2>
+            
+            <div class="form-group">
+              <label class="form-label">Level *</label>
+              <div class="select-wrapper">
+                <select class="form-select">
+                  <option value="" disabled selected>Select level</option>
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                  <option value="all">All Levels</option>
+                </select>
+                <img src="../../../resources/images/addCourse/icon_down.svg" alt="Dropdown" class="select-icon" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Category *</label>
+              <div class="select-wrapper">
+                <select class="form-select">
+                  <option value="" disabled selected>Select category</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="mobile-development">Mobile Development</option>
+                  <option value="data-science">Data Science</option>
+                  <option value="machine-learning">Machine Learning</option>
+                  <option value="ui-ux">UI/UX Design</option>
+                  <option value="business">Business</option>
+                  <option value="marketing">Marketing</option>
+                </select>
+                <img src="../../../resources/images/addCourse/icon_down.svg" alt="Dropdown" class="select-icon" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Language *</label>
+              <div class="select-wrapper">
+                <select class="form-select">
+                  <option value="" disabled selected>Select language</option>
+                  <option value="vietnamese">Vietnamese</option>
+                  <option value="english">English</option>
+                  <option value="japanese">Japanese</option>
+                  <option value="korean">Korean</option>
+                  <option value="chinese">Chinese</option>
+                </select>
+                <img src="../../../resources/images/addCourse/icon_down.svg" alt="Dropdown" class="select-icon" />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="content footer-inner">
+        <div class="footer-links">
+          <a href="#" class="footer-link">About Us</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Support</a>
+        </div>
+
+        <div class="Follow-us">Follow us</div>
+        <div class="social">
+          <img src="../../../resources/images/HomePage/Button-FB.svg" alt="Facebook" />
+          <img src="../../../resources/images/HomePage/Button-insta.svg" alt="Instagram" />
+          <img src="../../../resources/images/HomePage/Button-yt.svg" alt="YouTube" />
+        </div>
+        <div class="copy">© 2024 EduLearn. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

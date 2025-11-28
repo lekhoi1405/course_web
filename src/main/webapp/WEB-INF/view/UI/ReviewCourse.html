@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đánh giá khóa học - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+            <a href="UserDashboard.html" class="nav-link">Home</a>
+            <a href="UserExplore.html" class="nav-link">Explore</a>
+            <a href="TutorCourses.html" class="nav-link">Tutor Now</a>
+            <a href="Enrollments.html" class="nav-link">Enrollments</a>
+        </nav>
+        <div class="actions">
+          <div class="user-menu">
+            <a href="MyCart.html" class="cart-btn">
+              <img src="../../../resources/images/userHeader/icon_cart.svg" alt="Cart" width="20" height="20" />
+            </a>
+            <button class="message-btn">
+              <img src="../../../resources/images/userHeader/icon_mess.svg" alt="Messages" width="20" height="20" />
+            </button>
+            <button class="notification-btn">
+              <img src="../../../resources/images/userHeader/icon_noti.svg" alt="Notifications" width="20" height="20" />
+            </button>
+            <div class="user-profile">
+              <img src="../../../resources/images/userHeader/user_avt.svg" alt="User Avatar" class="user-avatar-img" />
+              <img src="../../../resources/images/userHeader/icon_down.svg" alt="Dropdown" class="user-dropdown-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="review-course-page">
+        <!-- Back Button & Title - outside content for full width -->
+        <div class="review-header-wrapper">
+          <div class="review-header">
+            <a href="Enrollments.html" class="back-link">
+              <img src="../../../resources/images/reviewCourse/icon_back.svg" alt="Back" width="20" height="20" />
+            </a>
+            <h1 class="review-page-title">Đánh giá khóa học</h1>
+          </div>
+        </div>
+
+        <div class="content">
+          <!-- Course Info Card -->
+          <div class="review-course-info">
+            <div class="review-course-thumbnail">
+              <div class="review-thumbnail-placeholder"></div>
+            </div>
+            <div class="review-course-details">
+              <h2 class="review-course-name">Lập Trình JavaScript Cơ Bản</h2>
+              <p class="review-course-congrats">Chúc mừng bạn đã hoàn thành khóa học!</p>
+            </div>
+          </div>
+
+          <!-- Review Form -->
+          <div class="review-form-card">
+            <div class="review-form-header">
+              <h3 class="review-form-title">Bạn đánh giá khóa học này như thế nào?</h3>
+              <p class="review-form-subtitle">Đánh giá của bạn sẽ giúp chúng tôi cải thiện chất lượng khóa học</p>
+            </div>
+
+            <!-- Star Rating -->
+            <div class="star-rating">
+              <input type="radio" name="rating" value="1" id="star1" />
+              <label for="star1" class="star-label">
+                <img src="../../../resources/images/reviewCourse/button_star.svg" alt="Star" class="star-icon" />
+              </label>
+              
+              <input type="radio" name="rating" value="2" id="star2" />
+              <label for="star2" class="star-label">
+                <img src="../../../resources/images/reviewCourse/button_star.svg" alt="Star" class="star-icon" />
+              </label>
+              
+              <input type="radio" name="rating" value="3" id="star3" />
+              <label for="star3" class="star-label">
+                <img src="../../../resources/images/reviewCourse/button_star.svg" alt="Star" class="star-icon" />
+              </label>
+              
+              <input type="radio" name="rating" value="4" id="star4" />
+              <label for="star4" class="star-label">
+                <img src="../../../resources/images/reviewCourse/button_star.svg" alt="Star" class="star-icon" />
+              </label>
+              
+              <input type="radio" name="rating" value="5" id="star5" />
+              <label for="star5" class="star-label">
+                <img src="../../../resources/images/reviewCourse/button_star.svg" alt="Star" class="star-icon" />
+              </label>
+            </div>
+
+            <!-- Review Text -->
+            <div class="review-textarea-section">
+              <label class="review-textarea-label">Chia sẻ trải nghiệm của bạn</label>
+              <textarea 
+                class="review-textarea" 
+                placeholder="Hãy chia sẻ chi tiết về trải nghiệm của bạn với khóa học này. Điều gì bạn thích nhất? Có điều gì cần cải thiện không?"
+                maxlength="500"
+                id="reviewText"
+              ></textarea>
+              <div class="review-char-count">
+                <span id="charCount">0</span> / 500 ký tự
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button class="btn-submit-review-form">
+              <img src="../../../resources/images/reviewCourse/icon_send.svg" alt="Send" width="20" height="20" />
+              Gửi đánh giá
+            </button>
+          </div>
+
+          <!-- Notice -->
+          <div class="review-notice">
+            <p>Đánh giá của bạn sẽ được hiển thị công khai và giúp những học viên khác có cái nhìn tổng quan về khóa học. Hãy chia sẻ một cách trung thực và xây dựng nhé!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="Follow-us">Follow us</div>
+        <div class="social">
+          <img src="../../../resources/images/HomePage/Button-FB.svg" alt="Facebook" />
+          <img src="../../../resources/images/HomePage/Button-insta.svg" alt="Instagram" />
+          <img src="../../../resources/images/HomePage/Button-yt.svg" alt="YouTube" />
+        </div>
+        <div class="copy">© 2024 EduLearn. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      // Character count
+      const reviewText = document.getElementById('reviewText');
+      const charCount = document.getElementById('charCount');
+      
+      reviewText.addEventListener('input', function() {
+        charCount.textContent = this.value.length;
+      });
+
+      // Star rating hover effect - đổi icon khi hover
+      const starLabels = document.querySelectorAll('.star-label');
+      const starInputs = document.querySelectorAll('input[name="rating"]');
+      const starIconPath = '../../../resources/images/reviewCourse/button_star.svg';
+      const ystarIconPath = '../../../resources/images/reviewCourse/button_ystar.svg';
+      
+      starLabels.forEach((label, index) => {
+        label.addEventListener('mouseenter', () => {
+          // Đổi icon thành ystar cho tất cả sao từ đầu đến sao được hover
+          for (let i = 0; i <= index; i++) {
+            starLabels[i].querySelector('img').src = ystarIconPath;
+          }
+        });
+        
+        label.addEventListener('mouseleave', () => {
+          // Reset về trạng thái đã chọn hoặc star thường
+          updateStarIcons();
+        });
+        
+        label.addEventListener('click', () => {
+          // Set the rating
+          starInputs[index].checked = true;
+          updateStarIcons();
+        });
+      });
+      
+      function updateStarIcons() {
+        const checkedInput = document.querySelector('input[name="rating"]:checked');
+        
+        if (checkedInput) {
+          const selectedIndex = parseInt(checkedInput.value) - 1;
+          starLabels.forEach((label, i) => {
+            label.querySelector('img').src = i <= selectedIndex ? ystarIconPath : starIconPath;
+          });
+        } else {
+          // Không có sao nào được chọn, reset tất cả về icon_star
+          starLabels.forEach(label => {
+            label.querySelector('img').src = starIconPath;
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
