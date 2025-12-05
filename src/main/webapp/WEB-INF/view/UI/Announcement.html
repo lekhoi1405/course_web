@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+          <a href="UserDashboard.html" class="nav-link active">Home</a>
+          <a href="UserExplore.html" class="nav-link">Explore</a>
+          <a href="TutorCourses.html" class="nav-link">Tutor Now</a>
+          <a href="Enrollments.html" class="nav-link">Enrollments</a>
+        </nav>
+        <div class="actions">
+          <div class="user-menu">
+            <a
+              href="MyCart.html"
+              class="cart-btn"
+              style="--color-badge: #1c398e"
+              data-count="2"
+            >
+              <img
+                src="../../../resources/images/userHeader/icon_cart.svg"
+                alt="Cart"
+                width="20"
+                height="20"
+              />
+            </a>
+            <button class="message-btn" data-count="3">
+              <img
+                src="../../../resources/images/userHeader/icon_mess.svg"
+                alt="Messages"
+                width="20"
+                height="20"
+              />
+            </button>
+
+            <button
+              class="notification-btn icon-badge"
+              id="openNotiBtn"
+              aria-haspopup="dialog"
+              aria-expanded="false"
+              data-count="3"
+            >
+              <img
+                src="../../../resources/images/userHeader/icon_noti.svg"
+                alt="Notifications"
+                width="20"
+                height="20"
+              />
+            </button>
+
+            <div class="user-profile">
+              <img
+                src="../../../resources/images/userHeader/user_avt.svg"
+                alt="User Avatar"
+                class="user-avatar-img"
+              />
+              <img
+                src="../../../resources/images/userHeader/icon_down.svg"
+                alt="Dropdown"
+                class="user-dropdown-icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="noti-overlay" id="notiOverlay"></div>
+
+    <div
+      class="noti-panel"
+      id="notiPanel"
+      role="dialog"
+      aria-labelledby="notiTitle"
+    >
+      <div class="noti-header">
+        <h3 id="notiTitle">Thông báo</h3>
+        <button class="noti-close" id="closeNotiBtn" aria-label="Đóng">
+          <img
+            src="../../../resources/images/userDashboard/VectorX.svg"
+            alt=""
+          />
+        </button>
+      </div>
+
+      <ul class="noti-list">
+        <li class="noti-item unread">
+          <div class="noti-avatar">
+            <img
+              src="../../../resources/images/userHeader/user_avt.svg"
+              alt="User Avatar"
+              class="user-avatar-img"
+            />
+          </div>
+          <div class="noti-body">
+            <p class="noti-title">Khóa học mới đã được thêm</p>
+            <p class="noti-desc">
+              Advanced React Patterns đã được thêm vào danh sách của bạn
+            </p>
+            <div class="noti-meta">5 phút trước</div>
+          </div>
+          <span class="noti-dot"></span>
+        </li>
+        <li class="noti-item unread">
+          <div class="noti-avatar">
+            <img
+              src="../../../resources/images/userHeader/user_avt.svg"
+              alt="User Avatar"
+              class="user-avatar-img"
+            />
+          </div>
+          <div class="noti-body">
+            <p class="noti-title">Khóa học mới đã được thêm</p>
+            <p class="noti-desc">
+              Advanced React Patterns đã được thêm vào danh sách của bạn
+            </p>
+            <div class="noti-meta">5 phút trước</div>
+          </div>
+          <span class="noti-dot"></span>
+        </li>
+      </ul>
+
+      <a href="#" class="noti-viewall">Xem tất cả thông báo</a>
+    </div>
+
+    <script>
+      const openBtn = document.getElementById("openNotiBtn");
+      const closeBtn = document.getElementById("closeNotiBtn");
+      const overlay = document.getElementById("notiOverlay");
+      const panel = document.getElementById("notiPanel");
+      const badge = document.getElementById("notiBadge");
+      const titleCount = () => panel.querySelector(".noti-count");
+
+      function openPanel() {
+        panel.classList.add("show");
+        overlay.classList.add("show");
+        openBtn.setAttribute("aria-expanded", "true");
+      }
+
+      function closePanel() {
+        panel.classList.remove("show");
+        overlay.classList.remove("show");
+        openBtn.setAttribute("aria-expanded", "false");
+      }
+
+      openBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        panel.classList.contains("show") ? closePanel() : openPanel();
+      });
+      closeBtn.addEventListener("click", closePanel);
+      overlay.addEventListener("click", closePanel);
+      document.addEventListener(
+        "keydown",
+        (e) => e.key === "Escape" && closePanel()
+      );
+
+      panel.addEventListener("click", (e) => {
+        const item = e.target.closest(".noti-item.unread");
+        if (!item) return;
+        item.classList.remove("unread");
+        item.querySelector(".noti-dot")?.remove();
+        const remain = panel.querySelectorAll(".noti-item.unread").length;
+        titleCount().textContent = remain;
+        if (badge) {
+          if (remain <= 0) badge.style.display = "none";
+          else badge.textContent = remain;
+        }
+      });
+
+      document
+        .querySelectorAll(".cart-btn, .message-btn, .notification-btn")
+        .forEach((btn) => {
+          const count = parseInt(btn.dataset.count || "0");
+          if (count <= 0) btn.removeAttribute("data-count");
+        });
+    </script>
+  </body>
+</html>
