@@ -19,12 +19,24 @@ public class InvoiceDetail {
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
+
     public Invoice getInvoice() {
         return invoice;
     }
 
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Course getCourse() {
@@ -35,7 +47,4 @@ public class InvoiceDetail {
         this.course = course;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
 }

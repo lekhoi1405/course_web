@@ -1,7 +1,5 @@
 package vn.web.courseShop.domain;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "resources")
-public class Resourse {
+public class Resource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -25,12 +23,14 @@ public class Resourse {
     @Column(name = "`index`")
     private Long index;
     
-    @Column(length = 255)
-    private String fileNameOriginal;
-    private String filePath;
-    //maybe donot need
-    private long fileSizeBytes;
-    
+    private String video;
+    private String document;
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
     public Lesson getLesson() {
         return lesson;
     }
@@ -43,24 +43,20 @@ public class Resourse {
     public void setIndex(Long index) {
         this.index = index;
     }
-    public String getFileNameOriginal() {
-        return fileNameOriginal;
+    public String getVideo() {
+        return video;
     }
-    public void setFileNameOriginal(String fileNameOriginal) {
-        this.fileNameOriginal = fileNameOriginal;
+    public void setVideo(String video) {
+        this.video = video;
     }
-    public String getFilePath() {
-        return filePath;
+    public String getDocument() {
+        return document;
     }
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
+    public void setDocument(String document) {
+        this.document = document;
     }
-    public long getFileSizeBytes() {
-        return fileSizeBytes;
-    }
-    public void setFileSizeBytes(long fileSizeBytes) {
-        this.fileSizeBytes = fileSizeBytes;
-    }
+
+    
 
     
 }

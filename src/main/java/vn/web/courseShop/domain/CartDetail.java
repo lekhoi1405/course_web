@@ -15,6 +15,14 @@ public class CartDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne
+    @JoinColumn(name ="cart_id")
+    private Cart cart;
+
+    @ManyToOne
+    @JoinColumn(name ="course_id")
+    private Course course;
+
     public Cart getCart() {
         return cart;
     }
@@ -31,12 +39,12 @@ public class CartDetail {
         this.course = course;
     }
 
-    @ManyToOne
-    @JoinColumn(name ="cart_id")
-    private Cart cart;
+    public long getId() {
+        return id;
+    }
 
-    @ManyToOne
-    @JoinColumn(name ="course_id")
-    private Course course;
+    public void setId(long id) {
+        this.id = id;
+    }
 }
 

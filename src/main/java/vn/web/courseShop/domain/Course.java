@@ -2,8 +2,10 @@ package vn.web.courseShop.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,11 +32,17 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private List<Enrollment> enrollments;
 
-    @OneToMany(mappedBy = "course")
-    private List<Section> sections;
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<Section> sections = new ArrayList<Section>();
 
     @OneToMany(mappedBy = "course")
     private List<Review> reviews;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<CoursePrerequisites> coursePrerequisites;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<CourseTarget> targets;
 
     @OneToMany(mappedBy = "course")
     private List<Report> reports;
@@ -65,11 +73,27 @@ public class Course {
     
     @Column(length = 50)
     private String language;
-    
+
+    @Column(length = 50)
+    private String status;
+
     private long duration;
-    private long status;
     private LocalDate submitDate;
     private LocalDate lastUpdate;
+    private String currency;
+
+    public List<CoursePrerequisites> getCoursePrerequisites() {
+        return coursePrerequisites;
+    }
+    public void setCoursePrerequisites(List<CoursePrerequisites> coursePrerequisites) {
+        this.coursePrerequisites = coursePrerequisites;
+    }
+    public List<CourseTarget> getTargets() {
+        return targets;
+    }
+    public void setTargets(List<CourseTarget> targets) {
+        this.targets = targets;
+    }
     public List<InvoiceDetail> getInvoiceDetails() {
         return invoiceDetails;
     }
@@ -160,10 +184,10 @@ public class Course {
     public void setDuration(long duration) {
         this.duration = duration;
     }
-    public long getStatus() {
+    public String getStatus() {
         return status;
     }
-    public void setStatus(long status) {
+    public void setStatus(String status) {
         this.status = status;
     }
     public LocalDate getSubmitDate() {
@@ -178,4 +202,16 @@ public class Course {
     public void setLastUpdate(LocalDate lastUpdate) {
         this.lastUpdate = lastUpdate;
     } 
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+    public String getCurrency() {
+        return currency;
+    }
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 }

@@ -24,7 +24,7 @@ public class RegisterValidator implements ConstraintValidator<RegisterChecked, R
                     .disableDefaultConstraintViolation();
             valid = false;
         }
-        if(accountService.checkEmailExists(registerDTO.getEmail())) {
+        if(accountService.checkEmailExists(registerDTO.getEmail())&&registerDTO.getEmail()!=null) {
             context.buildConstraintViolationWithTemplate("Email already exists")
                     .addPropertyNode("email")
                     .addConstraintViolation()

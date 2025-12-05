@@ -50,4 +50,12 @@ public class Enrollment {
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create New Course - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+        <nav class="nav">
+            <a href="UserDashboard.html" class="nav-link">Home</a>
+            <a href="UserExplore.html" class="nav-link">Explore</a>
+            <a href="TutorCourses.html" class="nav-link active">Tutor Now</a>
+            <a href="Enrollments.html" class="nav-link">Enrollments</a>
+        </nav>
+        <div class="actions">
+          <div class="user-menu">
+            <a href="MyCart.html" class="cart-btn">
+              <img src="../../../resources/images/userHeader/icon_cart.svg" alt="Cart" width="20" height="20" />
+            </a>
+            <button class="message-btn">
+              <img src="../../../resources/images/userHeader/icon_mess.svg" alt="Messages" width="20" height="20" />
+            </button>
+            <button class="notification-btn">
+              <img src="../../../resources/images/userHeader/icon_noti.svg" alt="Notifications" width="20" height="20" />
+            </button>
+            <div class="user-profile">
+              <img src="../../../resources/images/userHeader/user_avt.svg" alt="User Avatar" class="user-avatar-img" />
+              <img src="../../../resources/images/userHeader/icon_down.svg" alt="Dropdown" class="user-dropdown-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="create-course-page">
+      <div class="content">
+        <!-- Page Header -->
+        <div class="create-course-header">
+          <h1 class="create-course-title">Create New Course</h1>
+          <div class="create-course-actions">
+            <button class="btn-cancel">Cancel</button>
+            <button class="btn-save-course">
+              <img src="../../../resources/images/addCourse/icon_save.svg" alt="Save" width="20" height="20" />
+              Save Course
+            </button>
+            <button class="btn-submit-review">
+              <img src="../../../resources/images/addCourse/icon_submit.svg" alt="Submit" width="20" height="20" />
+              Submit for Review
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="create-course-tabs">
+          <a href="AddCourse_Basic.html" class="create-tab active">
+            Basic Info
+          </a>
+          <a href="AddCourse_Curriculum.html" class="create-tab">
+            Curriculum
+          </a>
+          <a href="AddCourse_Settings.html" class="create-tab">
+            Settings
+          </a>
+        </div>
+
+        <!-- Form Content -->
+        <div class="create-course-form">
+          <!-- Course Information Section -->
+          <div class="form-section">
+            <h2 class="section-title">Course Information</h2>
+
+            <!-- Course Title -->
+            <div class="form-group">
+              <label for="courseTitle" class="form-label">Course Title *</label>
+              <input type="text" id="courseTitle" class="form-input" placeholder="e.g., Complete React Developer Course 2024" />
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+              <label for="courseDescription" class="form-label">Description *</label>
+              <textarea id="courseDescription" class="form-textarea" rows="4" placeholder="Write a comprehensive description of your course..."></textarea>
+            </div>
+
+            <!-- Thumbnail Upload -->
+            <div class="form-group">
+              <label class="form-label">Thumbnail *</label>
+              <div class="upload-area">
+                <img src="../../../resources/images/addCourse/icon_upload.svg" alt="Upload" class="upload-icon" width="48" height="48" />
+                <p class="upload-text">Click to upload image</p>
+                <p class="upload-info">PNG, JPG up to 10MB (Recommended: 1280x720px)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- What You'll Learn Section -->
+          <div class="form-section">
+            <h2 class="section-title">What You'll Learn</h2>
+            
+            <div class="learning-objectives">
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="e.g., Build modern React applications from scratch" />
+              </div>
+              
+              <button class="btn-add-objective">
+                <img src="../../../resources/images/addCourse/icon_whiteadd.svg" alt="Add" width="20" height="20" />
+                Add Learning Objective
+              </button>
+            </div>
+          </div>
+
+          <!-- Prerequisites Section -->
+          <div class="form-section">
+            <h2 class="section-title">Prerequisites</h2>
+            
+            <div class="prerequisites">
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="e.g., Basic knowledge of HTML, CSS, and JavaScript" />
+              </div>
+              
+              <button class="btn-add-prerequisite">
+                <img src="../../../resources/images/addCourse/icon_whiteadd.svg" alt="Add" width="20" height="20" />
+                Add Prerequisite
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="content footer-inner">
+        <div class="footer-links">
+          <a href="#" class="footer-link">About Us</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Support</a>
+        </div>
+
+        <div class="Follow-us">Follow us</div>
+        <div class="social">
+          <img src="../../../resources/images/HomePage/Button-FB.svg" alt="Facebook" />
+          <img src="../../../resources/images/HomePage/Button-insta.svg" alt="Instagram" />
+          <img src="../../../resources/images/HomePage/Button-yt.svg" alt="YouTube" />
+        </div>
+        <div class="copy">© 2024 EduLearn. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

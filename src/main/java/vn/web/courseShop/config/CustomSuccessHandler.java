@@ -11,6 +11,9 @@ import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.RequestCache;
+import org.springframework.security.web.savedrequest.SavedRequest;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,7 +24,8 @@ import vn.web.courseShop.service.AccountService;
 
 public class CustomSuccessHandler implements AuthenticationSuccessHandler{
     private final AccountService accountService;
-
+    private RequestCache requestCache = new HttpSessionRequestCache();
+    
     public CustomSuccessHandler(AccountService accountService){
         this.accountService = accountService;
     }
@@ -29,7 +33,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler{
     protected String determineTargetUrl(final Authentication authentication) {
 
     Map<String, String> roleTargetUrlMap = new HashMap<>();
-    roleTargetUrlMap.put("ROLE_User", "/");
+    roleTargetUrlMap.put("ROLE_User", "/client/tutor/course");
     roleTargetUrlMap.put("ROLE_Admin", "/");
 
     final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -53,6 +57,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler{
         Account account = accountService.handleGetAccountByEmail(email);
         if(account != null){
             session.setAttribute("fullName", account.getFullname());
+            session.setAttribute("email", account.getEmail());
         }
 
     }
@@ -64,11 +69,20 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler{
             HttpServletResponse response,
             Authentication authentication)
             throws IOException, ServletException {
-        String targetUrl = determineTargetUrl(authentication);
         if (response.isCommitted()) {
             return;
         }
+
         clearAuthenticationAttributes(request, authentication);
-        redirectStrategy.sendRedirect(request, response, targetUrl);
+        SavedRequest savedRequest = requestCache.getRequest(request, response);
+        if (savedRequest != null) {
+            // TRƯỜNG HỢP A: Có trang cũ -> Redirect về trang đó
+            String targetUrl = savedRequest.getRedirectUrl();
+            redirectStrategy.sendRedirect(request, response, targetUrl);
+        } else {
+            // TRƯỜNG HỢP B: Không có trang cũ (User bấm Login chủ động) -> Dùng logic Role
+            String targetUrl = determineTargetUrl(authentication);
+            redirectStrategy.sendRedirect(request, response, targetUrl);
+        }
     }
 }

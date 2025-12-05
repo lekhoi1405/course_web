@@ -25,6 +25,14 @@ public class Cart {
     @JoinColumn(name = "account_id")
     private Account account;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public List<CartDetail> getCartDetails() {
         return cartDetails;
     }

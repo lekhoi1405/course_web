@@ -27,6 +27,14 @@ public class FlagReportBridge {
         return flag;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setFlag(Flag flag) {
         this.flag = flag;
     }

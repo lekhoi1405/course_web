@@ -41,6 +41,14 @@ public class Invoice {
     @Column(length = 30)
     private String status;
 
+    public long getId() {
+      return id;
+    }
+
+    public void setId(long id) {
+      this.id = id;
+    }
+
     public Account getAccount() {
       return account;
     }

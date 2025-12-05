@@ -61,5 +61,11 @@ public class CouponDetail {
     public void setUseDate(LocalDate useDate) {
         this.useDate = useDate;
     }
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
 
 }   

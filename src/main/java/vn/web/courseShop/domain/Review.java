@@ -31,6 +31,12 @@ public class Review {
     private long reviewStar;
     private LocalDate reviewDate;
     
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
     public Course getCourse() {
         return course;
     }

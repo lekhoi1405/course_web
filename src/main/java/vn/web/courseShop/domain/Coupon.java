@@ -36,6 +36,8 @@ public class Coupon {
     private long discountPercent;
     private LocalDate start_date;
     private LocalDate end_date;
+
+    
     public List<CouponDetail> getCouponDetails() {
         return couponDetails;
     }
@@ -83,6 +85,12 @@ public class Coupon {
     }
     public void setEnd_date(LocalDate end_date) {
         this.end_date = end_date;
+    }
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
     }
 
     

@@ -62,7 +62,14 @@ public class Account {
     private LocalDate created_date;
     private boolean status;
     
-        public List<Invoice> getInvoices() {
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public List<Invoice> getInvoices() {
         return invoices;
     }
     public void setInvoices(List<Invoice> invoices) {

@@ -1,3 +1,5 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,6 +32,14 @@
         <div class="auth-card">
           <h1 class="auth-title">Log In</h1>
           <form action="/login" method="post">
+            <c:if test="${param.error != null}">
+              <div class="my-2" style="color: red">
+                Invalid email or password.
+              </div>
+            </c:if>
+            <c:if test="${param.logout != null}">
+              <div class="my-2" style="color: green">Logout successful.</div>
+            </c:if>
             <!-- Email -->
             <div class="auth-field">
               <label for="email">Email</label>
