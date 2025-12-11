@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Learning - EduLearn</title>
+    <title>Edit Profile - EduLearn</title>
     <link rel="stylesheet" href="../../../resources/css/style.css" />
   </head>
   <body>
@@ -16,10 +16,10 @@
           <div class="name-brand">EduLearn</div>
         </div>
         <nav class="nav">
-            <a href="UserDashboard.html" class="nav-link">Home</a>
-            <a href="UserExplore.html" class="nav-link">Explore</a>
-            <a href="TutorCourses.html" class="nav-link">Tutor Now</a>
-            <a href="Enrollments.html" class="nav-link active">Enrollments</a>
+          <a href="UserDashboard.html" class="nav-link">Home</a>
+          <a href="UserExplore.html" class="nav-link">Explore</a>
+          <a href="TutorCourses.html" class="nav-link">Tutor Now</a>
+          <a href="Enrollments.html" class="nav-link">Enrollments</a>
         </nav>
         <div class="actions">
           <div class="user-menu">
@@ -66,159 +66,92 @@
     </header>
 
     <div class="main-content">
-      <div class="enrollments-page">
+      <div class="edit-profile-page">
         <div class="content">
-          <!-- Page Header -->
-          <div class="enrollments-header">
-            <h1 class="enrollments-title">My Learning</h1>
-            <p class="enrollments-subtitle">Continue your learning journey and track your progress</p>
-          </div>
-
-          <!-- Filter Tabs -->
-          <div class="enrollments-tabs">
-            <button class="enroll-tab active">All (3)</button>
-            <button class="enroll-tab">In Progress (1)</button>
-            <button class="enroll-tab">Completed (2)</button>
-          </div>
-
-          <!-- Course List -->
-          <div class="enrollments-list">
-            <!-- Course 1: In Progress -->
-            <div class="enrollment-card">
-              <div class="enrollment-thumbnail">
-                <div class="enrollment-thumbnail-placeholder"></div>
-              </div>
-              <div class="enrollment-content">
-                <h3 class="enrollment-course-title">React for Beginners</h3>
-                <p class="enrollment-instructor">by Dr. Sarah Chen</p>
-                <p class="enrollment-description">Learn the fundamentals of React and build modern web applications</p>
-                
-                <div class="enrollment-progress-section">
-                  <div class="progress-header">
-                    <span class="progress-label">Progress</span>
-                    <span class="progress-percent">35%</span>
-                  </div>
-                  <div class="progress-bar">
-                    <div class="progress-fill" style="width: 35%;"></div>
-                  </div>
-                </div>
-
-                <div class="enrollment-meta">
-                  <span class="meta-item">
-                    <img src="../../../resources/images/enrollments/icon_time.svg" alt="Time" width="14" height="14" />
-                    Last watched 2023-10-01
-                  </span>
-                  <span class="meta-dot">•</span>
-                  <span class="meta-item">42 lessons</span>
-                </div>
-
-                <div class="enrollment-actions">
-                  <a href="View-Course.html" class="btn-continue-learning">Continue Learning</a>
-                </div>
+          <div class="container">
+            <!-- Page Header with Cancel and Save buttons -->
+            <div class="profile-page-header">
+              <h1 class="profile-page-title">My Profile</h1>
+              <div class="edit-profile-actions">
+                <a href="MyProfile.html" class="btn-cancel-profile">
+                  <img src="../../../resources/images/myProfile/icon_cancel.svg" alt="Cancel" />
+                  Cancel
+                </a>
+                <button type="submit" form="profileForm" class="btn-save-profile">
+                  <img src="../../../resources/images/myProfile/icon_save.svg" alt="Save" />
+                  Save
+                </button>
               </div>
             </div>
 
-            <!-- Course 2: Completed -->
-            <div class="enrollment-card">
-              <div class="enrollment-thumbnail">
-                <div class="enrollment-thumbnail-placeholder"></div>
-              </div>
-              <div class="enrollment-content">
-                <div class="enrollment-title-row">
-                  <h3 class="enrollment-course-title">UI/UX Design Basics</h3>
-                  <span class="enrollment-status completed">
-                    <img src="../../../resources/images/enrollments/icon_complete.svg" alt="Completed" width="14" height="14" />
-                    Completed
-                  </span>
-                </div>
-                <p class="enrollment-instructor">by Prof. Michael Johnson</p>
-                <p class="enrollment-description">Master the principles of user interface and user experience design</p>
-                
-                <div class="enrollment-progress-section">
-                  <div class="progress-header">
-                    <span class="progress-label">Progress</span>
-                    <span class="progress-percent completed">100%</span>
-                  </div>
-                  <div class="progress-bar">
-                    <div class="progress-fill completed" style="width: 100%;"></div>
+            <!-- Profile Form -->
+            <form class="profile-form" id="profileForm">
+              <!-- Avatar, Name, Email Card -->
+              <div class="profile-card profile-card--main-edit">
+                <div class="profile-avatar-edit">
+                  <div class="avatar-wrapper-edit">
+                    <div class="profile-avatar-letter-edit">N</div>
+                    <button type="button" class="btn-change-avatar">
+                      <img src="../../../resources/images/myProfile/button_avatar.svg" alt="Change Avatar" />
+                    </button>
                   </div>
                 </div>
-
-                <div class="enrollment-meta">
-                  <span class="meta-item">
-                    <img src="../../../resources/images/enrollments/icon_time.svg" alt="Time" width="14" height="14" />
-                    Last watched 2023-09-15
-                  </span>
-                  <span class="meta-dot">•</span>
-                  <span class="meta-item">35 lessons</span>
-                </div>
-
-                <div class="enrollment-actions">
-                  <a href="ReviewCourse.html" class="btn-review">
-                    <img src="../../../resources/images/enrollments/icon_review.svg" alt="Review" width="14" height="14" />
-                    Review
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Course 3: Completed -->
-            <div class="enrollment-card">
-              <div class="enrollment-thumbnail">
-                <div class="enrollment-thumbnail-placeholder"></div>
-              </div>
-              <div class="enrollment-content">
-                <div class="enrollment-title-row">
-                  <h3 class="enrollment-course-title">Advanced JavaScript Patterns</h3>
-                  <span class="enrollment-status completed">
-                    <img src="../../../resources/images/enrollments/icon_complete.svg" alt="Completed" width="14" height="14" />
-                    Completed
-                  </span>
-                </div>
-                <p class="enrollment-instructor">by Dr. Sarah Chen</p>
-                <p class="enrollment-description">Deep dive into advanced JavaScript concepts and design patterns</p>
-                
-                <div class="enrollment-progress-section">
-                  <div class="progress-header">
-                    <span class="progress-label">Progress</span>
-                    <span class="progress-percent completed">100%</span>
+                <div class="profile-info-edit">
+                  <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" class="form-input form-input--dark" value="Nguyễn Văn A" placeholder="Enter your full name" />
                   </div>
-                  <div class="progress-bar">
-                    <div class="progress-fill completed" style="width: 100%;"></div>
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input form-input--dark" value="nguyenvana@example.com" placeholder="Enter your email address" />
                   </div>
                 </div>
+              </div>
 
-                <div class="enrollment-meta">
-                  <span class="meta-item">
-                    <img src="../../../resources/images/enrollments/icon_time.svg" alt="Time" width="14" height="14" />
-                    Last watched 2023-08-20
-                  </span>
-                  <span class="meta-dot">•</span>
-                  <span class="meta-item">50 lessons</span>
-                </div>
-
-                <div class="enrollment-actions">
-                  <a href="ReviewCourse.html" class="btn-review">
-                    <img src="../../../resources/images/enrollments/icon_review.svg" alt="Review" width="14" height="14" />
-                    Review
-                  </a>
+              <!-- About Me Card -->
+              <div class="profile-card">
+                <h3 class="profile-card-title">About Me</h3>
+                <div class="form-group">
+                  <textarea id="aboutMe" name="aboutMe" class="form-textarea form-textarea--dark" rows="4" placeholder="Tell us about yourself...">Tôi là một người đam mê học lập trình và công nghệ. Mục tiêu của tôi là trở thành Full-stack Developer chuyên nghiệp.</textarea>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Pagination -->
-          <div class="enrollments-pagination">
-            <button class="pagination-btn prev" disabled>
-              <span>‹</span> Previous
-            </button>
-            <div class="pagination-numbers">
-              <span class="page-num active">1</span>
-              <span class="page-num">2</span>
-            </div>
-            <button class="pagination-btn next">
-              Next <span>›</span>
-            </button>
+              <!-- Date of Birth Card -->
+              <div class="profile-card">
+                <h3 class="profile-card-title">Date of Birth</h3>
+                <div class="form-group">
+                  <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-input form-input--dark form-input--date-edit" value="1995-05-15" />
+                  <p class="form-hint">This information is private and not visible to others</p>
+                </div>
+              </div>
+
+              <!-- Social Links Card -->
+              <div class="profile-card">
+                <div class="profile-card-header">
+                  <h3 class="profile-card-title">Social Links</h3>
+                  <button type="button" class="btn-add-link" id="addLinkBtn">
+                    <img src="../../../resources/images/myProfile/icon_add.svg" alt="Add" />
+                    Add Link
+                  </button>
+                </div>
+                <div class="social-links-edit-list" id="socialLinksList">
+                  <div class="social-link-edit-item">
+                    <input type="text" class="form-input form-input--dark social-link-platform" value="Facebook" placeholder="Platform" />
+                    <input type="url" class="form-input form-input--dark social-link-url" value="https://facebook.com/nguyenvana" placeholder="https://..." />
+                    <button type="button" class="btn-delete-link">
+                      <img src="../../../resources/images/myProfile/button_delete.svg" alt="Delete" />
+                    </button>
+                  </div>
+                  <div class="social-link-edit-item">
+                    <input type="text" class="form-input form-input--dark social-link-platform" value="LinkedIn" placeholder="Platform" />
+                    <input type="url" class="form-input form-input--dark social-link-url" value="https://linkedin.com/in/nguyenvana" placeholder="https://..." />
+                    <button type="button" class="btn-delete-link">
+                      <img src="../../../resources/images/myProfile/button_delete.svg" alt="Delete" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -238,7 +171,7 @@
           <img src="../../../resources/images/HomePage/Button-insta.svg" alt="Instagram" />
           <img src="../../../resources/images/HomePage/Button-yt.svg" alt="YouTube" />
         </div>
-        <div class="copy">© 2025 EduLearn. All rights reserved.</div>
+        <div class="copy">© 2024 EduLearn. All rights reserved.</div>
       </div>
     </footer>
 
@@ -279,6 +212,13 @@
     </div>
 
     <script>
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+
       // Notification Panel Logic
       const openBtn = document.getElementById("openNotiBtn");
       const closeBtn = document.getElementById("closeNotiBtn");
@@ -340,6 +280,37 @@
             userMenuDropdown.classList.remove("show");
             userMenuBtn.setAttribute("aria-expanded", "false");
           }
+        });
+      }
+
+      // Delete social link
+      document.querySelectorAll('.btn-delete-link').forEach(btn => {
+        btn.addEventListener('click', function() {
+          this.closest('.social-link-edit-item').remove();
+        });
+      });
+
+      // Add new social link
+      const addLinkBtn = document.getElementById('addLinkBtn');
+      const socialLinksList = document.getElementById('socialLinksList');
+
+      if (addLinkBtn && socialLinksList) {
+        addLinkBtn.addEventListener('click', function() {
+          const newLinkItem = document.createElement('div');
+          newLinkItem.className = 'social-link-edit-item';
+          newLinkItem.innerHTML = `
+            <input type="text" class="form-input form-input--dark social-link-platform" placeholder="Platform" />
+            <input type="url" class="form-input form-input--dark social-link-url" placeholder="https://..." />
+            <button type="button" class="btn-delete-link">
+              <img src="../../../resources/images/myProfile/button_delete.svg" alt="Delete" />
+            </button>
+          `;
+          socialLinksList.appendChild(newLinkItem);
+
+          // Add delete functionality to new item
+          newLinkItem.querySelector('.btn-delete-link').addEventListener('click', function() {
+            newLinkItem.remove();
+          });
         });
       }
     </script>
