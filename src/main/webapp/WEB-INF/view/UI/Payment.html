@@ -29,12 +29,36 @@
             <button class="message-btn">
               <img src="../../../resources/images/userHeader/icon_mess.svg" alt="Messages" width="20" height="20" />
             </button>
-            <button class="notification-btn">
+            <button class="notification-btn" id="openNotiBtn">
               <img src="../../../resources/images/userHeader/icon_noti.svg" alt="Notifications" width="20" height="20" />
             </button>
-            <div class="user-profile">
-              <img src="../../../resources/images/userHeader/user_avt.svg" alt="User Avatar" class="user-avatar-img" />
-              <img src="../../../resources/images/userHeader/icon_down.svg" alt="Dropdown" class="user-dropdown-icon" />
+            <div class="user-profile-wrapper">
+              <button class="user-profile" id="userMenuBtn" aria-expanded="false" aria-haspopup="true">
+                <img src="../../../resources/images/userHeader/user_avt.svg" alt="User Avatar" class="user-avatar-img" />
+                <img src="../../../resources/images/userHeader/icon_down.svg" alt="Dropdown" class="user-dropdown-icon" />
+              </button>
+              <div class="user-menu-dropdown" id="userMenuDropdown">
+                <ul class="user-menu-list">
+                  <li class="user-menu-item">
+                    <a href="MyProfile.html" class="user-menu-link">
+                      <img src="../../../resources/images/userMenu/icon_profile.svg" alt="Profile" class="user-menu-icon" />
+                      <div class="user-menu-text">
+                        <span class="user-menu-label">My Profile</span>
+                        <span class="user-menu-desc">View and edit profile</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="user-menu-item">
+                    <a href="Login.html" class="user-menu-link user-menu-link--logout">
+                      <img src="../../../resources/images/userMenu/icon_logOut.svg" alt="Logout" class="user-menu-icon" />
+                      <div class="user-menu-text">
+                        <span class="user-menu-label">Logout</span>
+                        <span class="user-menu-desc">Sign out of your account</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -396,6 +420,108 @@
 
       // Load items on page load
       document.addEventListener('DOMContentLoaded', loadSelectedItems);
+    </script>
+
+    <!-- Notification Panel -->
+    <div class="noti-overlay" id="notiOverlay"></div>
+    <div class="noti-panel" id="notiPanel" role="dialog" aria-labelledby="notiTitle">
+      <div class="noti-header">
+        <h3 id="notiTitle">Thông báo</h3>
+        <button class="noti-close" id="closeNotiBtn" aria-label="Đóng">
+          <img src="../../../resources/images/userDashboard/VectorX.svg" alt="" />
+        </button>
+      </div>
+      <ul class="noti-list">
+        <li class="noti-item unread">
+          <div class="noti-icon noti-icon--course">
+            <img src="../../../resources/images/viewNotification/icon_newCourse.svg" alt="New Course" />
+          </div>
+          <div class="noti-body">
+            <p class="noti-title">Khóa học mới đã được thêm</p>
+            <p class="noti-desc">Advanced React Patterns đã được thêm vào danh sách của bạn</p>
+            <div class="noti-meta">5 phút trước</div>
+          </div>
+          <span class="noti-dot"></span>
+        </li>
+        <li class="noti-item unread">
+          <div class="noti-icon noti-icon--review">
+            <img src="../../../resources/images/viewNotification/icon_reviewNoti.svg" alt="New Review" />
+          </div>
+          <div class="noti-body">
+            <p class="noti-title">Đánh giá mới</p>
+            <p class="noti-desc">Sarah Johnson đã đánh giá 5 sao cho khóa học React Fundamentals</p>
+            <div class="noti-meta">1 giờ trước</div>
+          </div>
+          <span class="noti-dot"></span>
+        </li>
+      </ul>
+      <a href="ViewNotification.html" class="noti-viewall">Xem tất cả thông báo</a>
+    </div>
+
+    <script>
+      // Notification Panel Logic
+      const openBtn = document.getElementById("openNotiBtn");
+      const closeBtn = document.getElementById("closeNotiBtn");
+      const overlay = document.getElementById("notiOverlay");
+      const panel = document.getElementById("notiPanel");
+
+      function openPanel() {
+        panel.classList.add("show");
+        overlay.classList.add("show");
+        openBtn.setAttribute("aria-expanded", "true");
+      }
+
+      function closePanel() {
+        panel.classList.remove("show");
+        overlay.classList.remove("show");
+        openBtn.setAttribute("aria-expanded", "false");
+      }
+
+      if (openBtn) {
+        openBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          panel.classList.contains("show") ? closePanel() : openPanel();
+        });
+      }
+      if (closeBtn) closeBtn.addEventListener("click", closePanel);
+      if (overlay) overlay.addEventListener("click", closePanel);
+      document.addEventListener("keydown", (e) => e.key === "Escape" && closePanel());
+
+      if (panel) {
+        panel.addEventListener("click", (e) => {
+          const item = e.target.closest(".noti-item.unread");
+          if (!item) return;
+          item.classList.remove("unread");
+          item.querySelector(".noti-dot")?.remove();
+        });
+      }
+
+      // User Menu Dropdown Logic
+      const userMenuBtn = document.getElementById("userMenuBtn");
+      const userMenuDropdown = document.getElementById("userMenuDropdown");
+
+      if (userMenuBtn && userMenuDropdown) {
+        userMenuBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = userMenuDropdown.classList.contains("show");
+          userMenuDropdown.classList.toggle("show");
+          userMenuBtn.setAttribute("aria-expanded", !isOpen);
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!userMenuDropdown.contains(e.target) && !userMenuBtn.contains(e.target)) {
+            userMenuDropdown.classList.remove("show");
+            userMenuBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && userMenuDropdown.classList.contains("show")) {
+            userMenuDropdown.classList.remove("show");
+            userMenuBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
     </script>
   </body>
 </html>
