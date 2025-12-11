@@ -7,62 +7,9 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="container header-inner">
-        <div class="brand">
-          <div class="logo">
-            <img src="/images/logo.svg" alt="EduLearn" />
-          </div>
-          <div class="name-brand">EduLearn</div>
-        </div>
-        <nav class="nav">
-          <a href="UserDashboard.html" class="nav-link">Home</a>
-          <a href="UserExplore.html" class="nav-link">Explore</a>
-          <a href="TutorCourses.html" class="nav-link">Tutor Now</a>
-          <a href="Enrollments.html" class="nav-link">Enrollments</a>
-        </nav>
-        <div class="actions">
-          <div class="user-menu">
-            <a href="MyCart.html" class="cart-btn">
-              <img
-                src="/images/userHeader/icon_cart.svg"
-                alt="Cart"
-                width="20"
-                height="20"
-              />
-            </a>
-            <button class="message-btn">
-              <img
-                src="/images/userHeader/icon_mess.svg"
-                alt="Messages"
-                width="20"
-                height="20"
-              />
-            </button>
-            <button class="notification-btn">
-              <img
-                src="/images/userHeader/icon_noti.svg"
-                alt="Notifications"
-                width="20"
-                height="20"
-              />
-            </button>
-            <div class="user-profile">
-              <img
-                src="/images/userHeader/user_avt.svg"
-                alt="User Avatar"
-                class="user-avatar-img"
-              />
-              <img
-                src="/images/userHeader/icon_down.svg"
-                alt="Dropdown"
-                class="user-dropdown-icon"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+    <!-- header start -->
+    <jsp:include page="../layout/header.jsp" />
+    <!-- header end -->
 
     <div class="main-content">
       <div class="checkout-page">
@@ -304,23 +251,9 @@
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="footer-links">
-          <a href="#">About Us</a>
-          <a href="#">Terms</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Support</a>
-        </div>
-        <div class="Follow-us">Follow us</div>
-        <div class="social">
-          <img src="/images/HomePage/Button-FB.svg" alt="Facebook" />
-          <img src="/images/HomePage/Button-insta.svg" alt="Instagram" />
-          <img src="/images/HomePage/Button-yt.svg" alt="YouTube" />
-        </div>
-        <div class="copy">© 2024 EduLearn. All rights reserved.</div>
-      </div>
-    </footer>
+    <!-- footer start -->
+    <jsp:include page="../layout/footer.jsp" />
+    <!-- footer end -->
 
     <script>
       // Voucher data

@@ -27,11 +27,11 @@ public class CourseController {
     public CourseController(CourseService courseService, AccountService accountService){
         this.courseService = courseService;
         this.accountService = accountService;
-    }
+    }   
 
     //handle tutor now page
 
-    //get tutor now page
+    //Get tutor now page
     @GetMapping("/client/tutor/course")
     public String getTutorPage(Model model, HttpServletRequest httpServletRequest){
         HttpSession session = httpServletRequest.getSession();
@@ -48,7 +48,7 @@ public class CourseController {
         String email = (String)session.getAttribute("email");
         Course course = new Course();
         course.setAccount(accountService.handleGetAccountByEmail(email));
-        course.setStatus("Draft");
+        course.setStatus("draft");
         course = courseService.handleSaveCourse(course);
         CourseDTO courseDTO = new CourseDTO();
         courseDTO.setCourseId(course.getId());

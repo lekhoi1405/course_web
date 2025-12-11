@@ -9,7 +9,7 @@
         <div class="name-brand">EduLearn</div>
       </div>
       <nav class="nav">
-        <a href="UserDashboard.html" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Home</a>
         <a href="UserExplore.html" class="nav-link">Explore</a>
         <a href="TutorCourses.html" class="nav-link active">Tutor Now</a>
         <a href="Enrollments.html" class="nav-link">Enrollments</a>
@@ -75,7 +75,7 @@
         <div class="name-brand">EduLearn</div>
       </div>
       <nav class="nav">
-        <a href="HomePage.html" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Home</a>
         <a href="explore.html" class="nav-link">Explore</a>
       </nav>
       <div class="actions">

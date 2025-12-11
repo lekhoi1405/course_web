@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import vn.web.courseShop.domain.Account;
 import vn.web.courseShop.domain.dto.RegisterDTO;
@@ -22,6 +24,14 @@ public class HomePageController {
     public HomePageController(AccountService accountService,PasswordEncoder passwordEncoder){
         this.accountService = accountService;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    //Get homepage
+    @GetMapping("/")
+    public String getHomePage(Model model, HttpServletRequest httpServletRequest){
+        HttpSession session = httpServletRequest.getSession();
+        if((String)session.getAttribute("email")==null)return "client/homepage/HomePage";
+        return "client/homepage/UserDashboard";
     }
 
     @GetMapping("/register")

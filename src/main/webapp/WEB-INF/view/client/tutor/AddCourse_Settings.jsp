@@ -140,7 +140,6 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                       Select language
                     </option>
                     <form:option value="vietnamese">Vietnamese</form:option>
-                    <form:option value="vietnamese">Vietnamese</form:option>
                     <form:option value="english">English</form:option>
                     <form:option value="japanese">Japanese</form:option>
                     <form:option value="korean">Korean</form:option>
