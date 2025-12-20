@@ -1,5 +1,7 @@
 package vn.web.courseShop.controller.client;
 
+import java.util.List;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,18 +14,22 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import vn.web.courseShop.domain.Account;
+import vn.web.courseShop.domain.Course;
 import vn.web.courseShop.domain.dto.RegisterDTO;
 import vn.web.courseShop.service.AccountService;
+import vn.web.courseShop.service.CourseService;
 
 @Controller
 public class HomePageController {
     
     private final AccountService accountService;
     private final PasswordEncoder passwordEncoder;
+    private final CourseService courseService;
 
-    public HomePageController(AccountService accountService,PasswordEncoder passwordEncoder){
+    public HomePageController(AccountService accountService,PasswordEncoder passwordEncoder,CourseService courseService){
         this.accountService = accountService;
         this.passwordEncoder = passwordEncoder;
+        this.courseService = courseService;
     }
 
     //Get homepage
@@ -31,6 +37,8 @@ public class HomePageController {
     public String getHomePage(Model model, HttpServletRequest httpServletRequest){
         HttpSession session = httpServletRequest.getSession();
         if((String)session.getAttribute("email")==null)return "client/homepage/HomePage";
+        List<Course> courseList = this.courseService.handleGetAllCourses();
+        model.addAttribute("recommendList", courseList);
         return "client/homepage/UserDashboard";
     }
 

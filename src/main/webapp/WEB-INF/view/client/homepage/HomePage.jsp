@@ -21,7 +21,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
         <div class="content">
           <section class="home-hero">
             <div class="home-hero__right">
-              <img src="//images/HomePage/Container.svg" alt="Hero" />
+              <img src="/images/HomePage/Container.svg" alt="Hero" />
             </div>
             <div class="home-hero__left">
               <h1 class="heading">Your journey to success starts here</h1>

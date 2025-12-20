@@ -83,81 +83,6 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                   </div>
                 </div>
               </article>
-
-              <!-- Course Card 2 -->
-              <article class="course-card continue-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                </div>
-
-                <div class="course-card__body">
-                  <h3 class="course-card__title">Python Fundamentals</h3>
-                  <p class="course-card__instructor">by Jane Smith</p>
-
-                  <div class="course-progress">
-                    <span class="progress-label">Progress</span>
-                    <div class="progress-bar">
-                      <div class="progress-fill" style="width: 78%"></div>
-                    </div>
-                    <span class="progress-text">78%</span>
-                  </div>
-
-                  <div class="course-next-resume">
-                    <p class="course-next">Next: Object Oriented Programming</p>
-                    <button class="btn-resume">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                      </svg>
-                      Resume
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Course Card 3 -->
-              <article class="course-card continue-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                  <div class="course-card__badges">
-                    <span class="badge badge--design"
-                      >Design Quiz 1 - 5d left</span
-                    >
-                  </div>
-                </div>
-
-                <div class="course-card__body">
-                  <h3 class="course-card__title">UI/UX Design Basics</h3>
-                  <p class="course-card__instructor">by Mike Johnson</p>
-
-                  <div class="course-progress">
-                    <span class="progress-label">Progress</span>
-                    <div class="progress-bar">
-                      <div class="progress-fill" style="width: 23%"></div>
-                    </div>
-                    <span class="progress-text">23%</span>
-                  </div>
-
-                  <div class="course-next-resume">
-                    <p class="course-next">Next: Color Theory</p>
-                    <button class="btn-resume">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                      </svg>
-                      Resume
-                    </button>
-                  </div>
-                </div>
-              </article>
             </div>
           </section>
 
@@ -182,160 +107,61 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
             <div class="home-featured__grid home-featured__grid--4">
               <!-- Recommended Course 1 -->
-              <article class="course-card recommend-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                </div>
-
-                <div class="course-card__body">
-                  <h3 class="course-card__title">Node.js Complete Guide</h3>
-                  <p class="course-card__instructor">by Sarah Davis</p>
-
-                  <div class="course-card__rating">
-                    <span class="star-icon">★</span>
-                    <span class="rating-score">4.8</span>
-                    <span class="rating-count">(12,450 students)</span>
+              <c:forEach var="courseRecommend" items="${recommendList}">
+                <article class="course-card recommend-card">
+                  <div class="course-card__image-wrapper">
+                    <div class="course-card__image-placeholder">
+                      <a href="/course/${courseRecommend.id}">
+                        <img
+                          src="/images/courseThumbnail/${courseRecommend.thumbnailUrl}"
+                          alt=""
+                        />
+                      </a>
+                    </div>
                   </div>
 
-                  <div class="course-card__footer">
-                    <span class="course-card__price">$49.99</span>
-                    <button class="btn-add-cart">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
+                  <div class="course-card__body">
+                    <h3 class="course-card__title">
+                      ${courseRecommend.courseTitle}
+                    </h3>
+                    <p class="course-card__instructor">
+                      by ${courseRecommend.account.fullname}
+                    </p>
+
+                    <div class="course-card__rating">
+                      <span class="star-icon">★</span>
+                      <span class="rating-score">4.8</span>
+                      <span class="rating-count">(12,450 students)</span>
+                    </div>
+
+                    <div class="course-card__footer">
+                      <span class="course-card__price"
+                        ><fmt:formatNumber
+                          value="${courseRecommend.originalPrice}"
+                          type="number"
+                        />đ</span
                       >
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path
-                          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                        ></path>
-                      </svg>
-                      Add to Cart
-                    </button>
+                      <button class="btn-add-cart">
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <circle cx="9" cy="21" r="1"></circle>
+                          <circle cx="20" cy="21" r="1"></circle>
+                          <path
+                            d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                          ></path>
+                        </svg>
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </article>
-
-              <!-- Recommended Course 2 -->
-              <article class="course-card recommend-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                </div>
-
-                <div class="course-card__body">
-                  <h3 class="course-card__title">Flutter Mobile Development</h3>
-                  <p class="course-card__instructor">by David Lee</p>
-
-                  <div class="course-card__rating">
-                    <span class="star-icon">★</span>
-                    <span class="rating-score">4.7</span>
-                    <span class="rating-count">(8,920 students)</span>
-                  </div>
-
-                  <div class="course-card__footer">
-                    <span class="course-card__price">$59.99</span>
-                    <button class="btn-add-cart">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path
-                          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                        ></path>
-                      </svg>
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Recommended Course 3 -->
-              <article class="course-card recommend-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                </div>
-
-                <div class="course-card__body">
-                  <h3 class="course-card__title">AWS Cloud Fundamentals</h3>
-                  <p class="course-card__instructor">by Emma Wilson</p>
-
-                  <div class="course-card__rating">
-                    <span class="star-icon">★</span>
-                    <span class="rating-score">4.9</span>
-                    <span class="rating-count">(15,600 students)</span>
-                  </div>
-
-                  <div class="course-card__footer">
-                    <span class="course-card__price">$69.99</span>
-                    <button class="btn-add-cart">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path
-                          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                        ></path>
-                      </svg>
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Recommended Course 4 -->
-              <article class="course-card recommend-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                </div>
-
-                <div class="course-card__body">
-                  <h3 class="course-card__title">Digital Marketing Mastery</h3>
-                  <p class="course-card__instructor">by Chris Martin</p>
-
-                  <div class="course-card__rating">
-                    <span class="star-icon">★</span>
-                    <span class="rating-score">4.6</span>
-                    <span class="rating-count">(9,850 students)</span>
-                  </div>
-
-                  <div class="course-card__footer">
-                    <span class="course-card__price">$39.99</span>
-                    <button class="btn-add-cart">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path
-                          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                        ></path>
-                      </svg>
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </article>
+                </article>
+              </c:forEach>
             </div>
           </section>
         </div>

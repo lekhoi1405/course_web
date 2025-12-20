@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -167,5 +168,14 @@ public class CourseController {
         if(action.equals("curriculum"))return "redirect:/client/tutor/course/add/curriculum";
         else if(action.equals("settings"))return "redirect:/client/tutor/course/add/settings";
         else return "redirect:/client/tutor/course/add/basic";
+    }
+
+    @GetMapping("/course/{id}")
+    public String getCourseDetail(Model model, @PathVariable long id){
+        Course course = this.courseService.handleFindCourseById(id);
+        CourseDTO courseDTO = new CourseDTO();
+        courseDTO = this.courseService.handleConvertCourseToCourseDTO(course, courseDTO);
+        model.addAttribute("courseDTO", courseDTO);
+        return "client/course/View-Course";
     }
 }

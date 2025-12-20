@@ -43,6 +43,10 @@ public class CourseService {
         this.accountRepository = accountRepository;
     }
 
+    public List<Course> handleGetAllCourses(){
+        return this.courseRepository.findAll();
+    }
+
     public List<Course> handleGetCourseByTutorEmail(String email){
         Account account = this.accountRepository.findByEmail(email);
         List<Course> courses = this.courseRepository.findAllByAccount(account);
@@ -149,7 +153,7 @@ public class CourseService {
         return courseDTO;
     }
 
-    public void handleCreateCourseCurriculum(CourseDTO courseDTO, Course course){
+    public void handleCreateCourseCurriculum(CourseDTO courseDTO, Course course ) {
         courseDTO.getSectionDTOs().removeIf(Objects::isNull);
         for (SectionDTO sectionDTO : courseDTO.getSectionDTOs()) {
             Section section = new Section();
@@ -194,7 +198,24 @@ public class CourseService {
         course.setCategory(category);
         course.setLanguage(courseDTO.getLanguage());
         course.setOriginalPrice(courseDTO.getPrice());
+        course.setCurrency(courseDTO.getCurrency());
         this.courseRepository.save(course);
+    }
+
+    public CourseDTO handleConvertCourseSettingToCourseDTO(Course course, CourseDTO courseDTO){
+        courseDTO.setPrice(course.getOriginalPrice());
+        courseDTO.setCurrency(course.getCurrency());
+        courseDTO.setLevel(course.getLevel().getLevelName());
+        courseDTO.setCategory(course.getCategory().getDescription());
+        courseDTO.setLanguage(course.getLanguage());
+        return courseDTO;
+    }
+
+    public CourseDTO handleConvertCourseToCourseDTO(Course course, CourseDTO courseDTO){
+        courseDTO = this.handleConvertCourseBasicToCourseDTO(course, courseDTO);
+        courseDTO = this.handleConvertCourseCurriculumToCourseDTO(courseDTO, course);
+        courseDTO = this.handleConvertCourseSettingToCourseDTO(course, courseDTO);
+        return courseDTO;
     }
 }
 
