@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promotions - Admin - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-inner no-textAlign">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+
+        <div class="actions">
+          <div class="user-menu">
+            <button class="message-btn" data-count="0">
+              <img
+                src="../../../resources/images/userHeader/icon_mess.svg"
+                alt="Messages"
+                width="20"
+                height="20"
+              />
+            </button>
+
+            <button
+              class="notification-btn icon-badge"
+              id="openNotiBtn"
+              aria-haspopup="dialog"
+              aria-expanded="false"
+              data-count="0"
+            >
+              <img
+                src="../../../resources/images/userHeader/icon_noti.svg"
+                alt="Notifications"
+                width="20"
+                height="20"
+              />
+            </button>
+
+            <div class="user-profile">
+              <img
+                src="../../../resources/images/userHeader/user_avt.svg"
+                alt="User Avatar"
+                class="user-avatar-img"
+              />
+              <img
+                src="../../../resources/images/userHeader/icon_down.svg"
+                alt="Dropdown"
+                class="user-dropdown-icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-shell">
+      <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+          <nav class="admin-side-nav">
+            <a class="admin-side-link" href="AdminDashboard.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 13h7V4H4v9Zm9 7h7V11h-7v9ZM4 20h7v-5H4v5Zm9-18v7h7V2h-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Dashboard
+            </a>
+
+            <a class="admin-side-link" href="AdminAccounts.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3Zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.95 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Accounts
+            </a>
+
+            <a class="admin-side-link" href="AdminCourses.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 6.5V19c0 .55.45 1 1 1h14v-2H6V6.5h13V4H5c-.55 0-1 .45-1 1v1.5Zm16 1H8c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-11c0-.55-.45-1-1-1Zm-1 4h-4v-2h4v2Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Courses
+            </a>
+
+            <a class="admin-side-link" href="AdminReports.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M3 3h18v2H3V3Zm2 4h14v14H5V7Zm2 2v10h10V9H7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Reports
+            </a>
+
+            <a class="admin-side-link active" href="AdminPromotions.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7l3-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Promotions
+            </a>
+
+            <a class="admin-side-link" href="#">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16v12H4V6Zm2 2v8h12V8H6Z" fill="currentColor" />
+                </svg>
+              </span>
+              Content
+            </a>
+
+            <a class="admin-side-link" href="#">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M19.43 12.98l1.77-1.03-1.5-2.6-2.04.3c-.4-.32-.83-.57-1.3-.75l-.62-1.97h-3l-.62 1.97c-.46.18-.9.43-1.3.75l-2.04-.3-1.5 2.6 1.77 1.03c-.02.16-.03.33-.03.49s.01.33.03.49l-1.77 1.03 1.5 2.6 2.04-.3c.4.32.84.57 1.3.75l.62 1.97h3l.62-1.97c.47-.18.9-.43 1.3-.75l2.04.3 1.5-2.6-1.77-1.03c.02-.16.03-.33.03-.49s-.01-.33-.03-.49ZM14.5 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Settings
+            </a>
+          </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="admin-main">
+          <div class="admin-page-head">
+            <div class="title-wrap">
+              <h1>Promotions</h1>
+              <p>Manage promotional vouchers and discount codes</p>
+            </div>
+          </div>
+
+          <section class="admin-panel">
+            <!-- Controls -->
+            <div class="tutor-controls" style="margin-bottom: 14px">
+              <div class="tutor-search-wrapper" style="max-width: 520px">
+                <svg
+                  class="search-icon"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10.5 19a8.5 8.5 0 1 1 6.2-2.7l4.1 4.1-1.4 1.4-4.1-4.1A8.46 8.46 0 0 1 10.5 19Zm0-2A6.5 6.5 0 1 0 10.5 4a6.5 6.5 0 0 0 0 13Z"
+                    fill="#9ca3af"
+                  />
+                </svg>
+                <input
+                  id="promoSearch"
+                  class="tutor-search-input"
+                  type="text"
+                  placeholder="Search by code, discount, usage..."
+                />
+              </div>
+
+              <select id="promoStatus" class="admin-select" aria-label="Status">
+                <option value="all" selected>All Status</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="expired">Expired</option>
+              </select>
+
+              <a class="admin-btn primary" href="AdminCreateVoucher.html">
+                Create Voucher
+              </a>
+            </div>
+
+            <!-- Table -->
+            <div class="admin-table-wrapper">
+              <table class="admin-table" id="promoTable">
+                <thead>
+                  <tr>
+                    <th>Voucher Code</th>
+                    <th>Discount</th>
+                    <th>Usage</th>
+                    <th>Valid Period</th>
+                    <th>Status</th>
+                    <th class="right">Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="promoTbody">
+                  <tr data-code="SUMMER2024" data-status="active">
+                    <td>
+                      <b>SUMMER2024</b>
+                      <div class="helper" style="margin: 2px 0 0">VC0001</div>
+                    </td>
+                    <td>25%</td>
+                    <td>142 / 500</td>
+                    <td>2024-06-01 → 2024-12-31</td>
+                    <td>
+                      <span class="status-badge status-active">Active</span>
+                    </td>
+                    <td class="right">
+                      <div class="admin-actions">
+                        <button
+                          class="admin-icon-btn btn-edit"
+                          type="button"
+                          title="Edit"
+                        >
+                          ✎
+                        </button>
+                        <button
+                          class="admin-icon-btn danger btn-delete"
+                          type="button"
+                          title="Delete"
+                        >
+                          🗑
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr data-code="NEWUSER50" data-status="active">
+                    <td>
+                      <b>NEWUSER50</b>
+                      <div class="helper" style="margin: 2px 0 0">VC0002</div>
+                    </td>
+                    <td>50%</td>
+                    <td>89 / 200</td>
+                    <td>2025-01-01 → 2025-01-15</td>
+                    <td>
+                      <span class="status-badge status-active">Active</span>
+                    </td>
+                    <td class="right">
+                      <div class="admin-actions">
+                        <button
+                          class="admin-icon-btn btn-edit"
+                          type="button"
+                          title="Edit"
+                        >
+                          ✎
+                        </button>
+                        <button
+                          class="admin-icon-btn danger btn-delete"
+                          type="button"
+                          title="Delete"
+                        >
+                          🗑
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr data-code="FLASH20" data-status="inactive">
+                    <td>
+                      <b>FLASH20</b>
+                      <div class="helper" style="margin: 2px 0 0">VC0003</div>
+                    </td>
+                    <td>20%</td>
+                    <td>0 / 300</td>
+                    <td>2025-11-01 → 2025-12-15</td>
+                    <td>
+                      <span class="status-badge status-inactive">Inactive</span>
+                    </td>
+                    <td class="right">
+                      <div class="admin-actions">
+                        <button
+                          class="admin-icon-btn btn-edit"
+                          type="button"
+                          title="Edit"
+                        >
+                          ✎
+                        </button>
+                        <button
+                          class="admin-icon-btn danger btn-delete"
+                          type="button"
+                          title="Delete"
+                        >
+                          🗑
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr data-code="WELCOME10" data-status="expired">
+                    <td>
+                      <b>WELCOME10</b>
+                      <div class="helper" style="margin: 2px 0 0">VC0004</div>
+                    </td>
+                    <td>10%</td>
+                    <td>100 / 100</td>
+                    <td>2024-01-01 → 2024-11-30</td>
+                    <td>
+                      <span class="status-badge status-expired">expired</span>
+                    </td>
+                    <td class="right">
+                      <div class="admin-actions">
+                        <button
+                          class="admin-icon-btn btn-edit"
+                          type="button"
+                          title="Edit"
+                        >
+                          ✎
+                        </button>
+                        <button
+                          class="admin-icon-btn danger btn-delete"
+                          type="button"
+                          title="Delete"
+                        >
+                          🗑
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr data-code="BLACKFRIDAY" data-status="expired">
+                    <td>
+                      <b>BLACKFRIDAY</b>
+                      <div class="helper" style="margin: 2px 0 0">VC0005</div>
+                    </td>
+                    <td>40%</td>
+                    <td>1847 / 2000</td>
+                    <td>2024-11-24 → 2024-11-30</td>
+                    <td>
+                      <span class="status-badge status-expired">Expired</span>
+                    </td>
+                    <td class="right">
+                      <div class="admin-actions">
+                        <button
+                          class="admin-icon-btn btn-edit"
+                          type="button"
+                          title="Edit"
+                        >
+                          ✎
+                        </button>
+                        <button
+                          class="admin-icon-btn danger btn-delete"
+                          type="button"
+                          title="Delete"
+                        >
+                          🗑
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="tutor-pagination" style="padding-top: 12px">
+              <button id="promoPrev" class="tutor-pagination-btn" disabled>
+                Previous
+              </button>
+              <span id="promoPageInfo" class="tutor-pagination-info"
+                >Page 1 of 1</span
+              >
+              <button id="promoNext" class="tutor-pagination-btn">Next</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const $ = (s, r = document) => r.querySelector(s);
+        const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+        const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+        const lower = (s) => (s || "").toString().toLowerCase();
+        const debounce = (fn, w = 200) => {
+          let t;
+          return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn(...args), w);
+          };
+        };
+
+        function initSidebarActive() {
+          const current = (
+            window.location.pathname.split("/").pop() || ""
+          ).toLowerCase();
+          $$(".admin-side-link").forEach((a) => {
+            const href = lower(a.getAttribute("href") || "");
+            href && current && href.includes(current)
+              ? a.classList.add("active")
+              : a.classList.remove("active");
+          });
+        }
+
+        // ===== toast =====
+        function ensureToastHost() {
+          let host = $("#toastHost");
+          if (host) return host;
+          host = document.createElement("div");
+          host.id = "toastHost";
+          host.style.position = "fixed";
+          host.style.right = "16px";
+          host.style.bottom = "16px";
+          host.style.display = "grid";
+          host.style.gap = "10px";
+          host.style.zIndex = "9999";
+          document.body.appendChild(host);
+          return host;
+        }
+
+        function toast({
+          title = "Info",
+          message = "",
+          type = "info",
+          ttl = 2200,
+        } = {}) {
+          const host = ensureToastHost();
+          const dot =
+            {
+              info: "#2563eb",
+              success: "#16a34a",
+              warning: "#f59e0b",
+              danger: "#dc2626",
+            }[type] || "#2563eb";
+
+          const item = document.createElement("div");
+          item.style.minWidth = "260px";
+          item.style.maxWidth = "360px";
+          item.style.background = "#fff";
+          item.style.border = "1px solid rgba(15,23,42,.12)";
+          item.style.borderRadius = "14px";
+          item.style.boxShadow = "0 20px 50px rgba(2,6,23,.18)";
+          item.style.padding = "12px";
+          item.style.opacity = "0";
+          item.style.transform = "translateY(8px)";
+          item.style.transition = "all .18s ease";
+          item.innerHTML = `
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="width:10px; height:10px; border-radius:99px; background:${dot}; margin-top:6px;"></div>
+          <div style="flex:1;">
+            <div style="font-weight:900; font-size:13px; color:#0f172a;">${title}</div>
+            <div style="margin-top:2px; font-size:12px; color:#475569; line-height:1.35;">${message}</div>
+          </div>
+          <button style="border:none; background:#f1f5f9; width:28px; height:28px; border-radius:10px; cursor:pointer;">✕</button>
+        </div>
+      `;
+          const remove = () => {
+            item.style.opacity = "0";
+            item.style.transform = "translateY(8px)";
+            setTimeout(() => item.remove(), 180);
+          };
+          item.querySelector("button").addEventListener("click", remove);
+          host.appendChild(item);
+          requestAnimationFrame(() => {
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+          });
+          if (ttl > 0) setTimeout(remove, ttl);
+        }
+
+        // ===== confirm =====
+        function confirmAction({
+          title = "Confirm",
+          message = "Are you sure?",
+          okText = "OK",
+        } = {}) {
+          let overlay = $("#confirmOverlay");
+          if (!overlay) {
+            overlay = document.createElement("div");
+            overlay.id = "confirmOverlay";
+            overlay.style.position = "fixed";
+            overlay.style.inset = "0";
+            overlay.style.background = "rgba(2,6,23,.45)";
+            overlay.style.display = "none";
+            overlay.style.alignItems = "center";
+            overlay.style.justifyContent = "center";
+            overlay.style.zIndex = "9998";
+            overlay.innerHTML = `
+          <div style="width:min(420px, calc(100vw - 32px)); background:#fff; border:1px solid rgba(15,23,42,.12);
+            border-radius:16px; box-shadow:0 20px 50px rgba(2,6,23,.18); padding:14px;">
+            <div id="cTitle" style="font-weight:900; font-size:15px; color:#0f172a;"></div>
+            <div id="cMsg" style="margin-top:6px; font-size:13px; color:#475569; line-height:1.35;"></div>
+            <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:14px;">
+              <button id="cCancel" style="border:none; background:#f1f5f9; padding:10px 12px; border-radius:12px; font-weight:900; cursor:pointer;">Cancel</button>
+              <button id="cOk" style="border:none; background:#2563eb; color:#fff; padding:10px 12px; border-radius:12px; font-weight:900; cursor:pointer;"></button>
+            </div>
+          </div>
+        `;
+            document.body.appendChild(overlay);
+          }
+
+          $("#cTitle", overlay).textContent = title;
+          $("#cMsg", overlay).textContent = message;
+          $("#cOk", overlay).textContent = okText;
+          overlay.style.display = "flex";
+
+          return new Promise((resolve) => {
+            const okBtn = $("#cOk", overlay);
+            const cancelBtn = $("#cCancel", overlay);
+
+            const cleanup = () => {
+              overlay.style.display = "none";
+              okBtn.onclick = null;
+              cancelBtn.onclick = null;
+              overlay.onclick = null;
+              document.onkeydown = null;
+            };
+
+            okBtn.onclick = () => {
+              cleanup();
+              resolve(true);
+            };
+            cancelBtn.onclick = () => {
+              cleanup();
+              resolve(false);
+            };
+            overlay.onclick = (e) => {
+              if (e.target === overlay) {
+                cleanup();
+                resolve(false);
+              }
+            };
+            document.onkeydown = (e) => {
+              if (e.key === "Escape") {
+                cleanup();
+                resolve(false);
+              }
+            };
+          });
+        }
+
+        function readStoreFromDOM() {
+          const rows = $$("#promoTbody tr");
+          return rows.map((tr) => ({
+            code:
+              tr.getAttribute("data-code") ||
+              tr.children[0]?.textContent.trim() ||
+              "",
+            discount: tr.children[1]?.textContent.trim() || "",
+            usage: tr.children[2]?.textContent.trim() || "",
+            period: tr.children[3]?.textContent.trim() || "",
+            status: (tr.getAttribute("data-status") || "active").toLowerCase(),
+          }));
+        }
+
+        function statusBadgeHTML(status) {
+          const s = lower(status);
+          if (s === "expired")
+            return `<span class="status-badge status-expired">Expired</span>`;
+          if (s === "inactive")
+            return `<span class="status-badge status-inactive">Inactive</span>`;
+          return `<span class="status-badge status-active">Active</span>`;
+        }
+
+        function renderRows(list) {
+          const tbody = $("#promoTbody");
+          if (!tbody) return;
+          tbody.innerHTML = list
+            .map(
+              (v) => `
+          <tr data-code="${v.code}" data-status="${v.status}">
+            <td><b>${v.code}</b></td>
+            <td>${v.discount}</td>
+            <td>${v.usage}</td>
+            <td>${v.period}</td>
+            <td>${statusBadgeHTML(v.status)}</td>
+            <td class="right">
+              <div class="admin-actions">
+                <button class="admin-icon-btn btn-edit" type="button" title="Edit">✎</button>
+                <button class="admin-icon-btn danger btn-delete" type="button" title="Delete">🗑</button>
+              </div>
+            </td>
+          </tr>
+        `
+            )
+            .join("");
+        }
+
+        function initPromotionsTable() {
+          const search = $("#promoSearch");
+          const filter = $("#promoStatus");
+          const prev = $("#promoPrev");
+          const next = $("#promoNext");
+          const info = $("#promoPageInfo");
+
+          let data = readStoreFromDOM();
+          let state = { q: "", status: "all", page: 1, pageSize: 6 };
+
+          function filtered() {
+            const q = lower(state.q).trim();
+            return data.filter((v) => {
+              const okSearch =
+                !q ||
+                `${v.code} ${v.discount} ${v.usage} ${v.period}`
+                  .toLowerCase()
+                  .includes(q);
+              const okStatus =
+                state.status === "all" || lower(v.status) === state.status;
+              return okSearch && okStatus;
+            });
+          }
+
+          function render() {
+            const list = filtered();
+            const totalPages = Math.max(
+              1,
+              Math.ceil(list.length / state.pageSize)
+            );
+            state.page = clamp(state.page, 1, totalPages);
+
+            const start = (state.page - 1) * state.pageSize;
+            renderRows(list.slice(start, start + state.pageSize));
+
+            if (info) info.textContent = `Page ${state.page} of ${totalPages}`;
+            if (prev) prev.disabled = state.page <= 1;
+            if (next) next.disabled = state.page >= totalPages;
+          }
+
+          if (search) {
+            search.addEventListener(
+              "input",
+              debounce(() => {
+                state.q = search.value;
+                state.page = 1;
+                render();
+              }, 200)
+            );
+          }
+
+          if (filter) {
+            filter.addEventListener("change", () => {
+              state.status = lower(filter.value);
+              state.page = 1;
+              render();
+            });
+          }
+
+          prev?.addEventListener("click", () => {
+            state.page = Math.max(1, state.page - 1);
+            render();
+          });
+
+          next?.addEventListener("click", () => {
+            state.page += 1;
+            render();
+          });
+
+          $("#promoTbody")?.addEventListener("click", async (e) => {
+            const row = e.target.closest("tr");
+            if (!row) return;
+
+            const code = row.getAttribute("data-code") || "";
+
+            if (e.target.closest(".btn-edit")) {
+              window.location.href = `AdminCreateVoucher.html?edit=${encodeURIComponent(
+                code
+              )}`;
+              return;
+            }
+
+            if (e.target.closest(".btn-delete")) {
+              const ok = await confirmAction({
+                title: "Delete voucher?",
+                message: `Do you want to delete "${code}"?`,
+                okText: "Delete",
+              });
+              if (!ok) return;
+
+              data = data.filter((x) => x.code !== code);
+
+              toast({
+                type: "danger",
+                title: "Promotions",
+                message: `Deleted "${code}".`,
+              });
+
+              render();
+            }
+          });
+
+          render();
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          initSidebarActive();
+          initPromotionsTable();
+        });
+      })();
+
+      //user maenu notification panel
+
+      const openBtn = document.getElementById("openNotiBtn");
+      const closeBtn = document.getElementById("closeNotiBtn");
+      const overlay = document.getElementById("notiOverlay");
+      const panel = document.getElementById("notiPanel");
+      const badge = document.getElementById("notiBadge");
+      const titleCount = () => panel.querySelector(".noti-count");
+
+      function openPanel() {
+        panel.classList.add("show");
+        overlay.classList.add("show");
+        openBtn.setAttribute("aria-expanded", "true");
+      }
+
+      function closePanel() {
+        panel.classList.remove("show");
+        overlay.classList.remove("show");
+        openBtn.setAttribute("aria-expanded", "false");
+      }
+
+      openBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        panel.classList.contains("show") ? closePanel() : openPanel();
+      });
+      closeBtn.addEventListener("click", closePanel);
+      overlay.addEventListener("click", closePanel);
+      document.addEventListener(
+        "keydown",
+        (e) => e.key === "Escape" && closePanel()
+      );
+
+      panel.addEventListener("click", (e) => {
+        const item = e.target.closest(".noti-item.unread");
+        if (!item) return;
+        item.classList.remove("unread");
+        item.querySelector(".noti-dot")?.remove();
+        const remain = panel.querySelectorAll(".noti-item.unread").length;
+        titleCount().textContent = remain;
+        if (badge) {
+          if (remain <= 0) badge.style.display = "none";
+          else badge.textContent = remain;
+        }
+      });
+
+      document
+        .querySelectorAll(".message-btn, .notification-btn")
+        .forEach((btn) => {
+          const count = parseInt(btn.dataset.count || "0");
+          if (count <= 0) btn.removeAttribute("data-count");
+        });
+    </script>
+  </body>
+</html>

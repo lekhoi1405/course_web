@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Top Header (reuse existing header styles) -->
+    <header class="header">
+      <div class="container header-inner no-textAlign">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+
+        <div class="actions">
+          <div class="user-menu">
+            <button class="message-btn" type="button" aria-label="Messages">
+              <img
+                src="../../../resources/images/userHeader/icon_mess.svg"
+                alt="Messages"
+                width="20"
+                height="20"
+              />
+            </button>
+            <button
+              class="notification-btn"
+              type="button"
+              aria-label="Notifications"
+              data-count="0"
+            >
+              <img
+                src="../../../resources/images/userHeader/icon_noti.svg"
+                alt="Notifications"
+                width="20"
+                height="20"
+              />
+            </button>
+            <div class="user-profile">
+              <img
+                src="../../../resources/images/userHeader/user_avt.svg"
+                alt="Admin Avatar"
+                class="user-avatar-img"
+              />
+              <img
+                src="../../../resources/images/userHeader/icon_down.svg"
+                alt="Dropdown"
+                class="user-dropdown-icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-shell">
+      <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+          <nav class="admin-side-nav">
+            <a class="admin-side-link" href="AdminDashboard.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 13h7V4H4v9Zm9 7h7V11h-7v9ZM4 20h7v-5H4v5Zm9-18v7h7V2h-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Dashboard
+            </a>
+
+            <a class="admin-side-link" href="AdminAccounts.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3Zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.95 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Accounts
+            </a>
+
+            <a class="admin-side-link" href="AdminCourses.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 6.5V19c0 .55.45 1 1 1h14v-2H6V6.5h13V4H5c-.55 0-1 .45-1 1v1.5Zm16 1H8c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-11c0-.55-.45-1-1-1Zm-1 4h-4v-2h4v2Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Courses
+            </a>
+
+            <!-- ✅ Reports -->
+            <a class="admin-side-link" href="AdminReports.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M3 3h18v2H3V3Zm2 4h14v14H5V7Zm2 2v10h10V9H7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Reports
+            </a>
+
+            <!-- ✅ Promotions -->
+            <a class="admin-side-link" href="AdminPromotions.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7l3-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Promotions
+            </a>
+
+            <!-- ✅ (Tuỳ chọn) Create Voucher -->
+
+            <a class="admin-side-link" href="#">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16v12H4V6Zm2 2v8h12V8H6Z" fill="currentColor" />
+                </svg>
+              </span>
+              Content
+            </a>
+
+            <a class="admin-side-link" href="#">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M19.43 12.98l1.77-1.03-1.5-2.6-2.04.3c-.4-.32-.83-.57-1.3-.75l-.62-1.97h-3l-.62 1.97c-.46.18-.9.43-1.3.75l-2.04-.3-1.5 2.6 1.77 1.03c-.02.16-.03.33-.03.49s.01.33.03.49l-1.77 1.03 1.5 2.6 2.04-.3c.4.32.84.57 1.3.75l.62 1.97h3l.62-1.97c.47-.18.9-.43 1.3-.75l2.04.3 1.5-2.6-1.77-1.03c.02-.16.03-.33.03-.49s-.01-.33-.03-.49ZM14.5 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Settings
+            </a>
+          </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="admin-main">
+          <div class="admin-page-head">
+            <div class="title-wrap">
+              <h1>Dashboard</h1>
+              <p>Welcome back! Here's what's happening with your platform.</p>
+            </div>
+
+            <div class="admin-head-actions">
+              <div class="admin-pill">
+                <span>🗓</span>
+                <select aria-label="Range">
+                  <option selected>Today</option>
+                  <option>This week</option>
+                  <option>This month</option>
+                </select>
+              </div>
+              <button
+                class="admin-btn"
+                type="button"
+                aria-label="Download report"
+              >
+                ⬇︎
+              </button>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <section class="admin-stats">
+            <div class="admin-stat-card">
+              <div class="admin-stat-top">
+                <div>
+                  <div class="admin-stat-label">Revenue</div>
+                  <div class="admin-stat-value">$124,530</div>
+                  <div class="admin-stat-delta up">+12.4%</div>
+                </div>
+                <svg class="admin-spark" viewBox="0 0 100 40" fill="none">
+                  <path
+                    d="M5 28 C 20 22, 30 26, 45 18 C 60 10, 70 14, 95 6"
+                    stroke="#06b6d4"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="admin-stat-card">
+              <div class="admin-stat-top">
+                <div>
+                  <div class="admin-stat-label">Orders / Sales</div>
+                  <div class="admin-stat-value">1,942</div>
+                  <div class="admin-stat-delta up">+7.1%</div>
+                </div>
+                <svg class="admin-spark" viewBox="0 0 100 40" fill="none">
+                  <path
+                    d="M5 30 C 25 32, 35 20, 55 22 C 70 24, 80 10, 95 12"
+                    stroke="#06b6d4"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="admin-stat-card">
+              <div class="admin-stat-top">
+                <div>
+                  <div class="admin-stat-label">Active Users</div>
+                  <div class="admin-stat-value">12,403</div>
+                  <div class="admin-stat-delta up">+3.8%</div>
+                </div>
+                <svg class="admin-spark" viewBox="0 0 100 40" fill="none">
+                  <path
+                    d="M5 26 C 20 24, 35 20, 50 22 C 65 24, 75 18, 95 14"
+                    stroke="#06b6d4"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="admin-stat-card">
+              <div class="admin-stat-top">
+                <div>
+                  <div class="admin-stat-label">New Users</div>
+                  <div class="admin-stat-value">1,102</div>
+                  <div class="admin-stat-delta up">+2.1%</div>
+                </div>
+                <svg class="admin-spark" viewBox="0 0 100 40" fill="none">
+                  <path
+                    d="M5 32 C 22 28, 34 30, 48 22 C 62 14, 78 18, 95 10"
+                    stroke="#06b6d4"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="admin-stat-card">
+              <div class="admin-stat-top">
+                <div>
+                  <div class="admin-stat-label">Published Courses</div>
+                  <div class="admin-stat-value">3,487</div>
+                  <div class="admin-stat-delta up">+4.2%</div>
+                </div>
+                <svg class="admin-spark" viewBox="0 0 100 40" fill="none">
+                  <path
+                    d="M5 30 C 22 22, 40 26, 55 18 C 70 10, 82 16, 95 8"
+                    stroke="#06b6d4"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="admin-stat-card">
+              <div class="admin-stat-top">
+                <div>
+                  <div class="admin-stat-label">Completion Rate</div>
+                  <div class="admin-stat-value">62%</div>
+                  <div class="admin-stat-delta up">+1.4%</div>
+                </div>
+                <svg class="admin-spark" viewBox="0 0 100 40" fill="none">
+                  <path
+                    d="M5 28 C 20 30, 40 24, 55 26 C 70 28, 82 16, 95 12"
+                    stroke="#06b6d4"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </section>
+
+          <!-- Revenue & Orders -->
+          <section class="admin-panel">
+            <div class="admin-panel-head">
+              <h2 class="admin-panel-title">Revenue &amp; Orders</h2>
+              <div class="admin-panel-controls">
+                <div class="admin-pill">
+                  <span>📊</span>
+                  <select aria-label="Granularity">
+                    <option>Weekly</option>
+                    <option selected>Monthly</option>
+                    <option>Yearly</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="admin-chart" aria-label="Revenue & Orders chart (mock)">
+              <div class="admin-chart-grid"></div>
+
+              <div class="admin-bars">
+                <div class="admin-bar" style="height: 35%"></div>
+                <div class="admin-bar" style="height: 38%"></div>
+                <div class="admin-bar" style="height: 42%"></div>
+                <div class="admin-bar" style="height: 46%"></div>
+                <div class="admin-bar" style="height: 50%"></div>
+                <div class="admin-bar" style="height: 48%"></div>
+                <div class="admin-bar" style="height: 55%"></div>
+                <div class="admin-bar" style="height: 60%"></div>
+                <div class="admin-bar" style="height: 58%"></div>
+                <div class="admin-bar" style="height: 62%"></div>
+                <div class="admin-bar" style="height: 67%"></div>
+                <div class="admin-bar" style="height: 82%"></div>
+              </div>
+
+              <svg
+                class="admin-line"
+                viewBox="0 0 1000 260"
+                preserveAspectRatio="none"
+              >
+                <polyline
+                  points="0,190 90,175 180,170 270,155 360,150 450,145 540,135 630,128 720,125 810,112 900,95 1000,60"
+                  fill="none"
+                  stroke="#1e3a8a"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                />
+                <circle cx="1000" cy="60" r="7" fill="#1e3a8a"></circle>
+              </svg>
+
+              <div class="admin-chart-axis">
+                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span
+                ><span>May</span><span>Jun</span> <span>Jul</span
+                ><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span
+                ><span>Dec</span>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        // ===== utils =====
+        const $ = (s, r = document) => r.querySelector(s);
+        const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+        const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+        const lower = (s) => (s || "").toString().toLowerCase();
+        const debounce = (fn, w = 200) => {
+          let t;
+          return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn(...args), w);
+          };
+        };
+
+        // ===== active sidebar =====
+        function initSidebarActive() {
+          const current = (
+            window.location.pathname.split("/").pop() || ""
+          ).toLowerCase();
+          $$(".admin-side-link").forEach((a) => {
+            const href = lower(a.getAttribute("href") || "");
+            href && current && href.includes(current)
+              ? a.classList.add("active")
+              : a.classList.remove("active");
+          });
+        }
+
+        // ===== stat count up (khớp HTML: .admin-stat-value) =====
+        function parsePrettyNumber(text) {
+          // giữ prefix/suffix dạng $, %, ...
+          const raw = (text || "").trim();
+
+          // prefix: ký tự không phải số trước khi gặp số
+          const prefixMatch = raw.match(/^[^\d\-\.]+/);
+          const prefix = prefixMatch ? prefixMatch[0] : "";
+
+          // suffix: ký tự không phải số sau khi gặp số
+          const suffixMatch = raw.match(/[^\d]+$/);
+          // nhưng nếu raw kết thúc bằng số thì suffixMatch sẽ null
+          const suffix = suffixMatch ? suffixMatch[0] : "";
+
+          // lấy phần số
+          const numStr = raw
+            .replace(prefix, "")
+            .replace(suffix, "")
+            .replace(/,/g, "")
+            .trim();
+
+          const value = Number(numStr);
+          return { prefix, suffix, value: Number.isFinite(value) ? value : 0 };
+        }
+
+        function formatPrettyNumber(prefix, value, suffix) {
+          // nếu là % thì thường không cần toLocaleString nhiều chữ số
+          const isPercent = (suffix || "").includes("%");
+          const isInt = Number.isInteger(value);
+
+          const formatted = isPercent
+            ? isInt
+              ? value.toString()
+              : value.toFixed(0)
+            : value.toLocaleString();
+
+          return `${prefix}${formatted}${suffix}`;
+        }
+
+        function animateCount(
+          el,
+          toValue,
+          { prefix = "", suffix = "", duration = 700 } = {}
+        ) {
+          const t0 = performance.now();
+          const from = 0;
+
+          function tick(t) {
+            const p = clamp((t - t0) / duration, 0, 1);
+            const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+            const v = from + (toValue - from) * eased;
+
+            // nếu số lớn -> làm tròn cho đẹp
+            const out =
+              Math.abs(toValue) >= 100
+                ? Math.round(v)
+                : Math.round(v * 10) / 10;
+            el.textContent = formatPrettyNumber(prefix, out, suffix);
+
+            if (p < 1) requestAnimationFrame(tick);
+            else el.textContent = formatPrettyNumber(prefix, toValue, suffix);
+          }
+          requestAnimationFrame(tick);
+        }
+
+        function initStatCountUp() {
+          const nodes = $$(".admin-stat-value");
+          nodes.forEach((el) => {
+            const { prefix, suffix, value } = parsePrettyNumber(el.textContent);
+            animateCount(el, value, { prefix, suffix, duration: 750 });
+          });
+        }
+
+        // ===== Revenue & Orders chart (khớp HTML: .admin-bars + svg polyline + .admin-chart-axis) =====
+        const chartData = {
+          monthly: {
+            labels: [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+            ],
+            bars: [35, 38, 42, 46, 50, 48, 55, 60, 58, 62, 67, 82],
+            line: [30, 33, 36, 40, 42, 44, 48, 52, 50, 56, 60, 72],
+          },
+          weekly: {
+            labels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"],
+            bars: [22, 26, 24, 28, 33, 30, 36, 42],
+            line: [18, 20, 19, 22, 26, 24, 28, 32],
+          },
+          yearly: {
+            labels: ["2020", "2021", "2022", "2023", "2024", "2025"],
+            bars: [45, 52, 60, 66, 72, 82],
+            line: [38, 44, 50, 58, 64, 74],
+          },
+        };
+
+        function ensureBars(axisEl, barsEl, n) {
+          // axis
+          if (axisEl) {
+            axisEl.innerHTML = "";
+            for (let i = 0; i < n; i++) {
+              const span = document.createElement("span");
+              axisEl.appendChild(span);
+            }
+          }
+          // bars
+          if (barsEl) {
+            barsEl.innerHTML = "";
+            for (let i = 0; i < n; i++) {
+              const bar = document.createElement("div");
+              bar.className = "admin-bar";
+              bar.style.height = "0%";
+              barsEl.appendChild(bar);
+            }
+          }
+        }
+
+        function buildPolylinePoints(
+          values,
+          { width = 1000, height = 260, top = 40, bottom = 220 } = {}
+        ) {
+          const n = values.length;
+          const maxVal = Math.max(...values, 1);
+          const minY = top;
+          const maxY = bottom;
+
+          const step = n === 1 ? 0 : width / (n - 1);
+
+          const pts = values.map((v, i) => {
+            const x = Math.round(i * step);
+            const y = Math.round(maxY - (v / maxVal) * (maxY - minY));
+            return `${x},${y}`;
+          });
+
+          return pts.join(" ");
+        }
+
+        function animateBars(barsNodes, targetPercents, duration = 450) {
+          const t0 = performance.now();
+          const from = barsNodes.map((b) => {
+            const h = (b.style.height || "0%").replace("%", "");
+            const v = Number(h);
+            return Number.isFinite(v) ? v : 0;
+          });
+
+          function tick(t) {
+            const p = clamp((t - t0) / duration, 0, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+
+            barsNodes.forEach((bar, i) => {
+              const v = from[i] + (targetPercents[i] - from[i]) * eased;
+              bar.style.height = `${v}%`;
+            });
+
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+
+        function initDashboardChart() {
+          const chart = $(".admin-chart");
+          if (!chart) return;
+
+          const barsEl = $(".admin-bars", chart);
+          const axisEl = $(".admin-chart-axis", chart);
+          const svg = $("svg.admin-line", chart);
+          const poly = svg ? $("polyline", svg) : null;
+          const dot = svg ? $("circle", svg) : null;
+
+          // dropdown Granularity ở panel Revenue & Orders
+          const granularitySelect =
+            $(
+              ".admin-panel .admin-panel-controls select[aria-label='Granularity']"
+            ) || $(".admin-panel .admin-panel-controls select");
+
+          function render(key) {
+            const k = lower(key || "monthly");
+            const pack = chartData[k] || chartData.monthly;
+            const n = pack.labels.length;
+
+            ensureBars(axisEl, barsEl, n);
+
+            // set labels
+            if (axisEl) {
+              const spans = $$("span", axisEl);
+              spans.forEach((sp, i) => (sp.textContent = pack.labels[i] || ""));
+            }
+
+            // animate bars
+            const barsNodes = $$(".admin-bar", barsEl);
+            animateBars(barsNodes, pack.bars, 520);
+
+            // line
+            if (poly) {
+              const pts = buildPolylinePoints(pack.line);
+              poly.setAttribute("points", pts);
+              // move last dot
+              if (dot) {
+                const lastIndex = n - 1;
+                const width = 1000;
+                const step = n === 1 ? 0 : width / (n - 1);
+
+                const maxVal = Math.max(...pack.line, 1);
+                const top = 40,
+                  bottom = 220;
+                const x = Math.round(lastIndex * step);
+                const y = Math.round(
+                  bottom - (pack.line[lastIndex] / maxVal) * (bottom - top)
+                );
+
+                dot.setAttribute("cx", String(x));
+                dot.setAttribute("cy", String(y));
+              }
+            }
+          }
+
+          // default: Monthly (khớp option selected hiện tại của bạn)
+          render(granularitySelect?.value || "Monthly");
+
+          granularitySelect?.addEventListener("change", () => {
+            render(granularitySelect.value);
+          });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          initSidebarActive();
+          initStatCountUp();
+          initDashboardChart();
+        });
+      })();
+    </script>
+  </body>
+</html>
