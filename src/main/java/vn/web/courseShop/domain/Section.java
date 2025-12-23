@@ -25,7 +25,7 @@ public class Section {
     @JoinColumn(name ="course_id")
     private Course course;
 
-    @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "section", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lesson> lessons = new ArrayList<Lesson>();
 
     @Column(name = "`index`")

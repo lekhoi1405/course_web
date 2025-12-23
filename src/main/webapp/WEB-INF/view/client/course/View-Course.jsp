@@ -11,31 +11,16 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="container header-inner">
-        <div class="brand">
-          <div class="logo">
-            <img src="/images/logo.svg" alt="EduLearn" />
-          </div>
-          <div class="name-brand">EduLearn</div>
-        </div>
-        <nav class="nav">
-          <a href="HomePage.html" class="nav-link">Home</a>
-          <a href="explore.html" class="nav-link">Explore</a>
-        </nav>
-        <div class="actions">
-          <a class="btn" href="login.html">Log in</a>
-          <a class="btn primary" href="signup.html">Sign up</a>
-        </div>
-      </div>
-    </header>
+    <!-- header start -->
+    <jsp:include page="../layout/header.jsp" />
+    <!-- header end -->
 
     <div class="main-content">
       <main class="course-page">
         <!-- Breadcrumb -->
         <div class="breadcrumb">
           <img src="/images/ViewCourse/arrow-left.svg" alt="" />
-          <a href="explore.html">Back to Explore</a>
+          <a href="/explore">Back to Explore</a>
         </div>
 
         <!-- Layout -->
@@ -46,52 +31,44 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             <div class="course-header-card">
               <span class="badge--blue">Best Seller</span>
 
-              <h1 class="course-title">React From Zero to Hero</h1>
+              <h1 class="course-title">${courseDTO.courseTitle}</h1>
 
               <p class="course-meta">
-                Updated January 2025 • 42 hours • Beginner–Advanced
+                Updated January 2025 • 42 hours • ${courseDTO.level}
               </p>
 
               <div class="rating-summary__stars no-textAlign">
                 <span class="stars" data-rating="4"></span>
               </div>
 
-              <p class="course-short-desc">
-                Learn React from scratch with hands-on projects, modern
-                features, Hooks, Context, Redux Toolkit, and more.
-              </p>
+              <p class="course-short-desc"></p>
             </div>
 
             <!-- WHAT YOU WILL LEARN -->
             <div class="learn-box">
               <h2 class="section-title">What you’ll learn</h2>
-
-              <ul class="learn-list">
-                <li class="learn-list-item">Build modern React applications</li>
-                <li class="learn-list-item">
-                  Understand Redux & State Management
-                </li>
-                <li class="learn-list-item">
-                  Work with APIs and async requests
-                </li>
-                <li class="learn-list-item">
-                  Learn routing, forms & validation
-                </li>
-                <li class="learn-list-item">Create production-ready apps</li>
-                <li class="learn-list-item">
-                  Master Hooks, Context, and advanced React
-                </li>
-              </ul>
+              <c:forEach var="courseTarget" items="${courseDTO.targets}">
+                <ul class="learn-list">
+                  <li class="learn-list-item">${courseTarget}</li>
+                </ul>
+              </c:forEach>
             </div>
 
             <!-- DESCRIPTION -->
             <div class="description-box">
               <h2 class="section-title">Course Description</h2>
 
-              <p>
-                This course guides you from the absolute basics of React all the
-                way to creating advanced, real-world applications...
-              </p>
+              <p>${courseDTO.courseDesc}</p>
+            </div>
+
+            <!-- PREREQUISITES -->
+            <div class="learn-box">
+              <h2 class="section-title">Prerequisites</h2>
+              <c:forEach var="courseTarget" items="${courseDTO.prerequisites}">
+                <ul class="learn-list">
+                  <li class="learn-list-item">${courseTarget}</li>
+                </ul>
+              </c:forEach>
             </div>
 
             <!-- CURRICULUM -->
@@ -103,43 +80,31 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
               <div class="curriculum-sections">
                 <!-- SECTION 1 -->
-                <div class="curriculum-section">
-                  <div class="curriculum-section__header">
-                    <div class="curriculum-section__title">Introduction</div>
-                    <div class="curriculum-section__duration">12 min</div>
+                <c:forEach var="courseSection" items="${courseDTO.sectionDTOs}">
+                  <div class="curriculum-section">
+                    <div class="curriculum-section__header">
+                      <div class="curriculum-section__title">
+                        ${courseSection.title}
+                      </div>
+                      <div class="curriculum-section__duration">12 min</div>
+                    </div>
+                    <c:forEach
+                      var="courseLesson"
+                      items="${courseSection.lessons}"
+                    >
+                      <ul class="curriculum-lessons">
+                        <li class="curriculum-lesson">
+                          <div class="curriculum-lesson__left">
+                            <span class="curriculum-lesson__title icon-video"
+                              >${courseLesson.title}</span
+                            >
+                          </div>
+                          <span class="curriculum-lesson__time">2:10</span>
+                        </li>
+                      </ul>
+                    </c:forEach>
                   </div>
-
-                  <ul class="curriculum-lessons">
-                    <li class="curriculum-lesson">
-                      <div class="curriculum-lesson__left">
-                        <span
-                          class="curriculum-lesson__title icon-video checkmate done"
-                          >Welcome</span
-                        >
-                      </div>
-                      <span class="curriculum-lesson__time">2:10</span>
-                    </li>
-
-                    <li class="curriculum-lesson">
-                      <div class="curriculum-lesson__left">
-                        <span
-                          class="curriculum-lesson__title icon-reading checkmate done"
-                          >Course Overview</span
-                        >
-                      </div>
-                      <span class="curriculum-lesson__time">5:20</span>
-                    </li>
-
-                    <li class="curriculum-lesson">
-                      <div class="curriculum-lesson__left">
-                        <span class="curriculum-lesson__title icon-practice"
-                          >Setup Environment</span
-                        >
-                      </div>
-                      <span class="curriculum-lesson__time">4:30</span>
-                    </li>
-                  </ul>
-                </div>
+                </c:forEach>
               </div>
             </div>
           </div>
@@ -148,35 +113,33 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
           <aside class="course-sidebar">
             <img
               class="course-preview"
-              src="/images/ViewCourse/preview.svg"
+              src="/images/courseThumbnail/${courseDTO.thumbnailUrl}"
               alt="Course preview"
             />
 
-            <div class="course-price">$19.99</div>
+            <div class="course-price">
+              <fmt:formatNumber value="${courseDTO.price}" type="number" />đ
+            </div>
 
             <button class="buy-btn">Buy Now</button>
-            <button class="cart-btn">Add to Cart</button>
+            <form
+              action="/client/add-to-cart/${courseDTO.courseId}"
+              method="post"
+            >
+              <input
+                type="hidden"
+                name="${_csrf.parameterName}"
+                value="${_csrf.token}"
+              />
+              <button class="cart-btn">Add to Cart</button>
+            </form>
           </aside>
         </div>
       </main>
     </div>
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="footer-links">
-          <a href="#">About Us</a>
-          <a href="#">Terms</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Support</a>
-        </div>
-        <div class="Follow-us">Follow us</div>
-        <div class="social">
-          <img src="/images/HomePage/Button-FB.svg" alt="Facebook" />
-          <img src="/images/HomePage/Button-insta.svg" alt="Instagram" />
-          <img src="/images/HomePage/Button-yt.svg" alt="YouTube" />
-        </div>
-        <div class="copy">© 2025 EduLearn. All rights reserved.</div>
-      </div>
-    </footer>
+    <!-- footer start -->
+    <jsp:include page="../layout/footer.jsp" />
+    <!-- footer end -->
     <script>
       const currentPage = window.location.pathname.split("/").pop();
       document.querySelectorAll(".nav-link").forEach((link) => {
@@ -195,3 +158,14 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     </script>
   </body>
 </html>
+<c:if test="${not empty error}">
+  <script>
+    alert("${error}");
+  </script>
+</c:if>
+
+<c:if test="${not empty message}">
+  <script>
+    alert("${message}");
+  </script>
+</c:if>

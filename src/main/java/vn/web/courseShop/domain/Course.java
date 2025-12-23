@@ -32,16 +32,16 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private List<Enrollment> enrollments;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Section> sections = new ArrayList<Section>();
 
     @OneToMany(mappedBy = "course")
     private List<Review> reviews;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CoursePrerequisites> coursePrerequisites;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CourseTarget> targets;
 
     @OneToMany(mappedBy = "course")
@@ -85,14 +85,28 @@ public class Course {
     public List<CoursePrerequisites> getCoursePrerequisites() {
         return coursePrerequisites;
     }
-    public void setCoursePrerequisites(List<CoursePrerequisites> coursePrerequisites) {
-        this.coursePrerequisites = coursePrerequisites;
+    public void setCoursePrerequisites(List<CoursePrerequisites> newPrerequisites) {
+        if (this.coursePrerequisites == null) {
+            this.coursePrerequisites = newPrerequisites;
+        } else {
+            this.coursePrerequisites.clear();
+            if (newPrerequisites != null) {
+                this.coursePrerequisites.addAll(newPrerequisites); 
+            }
+        }
     }
     public List<CourseTarget> getTargets() {
         return targets;
     }
-    public void setTargets(List<CourseTarget> targets) {
-        this.targets = targets;
+    public void setTargets(List<CourseTarget> newTargets) {
+        if (this.targets == null) {
+            this.targets = newTargets;
+        } else {
+            this.targets.clear(); 
+            if (newTargets != null) {
+                this.targets.addAll(newTargets); 
+            }
+        }
     }
     public List<InvoiceDetail> getInvoiceDetails() {
         return invoiceDetails;
@@ -115,8 +129,15 @@ public class Course {
     public List<Section> getSections() {
         return sections;
     }
-    public void setSections(List<Section> sections) {
-        this.sections = sections;
+    public void setSections(List<Section> newSections) {
+        if (this.sections == null) {
+            this.sections = newSections;
+        } else {
+            this.sections.clear();
+            if (newSections != null) {
+                this.sections.addAll(newSections);
+            }
+        }
     }
     public List<Review> getReviews() {
         return reviews;

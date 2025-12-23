@@ -30,7 +30,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
           <section class="dashboard-section">
             <div class="section-header">
               <h2 class="section-title">Continue Learning</h2>
-              <a href="#" class="view-all">
+              <a href="/client/enrollment" class="view-all">
                 View All
                 <svg
                   width="16"
@@ -47,42 +47,53 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
             <div class="home-featured__grid">
               <!-- Course Card 1 -->
-              <article class="course-card continue-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                  <div class="course-card__badges">
-                    <span class="badge badge--quiz">Quiz 3 - 2d left</span>
+              <c:forEach var="course" items="${list}">
+                <article class="course-card continue-card">
+                  <div class="course-card__image-wrapper">
+                    <div class="course-card__image-placeholder">
+                      <img style="width: 100%;height: 100%; object-fit: fill;
+                      display:block;border-radius: 6px;"
+                      src="/images/courseThumbnail/${course.thumbnailUrl}"
+                      alt=""></div>
                   </div>
-                </div>
 
-                <div class="course-card__body">
-                  <h3 class="course-card__title">React for Beginners</h3>
-                  <p class="course-card__instructor">by John Doe</p>
+                  <div class="course-card__body">
+                    <h3 class="course-card__title">${course.courseTitle}</h3>
+                    <p class="course-card__instructor">by ${course.account.fullname}</p>
 
-                  <div class="course-progress">
-                    <span class="progress-label">Progress</span>
-                    <div class="progress-bar">
-                      <div class="progress-fill" style="width: 45%"></div>
+                    <div class="course-progress">
+                      <span class="progress-label">Progress</span>
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%"></div>
+                      </div>
+                      <span class="progress-text">45%</span>
                     </div>
-                    <span class="progress-text">45%</span>
-                  </div>
 
-                  <div class="course-next-resume">
-                    <p class="course-next">Next: State & Props</p>
-                    <button class="btn-resume">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                      </svg>
-                      Resume
-                    </button>
+                    <div class="course-next-resume">
+                      <p class="course-next">Next: State & Props</p>
+                    <form action="/client/enrollment/continue" method="POST">
+                    <input type="hidden" name="courseId" value="${course.id}" />
+                      <button class="btn-resume">
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        Resume
+                      </button>
+                      <input
+                      type="hidden"
+                      name="${_csrf.parameterName}"
+                      value="${_csrf.token}"
+                    />
+                  </form>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </c:forEach>
             </div>
           </section>
 
@@ -106,7 +117,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             </div>
 
             <div class="home-featured__grid home-featured__grid--4">
-              <!-- Recommended Course 1 -->
+              <!-- Recommended Course  -->
               <c:forEach var="courseRecommend" items="${recommendList}">
                 <article class="course-card recommend-card">
                   <div class="course-card__image-wrapper">
@@ -141,6 +152,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                           type="number"
                         />đ</span
                       >
+
                       <button class="btn-add-cart">
                         <svg
                           width="14"
@@ -171,14 +183,5 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <!-- footer start -->
     <jsp:include page="../layout/footer.jsp" />
     <!-- footer end -->
-
-    <script>
-      const currentPage = window.location.pathname.split("/").pop();
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        if (link.getAttribute("href") === currentPage) {
-          link.classList.add("active");
-        }
-      });
-    </script>
   </body>
 </html>

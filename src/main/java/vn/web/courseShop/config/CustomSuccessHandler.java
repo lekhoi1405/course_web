@@ -34,7 +34,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler{
 
     Map<String, String> roleTargetUrlMap = new HashMap<>();
     roleTargetUrlMap.put("ROLE_User", "/");
-    roleTargetUrlMap.put("ROLE_Admin", "/");
+    roleTargetUrlMap.put("ROLE_Admin", "/admin");
 
     final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
     for (final GrantedAuthority grantedAuthority : authorities) {
@@ -58,6 +58,8 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler{
         if(account != null){
             session.setAttribute("fullName", account.getFullname());
             session.setAttribute("email", account.getEmail());
+            int countCart = account.getCart() != null ? this.accountService.countCartByAccount(session):0; 
+            session.setAttribute("cart", countCart);
         }
 
     }
@@ -76,11 +78,9 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler{
         clearAuthenticationAttributes(request, authentication);
         SavedRequest savedRequest = requestCache.getRequest(request, response);
         if (savedRequest != null) {
-            // TRƯỜNG HỢP A: Có trang cũ -> Redirect về trang đó
             String targetUrl = savedRequest.getRedirectUrl();
             redirectStrategy.sendRedirect(request, response, targetUrl);
         } else {
-            // TRƯỜNG HỢP B: Không có trang cũ (User bấm Login chủ động) -> Dùng logic Role
             String targetUrl = determineTargetUrl(authentication);
             redirectStrategy.sendRedirect(request, response, targetUrl);
         }

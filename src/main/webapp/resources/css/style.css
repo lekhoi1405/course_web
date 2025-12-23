@@ -392,6 +392,7 @@ body {
 .home-featured {
   margin-top: 8px;
   background: #f9fafb;
+  text-align: center;
 }
 
 .section-header {
@@ -680,7 +681,7 @@ body {
 .course-card__image-placeholder img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -1060,7 +1061,7 @@ body {
   display: inline-block;
   width: 18px;
   height: 18px;
-  background-image: url(../image/ViewCourse/Icon.svg);
+  background-image: url(/images/ViewCourse/Icon.svg);
   background-size: contain;
   background-repeat: no-repeat;
   margin-right: 10px;
@@ -1190,7 +1191,7 @@ body {
   display: inline-block;
   width: 14px;
   height: 14px;
-  background-image: url(../image/ViewCourse/Icon.svg);
+  background-image: url(/images/ViewCourse/Icon.svg);
   background-size: contain;
   background-repeat: no-repeat;
   margin-left: 8px;
@@ -1891,6 +1892,21 @@ body {
 .course-card__rating .rating-count {
   font-size: 0.75rem;
   color: #6b7280;
+}
+
+.course-card__view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.813rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .recommend-card .course-card__footer {
@@ -5044,7 +5060,6 @@ body {
 .instructor-group {
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #e2e8f0;
 }
 
 .instructor-group:last-of-type {

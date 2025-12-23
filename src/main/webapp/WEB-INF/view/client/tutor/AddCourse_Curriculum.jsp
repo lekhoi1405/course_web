@@ -1,23 +1,36 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%> <%@taglib
-uri="http://www.springframework.org/tags/form" prefix="form"%><%@ taglib
-uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib
+uri="http://www.springframework.org/tags/form" prefix="form"%> <%@ taglib
+uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Create New Course - Curriculum - EduLearn</title>
+    <title>Create New Course - Curriculum</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+      .force-hide {
+        display: none !important;
+      }
+      .force-show-flex {
+        display: flex !important;
+      }
+      /* Style cho tên file khi đã upload */
+      .file-uploaded {
+        color: #28a745;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
-    <!-- header start -->
     <jsp:include page="../layout/header.jsp" />
-    <!-- header end -->
 
     <main class="create-course-page">
       <div class="content">
-        <!-- Page Header -->
         <div class="curriculum-content">
           <form:form
             action="/client/tutor/course/add/curriculum"
@@ -25,47 +38,72 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             modelAttribute="courseDTO"
             enctype="multipart/form-data"
           >
+            <button
+              type="submit"
+              onclick="return false;"
+              style="display: none"
+            ></button>
+
             <jsp:include page="../layout/banner.jsp" />
-          <!-- Tab Navigation -->
+
             <div class="create-course-tabs">
-              <button class="create-tab " type="submit" name="action" value="basicInfor" >Basic Info</button>
-              <button class="create-tab active" type="submit" name="action" value="curriculum">
+              <button
+                class="create-tab"
+                type="submit"
+                name="action"
+                value="basicInfor"
+              >
+                Basic Info
+              </button>
+              <button
+                class="create-tab active"
+                type="submit"
+                name="action"
+                value="curriculum"
+              >
                 Curriculum
               </button>
-              <button class="create-tab" type="submit" name="action" value="settings">
+              <button
+                class="create-tab"
+                type="submit"
+                name="action"
+                value="settings"
+              >
                 Settings
+              </button>
             </div>
-            <!-- Curriculum Content -->
 
             <form:hidden path="courseId" />
-            <!-- Section Header -->
+
             <div class="curriculum-header">
               <div class="curriculum-title-section">
                 <h2 class="curriculum-title">Course Curriculum</h2>
-                <p class="curriculum-subtitle">
-                  Organize your course content into sections and lessons
-                </p>
+                <p class="curriculum-subtitle">Organize your course content</p>
               </div>
               <button
                 type="button"
                 class="btn-add-section-main"
                 onclick="addSection()"
               >
-                <img
-                  src="/images/addCourse/icon_whiteadd.svg"
-                  alt="Add"
-                  width="16"
-                  height="16"
-                />
-                Add Section
+                <img src="/images/addCourse/icon_whiteadd.svg" width="16" /> Add
+                Section
               </button>
             </div>
 
-            <!-- Empty State (shown by default) -->
-            <div class="curriculum-empty-state" id="emptyState">
+            <c:choose>
+              <c:when test="${not empty courseDTO.sectionDTOs}">
+                <c:set var="emptyClass" value="force-hide" />
+                <c:set var="listClass" value="force-show-flex" />
+              </c:when>
+              <c:otherwise>
+                <c:set var="emptyClass" value="force-show-flex" />
+                <c:set var="listClass" value="force-hide" />
+              </c:otherwise>
+            </c:choose>
+
+            <div class="curriculum-empty-state ${emptyClass}" id="emptyState">
               <img
                 src="/images/addCourse/icon_videosection.svg"
-                alt="Video"
                 class="empty-icon"
               />
               <h3 class="empty-title">No sections yet</h3>
@@ -77,37 +115,232 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 onclick="addSection()"
                 type="button"
               >
-                <img
-                  src="/images/addCourse/icon_whiteadd.svg"
-                  alt="Add"
-                  width="16"
-                  height="16"
-                />
-                Add Section
+                <img src="/images/addCourse/icon_whiteadd.svg" width="16" /> Add
+                Section
               </button>
             </div>
 
-            <!-- Sections List (hidden by default, shown after clicking Add Section) -->
-            <div
-              class="curriculum-sections"
-              id="sectionsList"
-              style="display: none"
-            >
-              <!-- Sections will be added here dynamically -->
+            <div class="curriculum-sections ${listClass}" id="sectionsList">
+              <c:forEach
+                items="${courseDTO.sectionDTOs}"
+                var="section"
+                varStatus="secStatus"
+              >
+                <div
+                  class="curriculum-section-item"
+                  id="section-div-${secStatus.index}"
+                >
+                  <div class="section-header-row">
+                    <div class="section-drag">
+                      <img src="/images/addCourse/icon_move.svg" width="20" />
+                    </div>
 
-              <!-- Add Section Button at bottom -->
+                    <input
+                      type="text"
+                      class="section-title-input"
+                      name="sectionDTOs[${secStatus.index}].title"
+                      value="${section.title}"
+                      placeholder="Enter section title"
+                    />
+
+                    <div class="section-actions">
+                      <button
+                        type="button"
+                        class="btn-add-lesson-header"
+                        onclick="addLesson(${secStatus.index})"
+                      >
+                        <img
+                          src="/images/addCourse/icon_blackadd.svg"
+                          width="14"
+                        />
+                        Add Lesson
+                      </button>
+                      <button
+                        type="button"
+                        class="section-delete-btn"
+                        onclick="deleteSection(${secStatus.index})"
+                      >
+                        <img
+                          src="/images/addCourse/button_delete.svg"
+                          width="28"
+                        />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div
+                    class="section-lessons"
+                    id="section-${secStatus.index}-lessons"
+                  >
+                    <c:forEach
+                      items="${section.lessons}"
+                      var="lesson"
+                      varStatus="lessonStatus"
+                    >
+                      <div
+                        class="lesson-card"
+                        id="lesson-div-${secStatus.index}-${lessonStatus.index}"
+                      >
+                        <div class="lesson-header">
+                          <div class="lesson-drag">
+                            <img
+                              src="/images/addCourse/icon_move.svg"
+                              width="16"
+                            />
+                          </div>
+
+                          <input
+                            type="text"
+                            class="lesson-title-input"
+                            name="sectionDTOs[${secStatus.index}].lessons[${lessonStatus.index}].title"
+                            value="${lesson.title}"
+                            placeholder="Enter lesson title"
+                          />
+
+                          <input
+                            type="hidden"
+                            name="sectionDTOs[${secStatus.index}].lessons[${lessonStatus.index}].videoFileUrl"
+                            value="${lesson.videoFileUrl}"
+                          />
+
+                          <input
+                            type="hidden"
+                            name="sectionDTOs[${secStatus.index}].lessons[${lessonStatus.index}].docFileUrl"
+                            value="${lesson.docFileUrl}"
+                          />
+                          <button
+                            type="button"
+                            class="lesson-delete-btn"
+                            onclick="deleteLesson(${secStatus.index}, ${lessonStatus.index})"
+                          >
+                            Delete
+                          </button>
+                        </div>
+
+                        <div class="lesson-content-row">
+                          <div class="lesson-upload-box">
+                            <div class="upload-box-header">
+                              <img
+                                src="/images/addCourse/icon_videolesson.svg"
+                                width="16"
+                              />
+                              <span>Video</span>
+                            </div>
+                            <div
+                              class="upload-box-area"
+                              onclick="triggerChildInput(this)"
+                            >
+                              <c:choose>
+                                <c:when test="${not empty lesson.videoFileUrl}">
+                                  <span class="file-name file-uploaded"
+                                    >${lesson.videoFileUrl}</span
+                                  >
+                                </c:when>
+                                <c:otherwise>
+                                  <span class="file-name">Upload video</span>
+                                </c:otherwise>
+                              </c:choose>
+
+                              <input
+                                type="file"
+                                name="sectionDTOs[${secStatus.index}].lessons[${lessonStatus.index}].videoFile"
+                                accept="video/*"
+                                style="display: none"
+                                onchange="updateFileName(this)"
+                                onclick="event.stopPropagation()"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="lesson-upload-box">
+                            <div class="upload-box-header">
+                              <img
+                                src="/images/addCourse/icon_document.svg"
+                                width="16"
+                              />
+                              <span>Document</span>
+                            </div>
+                            <div
+                              class="upload-box-area"
+                              onclick="triggerChildInput(this)"
+                            >
+                              <c:choose>
+                                <c:when test="${not empty lesson.docFileUrl}">
+                                  <span class="file-name file-uploaded"
+                                    >${lesson.docFileUrl}</span
+                                  >
+                                </c:when>
+                                <c:otherwise>
+                                  <span class="file-name">Upload document</span>
+                                </c:otherwise>
+                              </c:choose>
+
+                              <input
+                                type="file"
+                                name="sectionDTOs[${secStatus.index}].lessons[${lessonStatus.index}].docFile"
+                                accept=".pdf,.doc,.docx"
+                                style="display: none"
+                                onchange="updateFileName(this)"
+                                onclick="event.stopPropagation()"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="lesson-quiz-section">
+                            <div class="quiz-header">
+                              <img
+                                src="/images/addCourse/icon_quizz.svg"
+                                width="16"
+                              />
+                              <span>Quiz (Optional)</span>
+                            </div>
+                            <div class="quiz-row">
+                              <input
+                                type="text"
+                                class="quiz-input"
+                                placeholder="No quiz"
+                                readonly
+                              />
+                              <button class="btn-create-quiz" type="button">
+                                <img
+                                  src="/images/addCourse/icon_blackadd.svg"
+                                  width="14"
+                                />
+                                Create Quiz
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </c:forEach>
+                  </div>
+
+                  <c:choose>
+                    <c:when test="${not empty section.lessons}">
+                      <c:set
+                        var="lessonCount"
+                        value="${fn:length(section.lessons)}"
+                      />
+                    </c:when>
+                    <c:otherwise>
+                      <c:set var="lessonCount" value="0" />
+                    </c:otherwise>
+                  </c:choose>
+                  <input
+                    type="hidden"
+                    id="lesson-counter-${secStatus.index}"
+                    value="${lessonCount - 1}"
+                  />
+                </div>
+              </c:forEach>
+
               <button
                 class="btn-add-section-bottom"
                 onclick="addSection()"
                 type="button"
               >
-                <img
-                  src="/images/addCourse/icon_whiteadd.svg"
-                  alt="Add"
-                  width="16"
-                  height="16"
-                />
-                Add Section
+                <img src="/images/addCourse/icon_whiteadd.svg" width="16" /> Add
+                Section
               </button>
             </div>
           </form:form>
@@ -115,185 +348,156 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
       </div>
     </main>
 
-    <!-- footer start -->
     <jsp:include page="../layout/footer.jsp" />
-    <!-- footer end -->
 
     <script>
-      // Dùng biến này để đếm số lượng section đang có trên màn hình
-      // Lưu ý: Logic này đơn giản hóa cho đồ án.
-      // Thực tế nên dùng hàm re-index trước khi submit để tránh lỗi index gaps.
-      let sectionIndex = -1;
+      // =========================================================
+      // 1. KHỞI TẠO BIẾN INDEX TỪ SERVER (AN TOÀN TUYỆT ĐỐI)
+      // =========================================================
+      // Dùng c:choose để tạo ra code JS thuần, tránh lỗi cú pháp
+      <c:choose>
+          <c:when test="${not empty courseDTO.sectionDTOs}">
+              var initialSectionCount = ${fn:length(courseDTO.sectionDTOs)};
+          </c:when>
+          <c:otherwise>
+              var initialSectionCount = 0;
+          </c:otherwise>
+      </c:choose>
 
+      // Index bắt đầu từ (số lượng - 1)
+      var sectionIndex = initialSectionCount - 1;
+
+      // =========================================================
+      // 2. HÀM ADD SECTION
+      // =========================================================
       function addSection() {
-        // 1. Ẩn Empty state
-        document.getElementById("emptyState").style.display = "none";
-        document.getElementById("sectionsList").style.display = "flex";
+        const emptyState = document.getElementById("emptyState");
+        const sectionsList = document.getElementById("sectionsList");
 
-        // 2. Tăng index cho section mới
+        // Thay đổi class thay vì style
+        emptyState.classList.remove("force-show-flex");
+        emptyState.classList.add("force-hide");
+
+        sectionsList.classList.remove("force-hide");
+        sectionsList.classList.add("force-show-flex");
+
         sectionIndex++;
-        const currentSecIdx = sectionIndex; // Lưu lại index cố định cho section này
+        const currentSecIdx = sectionIndex;
 
-        // 3. Tạo HTML (Chú ý thuộc tính name)
+        // Dùng backtick ` và \${} để JSP không parse nhầm
+        // [QUAN TRỌNG] Name phải là sectionDTOs[...]
         const sectionHTML = `
           <div class="curriculum-section-item" id="section-div-\${currentSecIdx}">
             <div class="section-header-row">
-              <div class="section-drag">
-                <img src="/images/addCourse/icon_move.svg" alt="Move" width="20" height="20"/>
-              </div>
-              
-              <input type="text" 
-                     class="section-title-input" 
-                     name="sections[\${currentSecIdx}].title" 
-                     placeholder="Enter section title" 
+              <div class="section-drag"><img src="/images/addCourse/icon_move.svg" width="20"/></div>
+
+              <input type="text" class="section-title-input"
+                     name="sectionDTOs[\${currentSecIdx}].title"
+                     placeholder="Enter section title"
                      value="Section \${currentSecIdx+1}: Enter section title"/>
-              
+
               <div class="section-actions">
                 <button type="button" class="btn-add-lesson-header" onclick="addLesson(\${currentSecIdx})">
-                  <img src="/images/addCourse/icon_blackadd.svg" alt="Add" width="14" height="14" />
-                  Add Lesson
+                   <img src="/images/addCourse/icon_blackadd.svg" width="14" /> Add Lesson
                 </button>
                 <button type="button" class="section-delete-btn" onclick="deleteSection(\${currentSecIdx})">
-                  <img src="/images/addCourse/button_delete.svg" alt="Delete" width="28" height="28" />
+                   <img src="/images/addCourse/button_delete.svg" width="28" />
                 </button>
               </div>
             </div>
 
-            <div class="section-lessons" id="section-\${currentSecIdx}-lessons">
-                </div>
-            
+            <div class="section-lessons" id="section-\${currentSecIdx}-lessons"></div>
+
             <input type="hidden" id="lesson-counter-\${currentSecIdx}" value="-1" />
           </div>
         `;
 
-        // Chèn vào trước nút Add Section ở dưới cùng
         const addSectionBtn = document.querySelector(".btn-add-section-bottom");
         addSectionBtn.insertAdjacentHTML("beforebegin", sectionHTML);
       }
 
+      // =========================================================
+      // 3. HÀM ADD LESSON
+      // =========================================================
       function addLesson(secIdx) {
-        // 1. Lấy bộ đếm lesson của section này
-        const counterInput = document.getElementById(
-          `lesson-counter-\${secIdx}`
-        );
+        const counterInput = document.getElementById(`lesson-counter-\${secIdx}`);
         let lessonIdx = parseInt(counterInput.value);
         lessonIdx++;
-        counterInput.value = lessonIdx; // Cập nhật lại bộ đếm
+        counterInput.value = lessonIdx;
 
-        // 2. Tạo HTML Lesson (Chú ý name lồng nhau)
-        // name="sections[0].lessons[0].title"
+        // [QUAN TRỌNG] Name phải là sectionDTOs[...]
         const lessonHTML = `
           <div class="lesson-card" id="lesson-div-\${secIdx}-\${lessonIdx}">
             <div class="lesson-header">
-              <div class="lesson-drag">
-                <img src="/images/addCourse/icon_move.svg" alt="Move" width="16" height="16" />
-              </div>
-              <input type="text" 
-                     class="lesson-title-input" 
-                     name="sections[\${secIdx}].lessons[\${lessonIdx}].title" 
+              <div class="lesson-drag"><img src="/images/addCourse/icon_move.svg" width="16"/></div>
+              <input type="text" class="lesson-title-input"
+                     name="sectionDTOs[\${secIdx}].lessons[\${lessonIdx}].title"
                      placeholder="Enter lesson title" value="Lesson \${lessonIdx+1}: Enter lesson title"/>
-                     
-              <button type="button" class="lesson-delete-btn" onclick="deleteLesson(\${secIdx}, \${lessonIdx})">
-                <img src="/images/addCourse/button_delete.svg" alt="Delete" width="24" height="24" />
-              </button>
+              <button type="button" class="lesson-delete-btn" onclick="deleteLesson(\${secIdx}, \${lessonIdx})">Delete</button>
             </div>
 
             <div class="lesson-content-row">
               <div class="lesson-upload-box">
-                <div class="upload-box-header">
-                  <img src="/images/addCourse/icon_videolesson.svg" width="16" />
-                  <span>Video</span>
-                </div>
-                
+                <div class="upload-box-header"><img src="/images/addCourse/icon_videolesson.svg" width="16" /> <span>Video</span></div>
                 <div class="upload-box-area" onclick="triggerChildInput(this)">
-                  <img src="/images/addCourse/icon_upload.svg" width="24" />
                   <span class="file-name">Upload video</span>
-                  
-                  <input type="file" 
-                        name="sections[\${secIdx}].lessons[\${lessonIdx}].videoFile" 
-                        accept="video/*" 
-                        style="display: none"
-                        onchange="updateFileName(this)" 
-                        onclick="event.stopPropagation()" /> 
+                  <input type="file" name="sectionDTOs[\${secIdx}].lessons[\${lessonIdx}].videoFile"
+                         accept="video/*" style="display:none" onchange="updateFileName(this)" onclick="event.stopPropagation()"/>
                 </div>
               </div>
-
               <div class="lesson-upload-box">
-              <div class="upload-box-header">
-                <img src="/images/addCourse/icon_document.svg" width="16" />
-                <span>Document</span>
+                <div class="upload-box-header"><img src="/images/addCourse/icon_document.svg" width="16" /> <span>Document</span></div>
+                <div class="upload-box-area" onclick="triggerChildInput(this)">
+                  <span class="file-name">Upload document</span>
+                  <input type="file" name="sectionDTOs[\${secIdx}].lessons[\${lessonIdx}].docFile"
+                         accept=".pdf,.doc,.docx" style="display:none" onchange="updateFileName(this)" onclick="event.stopPropagation()"/>
+                </div>
               </div>
-              
-              <div class="upload-box-area" onclick="triggerChildInput(this)">
-                <img src="/images/addCourse/icon_upload.svg" width="24" />
-                <span class="file-name">Upload document</span>
-                
-                <input type="file" 
-                      name="sections[\${secIdx}].lessons[\${lessonIdx}].docFile" 
-                      accept=".pdf,.doc,.docx" 
-                      style="display: none"
-                      onchange="updateFileName(this)"
-                      onclick="event.stopPropagation()" />
-              </div>
-            </div>
-            <div class="lesson-quiz-section">
-              <div class="quiz-header">
-                <img src="/images/addCourse/icon_quizz.svg" alt="Quiz" width="16" height="16" />
-                <span>Quiz (Optional)</span>
-              </div>
-              <div class="quiz-row">
-                <input type="text" class="quiz-input" placeholder="No quiz" readonly />
-                <button class="btn-create-quiz">
-                  <img src="/images/addCourse/icon_blackadd.svg" alt="Add" width="14" height="14" />
-                  Create Quiz
-                </button>
+              <div class="lesson-quiz-section">
+                <div class="quiz-header">
+                  <img src="/images/addCourse/icon_quizz.svg" width="16" /> <span>Quiz (Optional)</span>
+                </div>
+                <div class="quiz-row">
+                  <input type="text" class="quiz-input" placeholder="No quiz" readonly />
+                  <button class="btn-create-quiz" type="button">
+                    <img src="/images/addCourse/icon_blackadd.svg" width="14" /> Create Quiz
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         `;
-
-        document
-          .getElementById(`section-\${secIdx}-lessons`)
-          .insertAdjacentHTML("beforeend", lessonHTML);
+        document.getElementById(`section-\${secIdx}-lessons`).insertAdjacentHTML("beforeend", lessonHTML);
       }
 
-      function deleteSection(secIdx) {
-        const el = document.getElementById(`section-div-\${secIdx}`);
-        if (el) el.remove();
-        // Lưu ý: Khi xóa, index sẽ bị thủng (0, 2, 3).
-        // Spring vẫn map được nhưng list sẽ có phần tử null ở giữa.
-        // Bạn cần xử lý ở Backend: courseDTO.getSections().removeAll(Collections.singleton(null));
+      // =========================================================
+      // 4. CÁC HÀM HELPER
+      // =========================================================
+      function deleteSection(idx) {
+          const el = document.getElementById(`section-div-\${idx}`);
+          if(el) el.remove();
       }
 
-      function deleteLesson(secIdx, lessonIdx) {
-        const el = document.getElementById(
-          `lesson-div-\${secIdx}-\${lessonIdx}`
-        );
-        if (el) el.remove();
+      function deleteLesson(sIdx, lIdx) {
+          const el = document.getElementById(`lesson-div-\${sIdx}-\${lIdx}`);
+          if(el) el.remove();
       }
 
-      function triggerChildInput(parentElement) {
-        const input = parentElement.querySelector('input[type="file"]');
-        if (input) {
-          input.click();
-        }
+      function triggerChildInput(el) {
+          const input = el.querySelector('input[type="file"]');
+          if(input) input.click();
       }
 
-      /**
-       * Hàm này kích hoạt khi người dùng đã chọn file xong
-       * Nó sẽ thay đổi dòng chữ "Upload video" thành tên file vừa chọn
-       */
-      function updateFileName(inputElement) {
-        if (inputElement.files && inputElement.files.length > 0) {
-          const fileName = inputElement.files[0].name;
-          // Tìm thẻ span hiển thị tên nằm cùng cấp
-          const span = inputElement.parentElement.querySelector(".file-name");
-          if (span) {
-            span.innerText = fileName;
-            span.style.fontWeight = "bold"; // Làm đậm tên file cho dễ nhìn
-            span.style.color = "#28a745"; // Đổi màu xanh lá (tùy chọn)
-          }
-        }
+      function updateFileName(input) {
+         if(input.files && input.files.length > 0) {
+             const span = input.parentElement.querySelector(".file-name");
+             if(span) {
+                 span.innerText = input.files[0].name;
+                 span.classList.add("file-uploaded"); // Thêm class màu xanh
+                 span.style.color = "#28a745"; // Backup style
+                 span.style.fontWeight = "bold";
+             }
+         }
       }
     </script>
   </body>

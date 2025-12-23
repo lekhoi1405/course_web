@@ -186,14 +186,29 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                         height="32"
                       />
                     </a>
-                    <button class="action-btn delete-btn">
-                      <img
-                        src="/images/tutorCourses/button_delete.svg"
-                        alt="Delete"
-                        width="32"
-                        height="32"
+                    <form
+                      action="/client/tutorCourses/deleteCourse"
+                      method="POST"
+                    >
+                      <input
+                        type="hidden"
+                        name="courseId"
+                        value="${course.id}"
                       />
-                    </button>
+                      <button class="action-btn delete-btn">
+                        <img
+                          src="/images/tutorCourses/button_delete.svg"
+                          alt="Delete"
+                          width="32"
+                          height="32"
+                        />
+                      </button>
+                      <input
+                        type="hidden"
+                        name="${_csrf.parameterName}"
+                        value="${_csrf.token}"
+                      />
+                    </form>
                   </td>
                 </tr>
               </c:forEach>
@@ -215,3 +230,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <!-- footer end -->
   </body>
 </html>
+<c:if test="${not empty message}">
+  <script>
+    alert("${message}");
+  </script>
+</c:if>

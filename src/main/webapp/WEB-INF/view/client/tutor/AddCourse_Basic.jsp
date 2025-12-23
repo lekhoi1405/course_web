@@ -77,40 +77,50 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <label class="form-label">Thumbnail *</label>
 
                 <div class="upload-area" id="uploadAreaClickable">
-                  
-                  <c:choose>
-                      <c:when test="${not empty courseDTO.thumbnailUrl}">
-                          <img src="/images/courseThumbnail/${courseDTO.thumbnailUrl}" 
-                              alt="Upload" class="upload-icon" id="previewImage"
-                              style="width: 100%; height: auto; max-height: 300px; object-fit: contain; border-radius: 8px;" />
-                          
-                          <p class="upload-text" style="display: none;">
-                              <span>Click to upload image</span>
-                          </p>
-                          <p class="upload-info" style="display: none;">
-                              PNG, JPG up to 10MB (Recommended: 1280x720px)
-                          </p>
-                      </c:when>
-                      
-                      <c:otherwise>
-                          <img src="/images/addCourse/icon_upload.svg" 
-                              alt="Upload" class="upload-icon" width="48" height="48" id="previewImage" />
-                          
-                          <p class="upload-text">
-                              <span>Click to upload image</span>
-                          </p>
-                          <p class="upload-info">
-                              PNG, JPG up to 10MB (Recommended: 1280x720px)
-                          </p>
-                      </c:otherwise>
-                  </c:choose>
+    
+              <input type="hidden" name="thumbnailUrl" value="${courseDTO.thumbnailUrl}" />
 
-                  <input type="file" class="form-control" id="imageInput"
-                        accept=".png,.jpg,.jpeg" style="display: none" name="thumbnail" />
-                        
+              <c:choose>
+                  <c:when test="${not empty courseDTO.thumbnailUrl}">
+                      <img src="/images/courseThumbnail/${courseDTO.thumbnailUrl}" 
+                          alt="Thumbnail" 
+                          class="upload-icon" 
+                          id="previewImage"
+                          style="width: 100%; height: auto; max-height: 300px; object-fit: contain; border-radius: 8px; display: block;" />
+                      
+                      <p class="upload-text" style="display: none;">
+                          <span>Click to change image</span>
+                      </p>
+                      <p class="upload-info" style="display: none;">
+                          PNG, JPG up to 10MB
+                      </p>
+                  </c:when>
+                  
+                  <c:otherwise>
+                      <img src="/images/addCourse/icon_upload.svg" 
+                          alt="Upload" 
+                          class="upload-icon" 
+                          width="48" height="48" 
+                          id="previewImage" />
+                      
+                      <p class="upload-text">
+                          <span>Click to upload image</span>
+                      </p>
+                      <p class="upload-info">
+                          PNG, JPG up to 10MB (Recommended: 1280x720px)
+                      </p>
+                  </c:otherwise>
+              </c:choose>
+
+              <input type="file" 
+                    class="form-control" 
+                    id="imageInput"
+                    accept=".png,.jpg,.jpeg" 
+                    style="display: none" 
+                    name="thumbnail" /> 
+                  </div>
                 </div>
               </div>
-            </div>
 
             <!-- What You'll Learn Section -->
             <div class="form-section">

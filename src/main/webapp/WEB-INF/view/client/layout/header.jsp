@@ -26,7 +26,7 @@ contentType="text/html" pageEncoding="UTF-8"%>
           >Tutor Now</a
         >
         <a
-          href="/enrollments"
+          href="/client/enrollment"
           class="nav-link ${activePage == 'enrollments' ? 'active' : ''}"
           >Enrollments</a
         >
@@ -35,10 +35,10 @@ contentType="text/html" pageEncoding="UTF-8"%>
       <div class="actions">
         <div class="user-menu">
           <a
-            href="/cart"
+            href="/client/cart"
             class="cart-btn"
             style="--color-badge: #1c398e"
-            data-count="2"
+            data-count="${sessionScope.cart}"
           >
             <img
               src="/images/userHeader/icon_cart.svg"
@@ -47,14 +47,6 @@ contentType="text/html" pageEncoding="UTF-8"%>
               height="20"
             />
           </a>
-          <button class="message-btn" data-count="3">
-            <img
-              src="/images/userHeader/icon_mess.svg"
-              alt="Messages"
-              width="20"
-              height="20"
-            />
-          </button>
 
           <button
             class="notification-btn icon-badge"
@@ -93,7 +85,7 @@ contentType="text/html" pageEncoding="UTF-8"%>
             <div class="user-menu-dropdown" id="userMenuDropdown">
               <ul class="user-menu-list">
                 <li class="user-menu-item">
-                  <a href="/profile" class="user-menu-link">
+                  <a href="/client/profile" class="user-menu-link">
                     <img
                       src="/images/userMenu/icon_profile.svg"
                       alt="Profile"
@@ -162,14 +154,14 @@ contentType="text/html" pageEncoding="UTF-8"%>
     <div class="noti-header">
       <h3 id="notiTitle">Thông báo</h3>
       <button class="noti-close" id="closeNotiBtn" aria-label="Đóng">
-        <img src="images/userDashboard/VectorX.svg" alt="" />
+        <img src="/images/userDashboard/VectorX.svg" alt="" />
       </button>
     </div>
     <ul class="noti-list">
       <li class="noti-item unread">
         <div class="noti-icon noti-icon--course">
           <img
-            src="images/viewNotification/icon_newCourse.svg"
+            src="/images/viewNotification/icon_newCourse.svg"
             alt="New Course"
           />
         </div>
@@ -185,7 +177,7 @@ contentType="text/html" pageEncoding="UTF-8"%>
       <li class="noti-item unread">
         <div class="noti-icon noti-icon--review">
           <img
-            src="images/viewNotification/icon_reviewNoti.svg"
+            src="/images/viewNotification/icon_reviewNoti.svg"
             alt="New Review"
           />
         </div>

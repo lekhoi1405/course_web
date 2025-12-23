@@ -9,5 +9,6 @@ import vn.web.courseShop.domain.Account;
 import vn.web.courseShop.domain.Course;
 @Repository
 public interface CourseRepository extends JpaRepository<Course,Long>{
-    List<Course> findAllByAccount(Account account);    
+    List<Course> findAllByAccount(Account account);
+    List<Course>  findAllByCourseTitle(String title);  
 }

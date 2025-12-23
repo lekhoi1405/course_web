@@ -9,24 +9,9 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="container header-inner">
-        <div class="brand">
-          <div class="logo">
-            <img src="/images/logo.svg" alt="EduLearn" />
-          </div>
-          <div class="name-brand">EduLearn</div>
-        </div>
-        <nav class="nav">
-          <a href="HomePage.html" class="nav-link">Home</a>
-          <a href="explore.html" class="nav-link">Explore</a>
-        </nav>
-        <div class="actions">
-          <a class="btn" href="login.html">Log in</a>
-          <a class="btn primary" href="signup.html">Sign up</a>
-        </div>
-      </div>
-    </header>
+    <!-- header start -->
+    <jsp:include page="../layout/header.jsp" />
+    <!-- header end -->
     <div class="main-content">
       <main class="auth-page">
         <div class="auth-card">
@@ -40,6 +25,18 @@ uri="http://java.sun.com/jsp/jstl/core"%>
             <c:if test="${param.logout != null}">
               <div class="my-2" style="color: green">Logout successful.</div>
             </c:if>
+            <c:if test="${param.expired == 'session_expired'}">
+              <div class="my-2" style="color: red">
+                Phiên đăng nhập của bạn đã hết hạn. Vui lòng đăng nhập lại!
+              </div>
+            </c:if>
+
+            <c:if test="${param.expired == 'account_in_use'}">
+              <div class="my-2" style="color: red">
+                Tài khoản này đã được đăng nhập ở nơi khác!
+              </div>
+            </c:if>
+
             <!-- Email -->
             <div class="auth-field">
               <label for="email">Email</label>
@@ -103,55 +100,8 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         </div>
       </main>
     </div>
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="footer-links">
-          <a href="#">About Us</a>
-          <a href="#">Terms</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Support</a>
-        </div>
-        <div class="Follow-us">Follow us</div>
-        <div class="social">
-          <img src="/images/HomePage/Button-FB.svg" alt="Facebook" />
-          <img src="/images/HomePage/Button-insta.svg" alt="Instagram" />
-          <img src="/images/HomePage/Button-yt.svg" alt="YouTube" />
-        </div>
-        <div class="copy">© 2025 EduLearn. All rights reserved.</div>
-      </div>
-    </footer>
-    <script>
-      const currentPage = window.location.pathname.split("/").pop();
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        if (link.getAttribute("href") === currentPage) {
-          link.classList.add("active");
-        }
-      });
-      const passwordInputs = document.querySelectorAll(".auth-input-with-icon");
-
-      passwordInputs.forEach((group) => {
-        const input = group.querySelector(".password");
-        const eyeBtn = group.querySelector(".auth-eye-btn");
-
-        input.addEventListener("input", () => {
-          if (input.value.trim().length > 0) {
-            eyeBtn.classList.add("visible");
-          } else {
-            eyeBtn.classList.remove("visible");
-            input.type = "password";
-            eyeBtn.classList.remove("active");
-          }
-        });
-
-        eyeBtn.addEventListener("click", () => {
-          if (input.type === "password") {
-            input.type = "text";
-          } else {
-            input.type = "password";
-          }
-          eyeBtn.classList.toggle("active");
-        });
-      });
-    </script>
+    <!-- footer start -->
+    <jsp:include page="../layout/footer.jsp" />
+    <!-- footer end -->
   </body>
 </html>

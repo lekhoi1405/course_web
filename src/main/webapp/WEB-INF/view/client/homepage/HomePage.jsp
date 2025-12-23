@@ -258,144 +258,87 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             </div>
 
             <div class="home-featured__grid">
-              <article class="course-card">
-                <div class="course-card__image-wrapper">
-                  <!-- Dùng ảnh thật nếu có -->
-                  <div class="course-card__image-placeholder"></div>
-
-                  <div class="course-card__badges">
-                    <span class="badge badge--orange">Bestseller</span>
-                    <span class="badge badge--dark">Intermediate</span>
-                    <span class="badge badge--red">-70%</span>
-                  </div>
-                </div>
-
-                <div class="course-card__body">
-                  <div class="course-card__category">DEVELOPMENT</div>
-                  <h3 class="course-card__title">
-                    Complete React Developer Course 2024
-                  </h3>
-                  <p class="course-card__instructor">by John Smith</p>
-
-                  <div class="course-card__meta">
-                    <span>42h 30m</span>
-                    <span>•</span>
-                    <span>89,234 students</span>
-                  </div>
-
-                  <div class="course-card__rating">
-                    ⭐ 4.8 <span>(1,234)</span>
-                  </div>
-
-                  <div class="course-card__footer">
-                    <div class="course-card__price-box">
-                      <span class="course-card__price">$59.99</span>
-                      <span class="course-card__old-price">$199.00</span>
+              <c:forEach var="course" items="${list}">
+                <article class="course-card">
+                  <div class="course-card__image-wrapper">
+                    <!-- Dùng ảnh thật nếu có -->
+                    <div class="course-card__image-placeholder">
+                      <a
+                        href="/course/${course.id}"
+                        style="
+                          display: block;
+                          width: 100%;
+                          height: 100%;
+                          text-decoration: none;
+                        "
+                      >
+                        <img
+                          style="
+                            width: 100%;
+                            height: 100%;
+                            object-fit: fill;
+                            display: block;
+                            border-radius: 6px;
+                          "
+                          src="/images/courseThumbnail/${course.thumbnailUrl}"
+                          alt=""
+                        />
+                      </a>
                     </div>
-                    <button class="course-card__view-btn">View Course</button>
-                  </div>
-                </div>
-              </article>
 
-              <article class="course-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                  <div class="course-card__badges">
-                    <span class="badge badge--orange">Bestseller</span>
-                    <span class="badge badge--dark">Beginner</span>
-                    <span class="badge badge--red">-60%</span>
-                  </div>
-                </div>
-                <div class="course-card__body">
-                  <div class="course-card__category">DESIGN</div>
-                  <h3 class="course-card__title">
-                    UI/UX Design Masterclass 2024
-                  </h3>
-                  <p class="course-card__instructor">by Sarah Johnson</p>
-                  <div class="course-card__meta">
-                    <span>31h 15m</span>
-                    <span>•</span>
-                    <span>45,678 students</span>
-                  </div>
-                  <div class="course-card__rating">
-                    ⭐ 4.9 <span>(894)</span>
-                  </div>
-                  <div class="course-card__footer">
-                    <div class="course-card__price-box">
-                      <span class="course-card__price">$79.99</span>
-                      <span class="course-card__old-price">$199.00</span>
+                    <div class="course-card__badges">
+                      <span class="badge badge--dark"
+                        >${course.level.levelName}</span
+                      >
                     </div>
-                    <button class="course-card__view-btn">View Course</button>
                   </div>
-                </div>
-              </article>
-              <article class="course-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                  <div class="course-card__badges">
-                    <span class="badge badge--orange">Bestseller</span>
-                    <span class="badge badge--dark">Beginner</span>
-                    <span class="badge badge--red">-60%</span>
-                  </div>
-                </div>
-                <div class="course-card__body">
-                  <div class="course-card__category">DESIGN</div>
-                  <h3 class="course-card__title">
-                    UI/UX Design Masterclass 2024
-                  </h3>
-                  <p class="course-card__instructor">by Sarah Johnson</p>
-                  <div class="course-card__meta">
-                    <span>31h 15m</span>
-                    <span>•</span>
-                    <span>45,678 students</span>
-                  </div>
-                  <div class="course-card__rating">
-                    ⭐ 4.9 <span>(894)</span>
-                  </div>
-                  <div class="course-card__footer">
-                    <div class="course-card__price-box">
-                      <span class="course-card__price">$79.99</span>
-                      <span class="course-card__old-price">$199.00</span>
+
+                  <div class="course-card__body">
+                    <div class="course-card__category">
+                      ${course.category.description}
                     </div>
-                    <button class="course-card__view-btn">View Course</button>
-                  </div>
-                </div>
-              </article>
-              <article class="course-card">
-                <div class="course-card__image-wrapper">
-                  <div class="course-card__image-placeholder"></div>
-                  <div class="course-card__badges">
-                    <span class="badge badge--orange">Bestseller</span>
-                    <span class="badge badge--dark">Beginner</span>
-                    <span class="badge badge--red">-60%</span>
-                  </div>
-                </div>
-                <div class="course-card__body">
-                  <div class="course-card__category">DESIGN</div>
-                  <h3 class="course-card__title">
-                    UI/UX Design Masterclass 2024
-                  </h3>
-                  <p class="course-card__instructor">by Sarah Johnson</p>
-                  <div class="course-card__meta">
-                    <span>31h 15m</span>
-                    <span>•</span>
-                    <span>45,678 students</span>
-                  </div>
-                  <div class="course-card__rating">
-                    ⭐ 4.9 <span>(894)</span>
-                  </div>
-                  <div class="course-card__footer">
-                    <div class="price-box">
-                      <span class="current-price">$79.99</span>
-                      <span class="old-price">$199.00</span>
+                    <h3 class="course-card__title">${course.courseTitle}</h3>
+                    <p class="course-card__instructor">
+                      by ${course.account.fullname}
+                    </p>
+
+                    <div class="course-card__meta">
+                      <span>42h 30m</span>
+                      <span>•</span>
+                      <span>89,234 students</span>
                     </div>
-                    <button class="view-course-btn">View Course</button>
+
+                    <div class="course-card__rating">
+                      ⭐ 4.8 <span>(1,234)</span>
+                    </div>
+
+                    <div class="course-card__footer">
+                      <div class="course-card__price-box">
+                        <span class="course-card__price">
+                          <fmt:formatNumber
+                            value="${course.originalPrice}"
+                            type="number"
+                          />đ</span
+                        >
+                      </div>
+                      <a
+                        style="text-decoration: none"
+                        href="/course/${course.id}"
+                        class="course-card__view-btn"
+                        >View Course</a
+                      >
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </c:forEach>
             </div>
 
-            <button class="link-button">View all Courses</button>
+            <a
+              href="/explore"
+              style="text-decoration: none; display: inline-block; width: auto"
+              class="link-button"
+              >View all Courses</a
+            >
           </section>
         </div>
       </div>

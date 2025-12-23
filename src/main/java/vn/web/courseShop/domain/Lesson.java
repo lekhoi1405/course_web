@@ -28,7 +28,7 @@ public class Lesson {
     @OneToMany(mappedBy = "lesson")
     private List<UserLessonProgress> userLessonProgresses;
 
-    @OneToMany(mappedBy = "lesson", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "lesson", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Resource> resources = new ArrayList<Resource>();
 
     @Column(name = "`index`")

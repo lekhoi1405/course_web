@@ -2,6 +2,8 @@ package vn.web.courseShop.domain;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -59,8 +61,31 @@ public class Account {
     @Column(length = 1000)
     private String media_link;
 
+    @Column
+    private String Avatar;
+
+    @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dob;
+
+    @Column
     private LocalDate created_date;
+    
+    @Column
     private boolean status;
+    public LocalDate getDob() {
+        return dob;
+    }
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+    public String getAvatar() {
+        return Avatar;
+    }
+    public void setAvatar(String avatar) {
+        Avatar = avatar;
+    }
+
     
     public long getId() {
         return id;
