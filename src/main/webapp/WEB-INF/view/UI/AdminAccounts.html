@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accounts - Admin - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-inner no-textAlign">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+
+        <div class="actions">
+          <div class="user-menu">
+            <button class="message-btn" type="button" aria-label="Messages">
+              <img
+                src="../../../resources/images/userHeader/icon_mess.svg"
+                alt="Messages"
+                width="20"
+                height="20"
+              />
+            </button>
+            <button
+              class="notification-btn"
+              type="button"
+              aria-label="Notifications"
+              data-count="0"
+            >
+              <img
+                src="../../../resources/images/userHeader/icon_noti.svg"
+                alt="Notifications"
+                width="20"
+                height="20"
+              />
+            </button>
+            <div class="user-profile">
+              <img
+                src="../../../resources/images/userHeader/user_avt.svg"
+                alt="Admin Avatar"
+                class="user-avatar-img"
+              />
+              <img
+                src="../../../resources/images/userHeader/icon_down.svg"
+                alt="Dropdown"
+                class="user-dropdown-icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-shell">
+      <div class="admin-layout">
+        <aside class="admin-sidebar">
+          <nav class="admin-side-nav">
+            <a class="admin-side-link" href="AdminDashboard.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 13h7V4H4v9Zm9 7h7V11h-7v9ZM4 20h7v-5H4v5Zm9-18v7h7V2h-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Dashboard
+            </a>
+
+            <a class="admin-side-link" href="AdminAccounts.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3Zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.95 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Accounts
+            </a>
+
+            <a class="admin-side-link" href="AdminCourses.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 6.5V19c0 .55.45 1 1 1h14v-2H6V6.5h13V4H5c-.55 0-1 .45-1 1v1.5Zm16 1H8c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-11c0-.55-.45-1-1-1Zm-1 4h-4v-2h4v2Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Courses
+            </a>
+
+            <a class="admin-side-link" href="AdminReports.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M3 3h18v2H3V3Zm2 4h14v14H5V7Zm2 2v10h10V9H7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Reports
+            </a>
+
+            <a class="admin-side-link" href="AdminPromotions.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7l3-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Promotions
+            </a>
+
+            <a class="admin-side-link" href="#">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16v12H4V6Zm2 2v8h12V8H6Z" fill="currentColor" />
+                </svg>
+              </span>
+              Content
+            </a>
+
+            <a class="admin-side-link" href="#">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M19.43 12.98l1.77-1.03-1.5-2.6-2.04.3c-.4-.32-.83-.57-1.3-.75l-.62-1.97h-3l-.62 1.97c-.46.18-.9.43-1.3.75l-2.04-.3-1.5 2.6 1.77 1.03c-.02.16-.03.33-.03.49s.01.33.03.49l-1.77 1.03 1.5 2.6 2.04-.3c.4.32.84.57 1.3.75l.62 1.97h3l.62-1.97c.47-.18.9-.43 1.3-.75l2.04.3 1.5-2.6-1.77-1.03c.02-.16.03-.33.03-.49s-.01-.33-.03-.49ZM14.5 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Settings
+            </a>
+          </nav>
+        </aside>
+
+        <main class="admin-main">
+          <div class="admin-page-head">
+            <div class="title-wrap">
+              <h1>Accounts</h1>
+              <p>Manage user accounts and permissions.</p>
+            </div>
+          </div>
+
+          <section class="admin-panel">
+            <div class="tutor-controls" style="margin-bottom: 14px">
+              <div class="tutor-search-wrapper" style="max-width: 520px">
+                <svg
+                  class="search-icon"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10.5 19a8.5 8.5 0 1 1 6.2-2.7l4.1 4.1-1.4 1.4-4.1-4.1A8.46 8.46 0 0 1 10.5 19Zm0-2A6.5 6.5 0 1 0 10.5 4a6.5 6.5 0 0 0 0 13Z"
+                    fill="#9ca3af"
+                  />
+                </svg>
+                <input
+                  class="tutor-search-input"
+                  type="text"
+                  placeholder="Search by name, email, user ID..."
+                />
+              </div>
+
+              <select class="admin-select" aria-label="Status filter">
+                <option selected>All Status</option>
+                <option>Active</option>
+                <option>Locked</option>
+              </select>
+            </div>
+
+            <div class="admin-table-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>User ID</th>
+                    <th>Status</th>
+                    <th>Created</th>
+                    <th class="center">Lock/Unlock</th>
+                    <th class="right">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="admin-cell-user">
+                        <div class="admin-avatar">
+                          <img
+                            src="../../../resources/images/userHeader/user_avt.svg"
+                            alt="Avatar"
+                          />
+                        </div>
+                        <div class="admin-user-meta">
+                          <b>Nguyễn Đăng Nam Kha</b>
+                          <span>kha_mup@gmail.com</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>USR001</td>
+                    <td>
+                      <span class="status-badge status-active">Active</span>
+                    </td>
+                    <td>2025-07-12</td>
+                    <td class="center">
+                      <button class="admin-btn" type="button">Lock</button>
+                    </td>
+                    <td class="right">
+                      <a class="admin-btn" href="#">View profile</a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="admin-cell-user">
+                        <div class="admin-avatar">
+                          <img
+                            src="../../../resources/images/userHeader/user_avt.svg"
+                            alt="Avatar"
+                          />
+                        </div>
+                        <div class="admin-user-meta">
+                          <b>Nguyễn Lê Anh Khôi</b>
+                          <span>ca_koi@gmail.com</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>USR002</td>
+                    <td>
+                      <span class="status-badge status-active">Active</span>
+                    </td>
+                    <td>2025-06-08</td>
+                    <td class="center">
+                      <button class="admin-btn" type="button">Lock</button>
+                    </td>
+                    <td class="right">
+                      <a class="admin-btn" href="#">View profile</a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="admin-cell-user">
+                        <div class="admin-avatar">
+                          <img
+                            src="../../../resources/images/userHeader/user_avt.svg"
+                            alt="Avatar"
+                          />
+                        </div>
+                        <div class="admin-user-meta">
+                          <b>Đặng Nguyễn Huy Hoàng</b>
+                          <span>hoang_dang@gmail.com</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>USR003</td>
+                    <td>
+                      <span class="status-badge status-locked">Locked</span>
+                    </td>
+                    <td>2025-01-20</td>
+                    <td class="center">
+                      <button class="admin-btn primary" type="button">
+                        Unlock
+                      </button>
+                    </td>
+                    <td class="right">
+                      <a class="admin-btn" href="#">View profile</a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="admin-cell-user">
+                        <div class="admin-avatar">
+                          <img
+                            src="../../../resources/images/userHeader/user_avt.svg"
+                            alt="Avatar"
+                          />
+                        </div>
+                        <div class="admin-user-meta">
+                          <b>Trần Thị Vân Khánh</b>
+                          <span>khanh_tran@gmail.com</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>USR004</td>
+                    <td>
+                      <span class="status-badge status-active">Active</span>
+                    </td>
+                    <td>2025-03-25</td>
+                    <td class="center">
+                      <button class="admin-btn" type="button">Lock</button>
+                    </td>
+                    <td class="right">
+                      <a class="admin-btn" href="#">View profile</a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="admin-cell-user">
+                        <div class="admin-avatar">
+                          <img
+                            src="../../../resources/images/userHeader/user_avt.svg"
+                            alt="Avatar"
+                          />
+                        </div>
+                        <div class="admin-user-meta">
+                          <b>Huỳnh Công Hậu</b>
+                          <span>hau_cong_cong@gmail.com</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>USR010</td>
+                    <td>
+                      <span class="status-badge status-locked">Locked</span>
+                    </td>
+                    <td>2025-08-03</td>
+                    <td class="center">
+                      <button class="admin-btn primary" type="button">
+                        Unlock
+                      </button>
+                    </td>
+                    <td class="right">
+                      <a class="admin-btn" href="#">View profile</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="tutor-pagination" style="padding-top: 12px">
+              <button class="tutor-pagination-btn" disabled>Previous</button>
+              <span class="tutor-pagination-info">Page 1 of 2</span>
+              <button class="tutor-pagination-btn">Next</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const $ = (s, r = document) => r.querySelector(s);
+        const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+        const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+        const debounce = (fn, w = 250) => {
+          let t;
+          return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn(...args), w);
+          };
+        };
+        const lower = (s) => (s || "").toString().toLowerCase();
+        const txt = (el) => (el?.textContent || "").trim();
+
+        // ===== active sidebar =====
+        function initSidebarActive() {
+          const current = (
+            window.location.pathname.split("/").pop() || ""
+          ).toLowerCase();
+          $$(".admin-side-link").forEach((a) => {
+            const href = lower(a.getAttribute("href") || "");
+            href && current && href.includes(current)
+              ? a.classList.add("active")
+              : a.classList.remove("active");
+          });
+        }
+
+        // ===== toast (nhẹ) =====
+        function ensureToastHost() {
+          let host = $("#toastHost");
+          if (host) return host;
+          host = document.createElement("div");
+          host.id = "toastHost";
+          host.style.position = "fixed";
+          host.style.right = "16px";
+          host.style.bottom = "16px";
+          host.style.display = "grid";
+          host.style.gap = "10px";
+          host.style.zIndex = "9999";
+          document.body.appendChild(host);
+          return host;
+        }
+
+        function toast({
+          title = "Thông báo",
+          message = "",
+          type = "info",
+          ttl = 2400,
+        } = {}) {
+          const host = ensureToastHost();
+          const dot =
+            {
+              info: "#2563eb",
+              success: "#16a34a",
+              warning: "#f59e0b",
+              danger: "#dc2626",
+            }[type] || "#2563eb";
+
+          const item = document.createElement("div");
+          item.style.minWidth = "260px";
+          item.style.maxWidth = "360px";
+          item.style.background = "#fff";
+          item.style.border = "1px solid rgba(15,23,42,.12)";
+          item.style.borderRadius = "14px";
+          item.style.boxShadow = "0 20px 50px rgba(2,6,23,.18)";
+          item.style.padding = "12px";
+          item.style.opacity = "0";
+          item.style.transform = "translateY(8px)";
+          item.style.transition = "all .18s ease";
+          item.innerHTML = `
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="width:10px; height:10px; border-radius:99px; background:${dot}; margin-top:6px;"></div>
+          <div style="flex:1;">
+            <div style="font-weight:900; font-size:13px; color:#0f172a;">${title}</div>
+            <div style="margin-top:2px; font-size:12px; color:#475569; line-height:1.35;">${message}</div>
+          </div>
+          <button style="border:none; background:#f1f5f9; width:28px; height:28px; border-radius:10px; cursor:pointer;">✕</button>
+        </div>
+      `;
+          const remove = () => {
+            item.style.opacity = "0";
+            item.style.transform = "translateY(8px)";
+            setTimeout(() => item.remove(), 180);
+          };
+          item.querySelector("button").addEventListener("click", remove);
+
+          host.appendChild(item);
+          requestAnimationFrame(() => {
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+          });
+
+          if (ttl > 0) setTimeout(remove, ttl);
+        }
+
+        // ===== confirm =====
+        function confirmAction({
+          title = "Xác nhận",
+          message = "Bạn chắc chắn chứ?",
+          okText = "OK",
+        } = {}) {
+          let overlay = $("#confirmOverlay");
+          if (!overlay) {
+            overlay = document.createElement("div");
+            overlay.id = "confirmOverlay";
+            overlay.style.position = "fixed";
+            overlay.style.inset = "0";
+            overlay.style.background = "rgba(2,6,23,.45)";
+            overlay.style.display = "none";
+            overlay.style.alignItems = "center";
+            overlay.style.justifyContent = "center";
+            overlay.style.zIndex = "9998";
+            overlay.innerHTML = `
+          <div style="width:min(420px, calc(100vw - 32px)); background:#fff; border:1px solid rgba(15,23,42,.12);
+            border-radius:16px; box-shadow:0 20px 50px rgba(2,6,23,.18); padding:14px;">
+            <div id="cTitle" style="font-weight:900; font-size:15px; color:#0f172a;"></div>
+            <div id="cMsg" style="margin-top:6px; font-size:13px; color:#475569; line-height:1.35;"></div>
+            <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:14px;">
+              <button id="cCancel" style="border:none; background:#f1f5f9; padding:10px 12px; border-radius:12px; font-weight:900; cursor:pointer;">Hủy</button>
+              <button id="cOk" style="border:none; background:#2563eb; color:#fff; padding:10px 12px; border-radius:12px; font-weight:900; cursor:pointer;"></button>
+            </div>
+          </div>
+        `;
+            document.body.appendChild(overlay);
+          }
+
+          $("#cTitle", overlay).textContent = title;
+          $("#cMsg", overlay).textContent = message;
+          $("#cOk", overlay).textContent = okText;
+          overlay.style.display = "flex";
+
+          return new Promise((resolve) => {
+            const okBtn = $("#cOk", overlay);
+            const cancelBtn = $("#cCancel", overlay);
+
+            const cleanup = () => {
+              overlay.style.display = "none";
+              okBtn.onclick = null;
+              cancelBtn.onclick = null;
+              overlay.onclick = null;
+              document.onkeydown = null;
+            };
+
+            okBtn.onclick = () => {
+              cleanup();
+              resolve(true);
+            };
+            cancelBtn.onclick = () => {
+              cleanup();
+              resolve(false);
+            };
+            overlay.onclick = (e) => {
+              if (e.target === overlay) {
+                cleanup();
+                resolve(false);
+              }
+            };
+            document.onkeydown = (e) => {
+              if (e.key === "Escape") {
+                cleanup();
+                resolve(false);
+              }
+            };
+          });
+        }
+
+        // ===== update badge (status-active/status-locked) =====
+        function setStatus(el, isLocked) {
+          if (!el) return;
+          el.classList.add("status-badge");
+          el.classList.toggle("status-active", !isLocked);
+          el.classList.toggle("status-locked", isLocked);
+          el.textContent = isLocked ? "Locked" : "Active";
+        }
+
+        // ===== Accounts table logic (NO localStorage) =====
+        function initAccountsPage() {
+          const table = $(".admin-table");
+          if (!table) return;
+
+          const tbody = $("tbody", table);
+          const rows = $$("tr", tbody);
+
+          const searchInput = $(".tutor-search-input");
+          const statusFilter = $(".admin-select");
+
+          const pager = $(".tutor-pagination");
+          const prevBtn = pager ? $$(".tutor-pagination-btn", pager)[0] : null;
+          const nextBtn = pager ? $$(".tutor-pagination-btn", pager)[1] : null;
+          const pageInfo = pager ? $(".tutor-pagination-info", pager) : null;
+
+          // parse row -> model
+          const models = rows.map((tr) => {
+            const tds = $$("td", tr);
+
+            const name = txt($(".admin-user-meta b", tr));
+            const email = txt($(".admin-user-meta span", tr));
+            const userId = txt(tds[1]);
+            const statusEl = $(".status-badge", tds[2]);
+            const lockBtn = $("button.admin-btn", tds[4]);
+
+            // status ban đầu: đọc từ DOM (nếu có), nếu không thì Active
+            const initialIsLocked = lower(txt(statusEl)).includes("locked");
+            setStatus(statusEl, initialIsLocked);
+
+            if (lockBtn) {
+              lockBtn.textContent = initialIsLocked ? "Unlock" : "Lock";
+              lockBtn.classList.toggle("primary", initialIsLocked);
+            }
+
+            return {
+              tr,
+              userId,
+              name,
+              email,
+              status: initialIsLocked ? "locked" : "active",
+              searchText: `${name} ${email} ${userId}`.toLowerCase(),
+            };
+          });
+
+          let state = { q: "", status: "all", page: 1, pageSize: 8 };
+
+          function getFiltered() {
+            const q = state.q.trim().toLowerCase();
+            return models.filter((m) => {
+              const okSearch = !q || m.searchText.includes(q);
+              const okStatus =
+                state.status === "all" || m.status === state.status;
+              return okSearch && okStatus;
+            });
+          }
+
+          function render() {
+            models.forEach((m) => (m.tr.style.display = "none"));
+
+            const list = getFiltered();
+            const totalPages = Math.max(
+              1,
+              Math.ceil(list.length / state.pageSize)
+            );
+            state.page = clamp(state.page, 1, totalPages);
+
+            const start = (state.page - 1) * state.pageSize;
+            list
+              .slice(start, start + state.pageSize)
+              .forEach((m) => (m.tr.style.display = ""));
+
+            if (pageInfo)
+              pageInfo.textContent = `Page ${state.page} of ${totalPages}`;
+            if (prevBtn) prevBtn.disabled = state.page <= 1;
+            if (nextBtn) nextBtn.disabled = state.page >= totalPages;
+          }
+
+          // search
+          if (searchInput) {
+            searchInput.addEventListener(
+              "input",
+              debounce(() => {
+                state.q = searchInput.value;
+                state.page = 1;
+                render();
+              }, 200)
+            );
+          }
+
+          // status filter
+          if (statusFilter) {
+            statusFilter.addEventListener("change", () => {
+              const v = lower(statusFilter.value);
+              state.status = v.includes("active")
+                ? "active"
+                : v.includes("locked")
+                ? "locked"
+                : "all";
+              state.page = 1;
+              render();
+            });
+          }
+
+          prevBtn?.addEventListener("click", () => {
+            state.page = Math.max(1, state.page - 1);
+            render();
+          });
+          nextBtn?.addEventListener("click", () => {
+            state.page += 1;
+            render();
+          });
+
+          // lock/unlock (UI only)
+          tbody.addEventListener("click", async (e) => {
+            const btn = e.target.closest("button.admin-btn");
+            if (!btn) return;
+
+            const tr = btn.closest("tr");
+            const tds = $$("td", tr);
+            const isLockColBtn = tds[4]?.contains(btn);
+            if (!isLockColBtn) return;
+
+            const model = models.find((m) => m.tr === tr);
+            if (!model) return;
+
+            const willLock = model.status !== "locked";
+
+            const ok = await confirmAction({
+              title: willLock ? "Khóa tài khoản?" : "Mở khóa tài khoản?",
+              message: willLock
+                ? `Bạn có chắc muốn khóa "${model.name || model.userId}" không?`
+                : `Bạn có chắc muốn mở khóa "${
+                    model.name || model.userId
+                  }" không?`,
+              okText: willLock ? "Khóa" : "Mở khóa",
+            });
+            if (!ok) return;
+
+            model.status = willLock ? "locked" : "active";
+
+            const statusEl = $(".status-badge", tds[2]);
+            setStatus(statusEl, willLock);
+
+            btn.textContent = willLock ? "Unlock" : "Lock";
+            btn.classList.toggle("primary", willLock);
+
+            toast({
+              type: willLock ? "warning" : "success",
+              title: "Accounts",
+              message: willLock
+                ? `Đã khóa "${model.name || model.userId}".`
+                : `Đã mở khóa "${model.name || model.userId}".`,
+            });
+
+            render();
+          });
+
+          render();
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          initSidebarActive();
+          initAccountsPage();
+        });
+      })();
+    </script>
+  </body>
+</html>

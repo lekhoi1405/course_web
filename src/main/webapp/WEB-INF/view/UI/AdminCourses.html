@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Courses - Admin - EduLearn</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-inner no-textAlign">
+        <div class="brand">
+          <div class="logo">
+            <img src="../../../resources/images/logo.svg" alt="EduLearn" />
+          </div>
+          <div class="name-brand">EduLearn</div>
+        </div>
+
+        <div class="actions">
+          <div class="user-menu">
+            <button class="message-btn" type="button" aria-label="Messages">
+              <img
+                src="../../../resources/images/userHeader/icon_mess.svg"
+                alt="Messages"
+                width="20"
+                height="20"
+              />
+            </button>
+            <button
+              class="notification-btn"
+              type="button"
+              aria-label="Notifications"
+              data-count="0"
+            >
+              <img
+                src="../../../resources/images/userHeader/icon_noti.svg"
+                alt="Notifications"
+                width="20"
+                height="20"
+              />
+            </button>
+            <div class="user-profile">
+              <img
+                src="../../../resources/images/userHeader/user_avt.svg"
+                alt="Admin Avatar"
+                class="user-avatar-img"
+              />
+              <img
+                src="../../../resources/images/userHeader/icon_down.svg"
+                alt="Dropdown"
+                class="user-dropdown-icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-shell">
+      <div class="admin-layout">
+        <aside class="admin-sidebar">
+          <nav class="admin-side-nav">
+            <a class="admin-side-link" href="AdminDashboard.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 13h7V4H4v9Zm9 7h7V11h-7v9ZM4 20h7v-5H4v5Zm9-18v7h7V2h-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Dashboard
+            </a>
+
+            <a class="admin-side-link" href="AdminAccounts.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3Zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.95 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Accounts
+            </a>
+
+            <a class="admin-side-link" href="AdminCourses.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 6.5V19c0 .55.45 1 1 1h14v-2H6V6.5h13V4H5c-.55 0-1 .45-1 1v1.5Zm16 1H8c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-11c0-.55-.45-1-1-1Zm-1 4h-4v-2h4v2Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Courses
+            </a>
+
+            <!-- ✅ Reports -->
+            <a class="admin-side-link" href="AdminReports.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M3 3h18v2H3V3Zm2 4h14v14H5V7Zm2 2v10h10V9H7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Reports
+            </a>
+
+            <!-- ✅ Promotions -->
+            <a class="admin-side-link" href="AdminPromotions.html">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7l3-7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Promotions
+            </a>
+
+            <!-- ✅ (Tuỳ chọn) Create Voucher -->
+
+            <a class="admin-side-link" href="#">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16v12H4V6Zm2 2v8h12V8H6Z" fill="currentColor" />
+                </svg>
+              </span>
+              Content
+            </a>
+
+            <a class="admin-side-link" href="#">
+              <span class="admin-side-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M19.43 12.98l1.77-1.03-1.5-2.6-2.04.3c-.4-.32-.83-.57-1.3-.75l-.62-1.97h-3l-.62 1.97c-.46.18-.9.43-1.3.75l-2.04-.3-1.5 2.6 1.77 1.03c-.02.16-.03.33-.03.49s.01.33.03.49l-1.77 1.03 1.5 2.6 2.04-.3c.4.32.84.57 1.3.75l.62 1.97h3l.62-1.97c.47-.18.9-.43 1.3-.75l2.04.3 1.5-2.6-1.77-1.03c.02-.16.03-.33.03-.49s-.01-.33-.03-.49ZM14.5 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Settings
+            </a>
+          </nav>
+        </aside>
+
+        <main class="admin-main">
+          <div class="admin-page-head">
+            <div class="title-wrap">
+              <h1>Courses</h1>
+              <p>Review submissions and manage published courses.</p>
+            </div>
+          </div>
+
+          <!-- Pending Review -->
+          <section class="admin-panel">
+            <div class="admin-panel-head">
+              <h2 class="admin-panel-title">Pending Review</h2>
+              <span class="admin-chip gray">2 pending</span>
+            </div>
+
+            <div class="admin-table-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Course</th>
+                    <th>Category</th>
+                    <th>Submitted</th>
+                    <th class="right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="admin-course-cell">
+                        <div class="admin-course-thumb">DL</div>
+                        <div class="admin-course-name">
+                          <b>Intro to Data Visualization with D3.js</b>
+                          <span>Lan Pham — lan.pham@example.com</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Data Science</td>
+                    <td>2025-10-02 14:32</td>
+                    <td class="right">
+                      <a href="#" class="admin-btn">View</a>
+                      <button class="admin-btn primary" type="button">
+                        Approve
+                      </button>
+                      <button class="admin-btn danger" type="button">
+                        Reject
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="admin-course-cell">
+                        <div class="admin-course-thumb">RB</div>
+                        <div class="admin-course-name">
+                          <b>React for Beginners</b>
+                          <span>Minh Nguyen — minh.nguyen@example.com</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Web Development</td>
+                    <td>2025-10-01 14:10</td>
+                    <td class="right">
+                      <a href="#" class="admin-btn">View</a>
+                      <button class="admin-btn primary" type="button">
+                        Approve
+                      </button>
+                      <button class="admin-btn danger" type="button">
+                        Reject
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="tutor-pagination" style="padding-top: 12px">
+              <button class="tutor-pagination-btn" disabled>Previous</button>
+              <span class="tutor-pagination-info">Page 1 of 2</span>
+              <button class="tutor-pagination-btn">Next</button>
+            </div>
+          </section>
+
+          <!-- All Courses -->
+          <section class="admin-panel admin-section">
+            <h2 class="admin-section-title">All Courses</h2>
+
+            <div class="tutor-controls">
+              <div class="tutor-search-wrapper" style="max-width: 520px">
+                <svg
+                  class="search-icon"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10.5 19a8.5 8.5 0 1 1 6.2-2.7l4.1 4.1-1.4 1.4-4.1-4.1A8.46 8.46 0 0 1 10.5 19Zm0-2A6.5 6.5 0 1 0 10.5 4a6.5 6.5 0 0 0 0 13Z"
+                    fill="#9ca3af"
+                  />
+                </svg>
+                <input
+                  class="tutor-search-input"
+                  type="text"
+                  placeholder="Search by title, instructor, course ID..."
+                />
+              </div>
+
+              <div class="admin-filters">
+                <select class="admin-select" aria-label="Category filter">
+                  <option selected>All Categories</option>
+                  <option>Data Science</option>
+                  <option>Programming</option>
+                  <option>Web Development</option>
+                  <option>Marketing</option>
+                </select>
+
+                <select class="admin-select" aria-label="Flags filter">
+                  <option selected>All Flags</option>
+                  <option>Policy</option>
+                  <option>None</option>
+                </select>
+
+                <select class="admin-select" aria-label="Status filter">
+                  <option selected>All Status</option>
+                  <option>Published</option>
+                  <option>Locked</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="admin-table-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Course</th>
+                    <th>Course ID</th>
+                    <th>Category</th>
+                    <th>Flags</th>
+                    <th>Status</th>
+                    <th class="right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="admin-course-cell">
+                        <div class="admin-course-thumb">DS</div>
+                        <div class="admin-course-name">
+                          <b>Digital Marketing Strategy</b>
+                          <span>Alex Johnson</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>CRS-2024-004</td>
+                    <td>Marketing</td>
+                    <td><span class="admin-chip gray">None</span></td>
+                    <td>
+                      <span class="status-badge status-published"
+                        >Published</span
+                      >
+                    </td>
+                    <td class="right">
+                      <a class="admin-btn" href="#">View</a>
+                      <button class="admin-btn danger" type="button">
+                        Lock
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="admin-course-cell">
+                        <div class="admin-course-thumb">PY</div>
+                        <div class="admin-course-name">
+                          <b>Python Programming Fundamentals</b>
+                          <span>Maria Rodriguez</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>CRS-2024-006</td>
+                    <td>Programming</td>
+                    <td><span class="admin-chip gray">None</span></td>
+                    <td>
+                      <span class="status-badge status-published"
+                        >Published</span
+                      >
+                    </td>
+                    <td class="right">
+                      <a class="admin-btn" href="#">View</a>
+                      <button class="admin-btn danger" type="button">
+                        Lock
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="admin-course-cell">
+                        <div class="admin-course-thumb">AJ</div>
+                        <div class="admin-course-name">
+                          <b>Advanced JavaScript Patterns</b>
+                          <span>David Kim</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>CRS-2024-015</td>
+                    <td>Web Development</td>
+                    <td><span class="admin-chip red">Policy</span></td>
+                    <td>
+                      <span class="status-badge status-locked">Locked</span>
+                    </td>
+                    <td class="right">
+                      <a class="admin-btn" href="#">View</a>
+                      <button class="admin-btn primary" type="button">
+                        Publish
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="admin-course-cell">
+                        <div class="admin-course-thumb">UI</div>
+                        <div class="admin-course-name">
+                          <b>UI Design Essentials</b>
+                          <span>Ngoc Tran</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>CRS-2025-001</td>
+                    <td>Design</td>
+                    <td><span class="admin-chip gray">None</span></td>
+                    <td>
+                      <span class="status-badge status-published"
+                        >Published</span
+                      >
+                    </td>
+                    <td class="right">
+                      <a class="admin-btn" href="#">View</a>
+                      <button class="admin-btn primary" type="button">
+                        Publish
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="tutor-pagination" style="padding-top: 12px">
+              <button class="tutor-pagination-btn" disabled>Previous</button>
+              <span class="tutor-pagination-info">Page 1 of 2</span>
+              <button class="tutor-pagination-btn">Next</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const $ = (s, r = document) => r.querySelector(s);
+        const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+        const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+        const debounce = (fn, w = 250) => {
+          let t;
+          return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn(...args), w);
+          };
+        };
+        const lower = (s) => (s || "").toString().toLowerCase();
+        const txt = (el) => (el?.textContent || "").trim();
+
+        function initSidebarActive() {
+          const current = (
+            window.location.pathname.split("/").pop() || ""
+          ).toLowerCase();
+          $$(".admin-side-link").forEach((a) => {
+            const href = lower(a.getAttribute("href") || "");
+            href && current && href.includes(current)
+              ? a.classList.add("active")
+              : a.classList.remove("active");
+          });
+        }
+
+        function ensureToastHost() {
+          let host = $("#toastHost");
+          if (host) return host;
+          host = document.createElement("div");
+          host.id = "toastHost";
+          host.style.position = "fixed";
+          host.style.right = "16px";
+          host.style.bottom = "16px";
+          host.style.display = "grid";
+          host.style.gap = "10px";
+          host.style.zIndex = "9999";
+          document.body.appendChild(host);
+          return host;
+        }
+
+        function toast({
+          title = "Thông báo",
+          message = "",
+          type = "info",
+          ttl = 2400,
+        } = {}) {
+          const host = ensureToastHost();
+          const dot =
+            {
+              info: "#2563eb",
+              success: "#16a34a",
+              warning: "#f59e0b",
+              danger: "#dc2626",
+            }[type] || "#2563eb";
+
+          const item = document.createElement("div");
+          item.style.minWidth = "260px";
+          item.style.maxWidth = "360px";
+          item.style.background = "#fff";
+          item.style.border = "1px solid rgba(15,23,42,.12)";
+          item.style.borderRadius = "14px";
+          item.style.boxShadow = "0 20px 50px rgba(2,6,23,.18)";
+          item.style.padding = "12px";
+          item.style.opacity = "0";
+          item.style.transform = "translateY(8px)";
+          item.style.transition = "all .18s ease";
+          item.innerHTML = `
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="width:10px; height:10px; border-radius:99px; background:${dot}; margin-top:6px;"></div>
+          <div style="flex:1;">
+            <div style="font-weight:900; font-size:13px; color:#0f172a;">${title}</div>
+            <div style="margin-top:2px; font-size:12px; color:#475569; line-height:1.35;">${message}</div>
+          </div>
+          <button style="border:none; background:#f1f5f9; width:28px; height:28px; border-radius:10px; cursor:pointer;">✕</button>
+        </div>
+      `;
+          const remove = () => {
+            item.style.opacity = "0";
+            item.style.transform = "translateY(8px)";
+            setTimeout(() => item.remove(), 180);
+          };
+          item.querySelector("button").addEventListener("click", remove);
+
+          host.appendChild(item);
+          requestAnimationFrame(() => {
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+          });
+
+          if (ttl > 0) setTimeout(remove, ttl);
+        }
+
+        function confirmAction({
+          title = "Xác nhận",
+          message = "Bạn chắc chắn chứ?",
+          okText = "OK",
+        } = {}) {
+          let overlay = $("#confirmOverlay");
+          if (!overlay) {
+            overlay = document.createElement("div");
+            overlay.id = "confirmOverlay";
+            overlay.style.position = "fixed";
+            overlay.style.inset = "0";
+            overlay.style.background = "rgba(2,6,23,.45)";
+            overlay.style.display = "none";
+            overlay.style.alignItems = "center";
+            overlay.style.justifyContent = "center";
+            overlay.style.zIndex = "9998";
+            overlay.innerHTML = `
+          <div style="width:min(420px, calc(100vw - 32px)); background:#fff; border:1px solid rgba(15,23,42,.12);
+            border-radius:16px; box-shadow:0 20px 50px rgba(2,6,23,.18); padding:14px;">
+            <div id="cTitle" style="font-weight:900; font-size:15px; color:#0f172a;"></div>
+            <div id="cMsg" style="margin-top:6px; font-size:13px; color:#475569; line-height:1.35;"></div>
+            <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:14px;">
+              <button id="cCancel" style="border:none; background:#f1f5f9; padding:10px 12px; border-radius:12px; font-weight:900; cursor:pointer;">Hủy</button>
+              <button id="cOk" style="border:none; background:#2563eb; color:#fff; padding:10px 12px; border-radius:12px; font-weight:900; cursor:pointer;"></button>
+            </div>
+          </div>
+        `;
+            document.body.appendChild(overlay);
+          }
+
+          $("#cTitle", overlay).textContent = title;
+          $("#cMsg", overlay).textContent = message;
+          $("#cOk", overlay).textContent = okText;
+          overlay.style.display = "flex";
+
+          return new Promise((resolve) => {
+            const okBtn = $("#cOk", overlay);
+            const cancelBtn = $("#cCancel", overlay);
+
+            const cleanup = () => {
+              overlay.style.display = "none";
+              okBtn.onclick = null;
+              cancelBtn.onclick = null;
+              overlay.onclick = null;
+              document.onkeydown = null;
+            };
+
+            okBtn.onclick = () => {
+              cleanup();
+              resolve(true);
+            };
+            cancelBtn.onclick = () => {
+              cleanup();
+              resolve(false);
+            };
+            overlay.onclick = (e) => {
+              if (e.target === overlay) {
+                cleanup();
+                resolve(false);
+              }
+            };
+            document.onkeydown = (e) => {
+              if (e.key === "Escape") {
+                cleanup();
+                resolve(false);
+              }
+            };
+          });
+        }
+
+        function setBadge(badgeEl, statusText) {
+          if (!badgeEl) return;
+
+          const all = [
+            "published",
+            "draft",
+            "locked",
+            "pending",
+            "rejected",
+            "active",
+            "inreview",
+          ];
+          all.forEach((s) => badgeEl.classList.remove(`status-${s}`));
+          badgeEl.classList.add("status-badge");
+
+          const s = lower(statusText);
+          if (s.includes("publish")) badgeEl.classList.add("status-published");
+          else if (s.includes("draft")) badgeEl.classList.add("status-draft");
+          else if (s.includes("locked")) badgeEl.classList.add("status-locked");
+          else if (s.includes("review"))
+            badgeEl.classList.add("status-inreview");
+          else badgeEl.classList.add("status-draft");
+
+          badgeEl.textContent = statusText;
+        }
+
+        // ===== pager cho 1 bảng =====
+        function makePager({
+          panel,
+          table,
+          pageSize = 6,
+          searchInput = null,
+          filters = [],
+        }) {
+          const tbody = table?.tBodies?.[0];
+          if (!tbody) return null;
+
+          const pager = $(".tutor-pagination", panel);
+          const btns = pager ? $$(".tutor-pagination-btn", pager) : [];
+          const prevBtn = btns[0] || null;
+          const nextBtn = btns[1] || null;
+          const pageInfo = pager ? $(".tutor-pagination-info", pager) : null;
+
+          let state = { q: "", page: 1 };
+
+          function buildModels() {
+            const rows = $$("tr", tbody);
+            return rows.map((tr) => {
+              const tds = $$("td", tr);
+              const courseTitle =
+                txt($(".admin-course-name b", tr)) || txt(tds[0]);
+              const courseSub = txt($(".admin-course-name span", tr));
+              const courseId = txt(tds[1]) || "";
+              const category = txt(tds[2] || tds[1]) || "";
+              const flagsText = txt(tds[3]) || "";
+              const badgeEl = $(".status-badge", tr);
+
+              const statusText = badgeEl ? txt(badgeEl) : "";
+              const searchText =
+                `${courseTitle} ${courseSub} ${courseId} ${category} ${flagsText} ${statusText}`.toLowerCase();
+
+              return {
+                tr,
+                courseTitle,
+                courseSub,
+                courseId,
+                category,
+                flagsText,
+                badgeEl,
+                statusText,
+                searchText,
+              };
+            });
+          }
+
+          let models = buildModels();
+
+          function filtered() {
+            const q = state.q.trim().toLowerCase();
+            return models.filter((m) => {
+              const okSearch = !q || m.searchText.includes(q);
+
+              let okFilters = true;
+              for (const f of filters) {
+                const v = lower(f.el?.value || "all");
+                if (v !== "all" && !f.predicate(m, v)) okFilters = false;
+              }
+              return okSearch && okFilters;
+            });
+          }
+
+          function render() {
+            models = buildModels();
+
+            models.forEach((m) => (m.tr.style.display = "none"));
+            const list = filtered();
+            const totalPages = Math.max(1, Math.ceil(list.length / pageSize));
+            state.page = clamp(state.page, 1, totalPages);
+
+            const start = (state.page - 1) * pageSize;
+            list
+              .slice(start, start + pageSize)
+              .forEach((m) => (m.tr.style.display = ""));
+
+            if (pageInfo)
+              pageInfo.textContent = `Page ${state.page} of ${totalPages}`;
+            if (prevBtn) prevBtn.disabled = state.page <= 1;
+            if (nextBtn) nextBtn.disabled = state.page >= totalPages;
+          }
+
+          if (searchInput) {
+            searchInput.addEventListener(
+              "input",
+              debounce(() => {
+                state.q = searchInput.value;
+                state.page = 1;
+                render();
+              }, 200)
+            );
+          }
+
+          filters.forEach((f) =>
+            f.el?.addEventListener("change", () => {
+              state.page = 1;
+              render();
+            })
+          );
+
+          prevBtn?.addEventListener("click", () => {
+            state.page = Math.max(1, state.page - 1);
+            render();
+          });
+
+          nextBtn?.addEventListener("click", () => {
+            state.page += 1;
+            render();
+          });
+
+          render();
+          return {
+            render,
+            get models() {
+              return models;
+            },
+            tbody,
+          };
+        }
+
+        function initCoursesPage() {
+          const panels = $$(".admin-panel");
+          const pendingPanel = panels[0] || null;
+          const allPanel = panels[1] || null;
+          if (!pendingPanel || !allPanel) return;
+
+          const pendingTable = $(".admin-table", pendingPanel);
+          const allTable = $(".admin-table", allPanel);
+
+          // Pending pager
+          const pendingPager = makePager({
+            panel: pendingPanel,
+            table: pendingTable,
+            pageSize: 5,
+          });
+
+          const allSearch = $(".tutor-search-input", allPanel);
+          const selects = $$(".admin-filters .admin-select", allPanel);
+          const categorySel = selects[0] || null;
+          const flagsSel = selects[1] || null;
+          const statusSel = selects[2] || null;
+
+          const allPager = makePager({
+            panel: allPanel,
+            table: allTable,
+            pageSize: 6,
+            searchInput: allSearch,
+            filters: [
+              {
+                el: categorySel,
+                predicate: (m, v) =>
+                  v.includes("all") ? true : lower(m.category) === v,
+              },
+              {
+                el: flagsSel,
+                predicate: (m, v) =>
+                  v.includes("all") ? true : lower(m.flagsText).includes(v),
+              },
+              {
+                el: statusSel,
+                predicate: (m, v) => {
+                  if (v.includes("all")) return true;
+                  const want = v.replace(/\s+/g, "");
+                  const cur = lower(m.statusText).replace(/\s+/g, "");
+                  return cur.includes(want);
+                },
+              },
+            ],
+          });
+
+          function getCourseIdFromAllRow(tr) {
+            const tds = $$("td", tr);
+            return txt(tds[1]);
+          }
+
+          function setAllActionButton(btn, nextStatus) {
+            if (!btn) return;
+            const st = lower(nextStatus);
+
+            if (st.includes("locked")) {
+              btn.textContent = "Publish";
+              btn.classList.remove("danger");
+              btn.classList.add("primary");
+              return;
+            }
+
+            if (st.includes("draft")) {
+              btn.textContent = "Publish";
+              btn.classList.remove("danger");
+              btn.classList.add("primary");
+              return;
+            }
+
+            if (st.includes("published")) {
+              btn.textContent = "Lock";
+              btn.classList.remove("danger");
+              btn.classList.add("primary");
+              return;
+            }
+
+            btn.textContent = "Publish";
+            btn.classList.remove("danger");
+            btn.classList.add("primary");
+          }
+
+          function applyAllRowState(tr) {
+            const tds = $$("td", tr);
+            const badge = $(".status-badge", tds[4]);
+            const btn = $("button.admin-btn", tds[5]);
+
+            if (badge && !txt(badge)) setBadge(badge, "Draft");
+
+            setAllActionButton(btn, txt(badge) || "Draft");
+
+            allPager?.render();
+          }
+
+          allPager?.models.forEach((m) => applyAllRowState(m.tr));
+
+          pendingPager?.tbody?.addEventListener("click", async (e) => {
+            const tr = e.target.closest("tr");
+            if (!tr) return;
+
+            const btn = e.target.closest("button.admin-btn");
+            if (!btn) return;
+
+            const label = lower(txt(btn));
+            if (!label.includes("approve") && !label.includes("reject")) return;
+
+            const title =
+              txt(tr.querySelector(".admin-course-name b")) || "this course";
+
+            const ok = await confirmAction({
+              title: label.includes("approve")
+                ? "Approve khóa học?"
+                : "Reject khóa học?",
+              message: `Bạn chắc chắn muốn ${
+                label.includes("approve") ? "approve" : "reject"
+              } "${title}" chứ?`,
+              okText: label.includes("approve") ? "Approve" : "Reject",
+            });
+            if (!ok) return;
+
+            tr.remove();
+            pendingPager.render();
+
+            toast({
+              type: label.includes("approve") ? "success" : "danger",
+              title: "Pending Review",
+              message: label.includes("approve")
+                ? `Đã approve "${title}".`
+                : `Đã reject "${title}".`,
+            });
+          });
+
+          allPager?.tbody?.addEventListener("click", async (e) => {
+            const tr = e.target.closest("tr");
+            if (!tr) return;
+
+            const btn = e.target.closest("button.admin-btn");
+            if (!btn) return;
+
+            const tds = $$("td", tr);
+            if (!tds[5]?.contains(btn)) return;
+
+            const courseId = getCourseIdFromAllRow(tr);
+            const title =
+              txt($(".admin-course-name b", tr)) || courseId || "Course";
+
+            const badge = $(".status-badge", tds[4]);
+            const currentStatus = lower(txt(badge));
+            const label = lower(txt(btn));
+
+            if (label.includes("Publish") || currentStatus.includes("locked")) {
+              const ok = await confirmAction({
+                title: "Mở khóa khóa học?",
+                message: `Bạn muốn mở khóa "${title}"?`,
+                okText: "Mở khóa",
+              });
+              if (!ok) return;
+
+              setBadge(badge, "Published");
+              setAllActionButton(btn, "Published");
+
+              toast({
+                type: "success",
+                title: "Courses",
+                message: `Đã mở khóa "${title}".`,
+              });
+              allPager.render();
+              return;
+            }
+
+            if (label.includes("lock")) {
+              const ok = await confirmAction({
+                title: "Khóa khóa học?",
+                message: `Khóa "${title}" sẽ ẩn khỏi người học. Tiếp tục?`,
+                okText: "Khóa",
+              });
+              if (!ok) return;
+
+              setBadge(badge, "Locked");
+              setAllActionButton(btn, "Locked");
+
+              toast({
+                type: "warning",
+                title: "Courses",
+                message: `Đã khóa "${title}".`,
+              });
+              allPager.render();
+              return;
+            }
+
+            // --- Publish / Lock ---
+            if (label.includes("publish") || label.includes("Lock")) {
+              const willPublish = !currentStatus.includes("published");
+
+              const ok = await confirmAction({
+                title: willPublish ? "Publish khóa học?" : "Lock khóa học?",
+                message: willPublish
+                  ? `Publish "${title}" để hiển thị cho người học?`
+                  : `Lock "${title}" để tạm ẩn?`,
+                okText: willPublish ? "Publish" : "Lock",
+              });
+              if (!ok) return;
+
+              if (willPublish) {
+                setBadge(badge, "Published");
+                btn.textContent = "Lock";
+                btn.classList.remove("danger");
+                btn.classList.add("primary");
+
+                toast({
+                  type: "success",
+                  title: "Courses",
+                  message: `Đã publish "${title}".`,
+                });
+              } else {
+                setBadge(badge, "Draft");
+                btn.textContent = "Publish";
+                btn.classList.remove("danger");
+                btn.classList.add("primary");
+
+                toast({
+                  type: "warning",
+                  title: "Courses",
+                  message: `Đã Lock "${title}".`,
+                });
+              }
+
+              allPager.render();
+              return;
+            }
+
+            if (label.includes("approve")) return;
+          });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          initSidebarActive();
+          initCoursesPage();
+        });
+      })();
+    </script>
+  </body>
+</html>
